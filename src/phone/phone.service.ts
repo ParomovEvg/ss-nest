@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Phone } from './entities/phone.entity';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { Password } from './entities/password.entity';
 import { CreatePhoneDto } from './dto/CreatePhoneDto';
-import { EitherAsync } from 'purify-ts';
 import { PhoneNotFound } from './errors/phone-not-found';
 import { PhoneAlreadyExists } from './errors/phone-already-exists';
 import { PasswordService } from './password/password.service';
+import Either from '@sweet-monads/either';
 
 @Injectable()
 export class PhoneService {
@@ -15,66 +15,75 @@ export class PhoneService {
     @InjectRepository(Phone)
     private phoneRepository: Repository<Phone>,
     private passwordService: PasswordService,
+    private connection: Connection,
   ) {}
 
-  createPhone(
+  async createPhone(
     createPhoneDto: CreatePhoneDto,
-  ): EitherAsync<PhoneAlreadyExists, Phone> {
-    return this.phoneNotExists(createPhoneDto.phone).chain(() =>
-      EitherAsync(async () => {
+  ): Promise<Either<PhoneAlreadyExists, Phone>> {
+    return (await this.phoneNotExists(createPhoneDto)).asyncMap(
+      async () => {
         const phone: Phone = this.phoneRepository.create();
+        console.log(phone)
         phone.phone = createPhoneDto.phone;
-        await this.phoneRepository.save(phone);
-        await this.passwordService.generatePassword(
+        const password = await this.passwordService.createPassword(
           createPhoneDto.password,
           phone,
         );
+        await this.connection.transaction(async manager => {
+          await manager.save(phone);
+          await manager.save(password);
+        });
         return Promise.resolve(phone);
-      }),
+      },
     );
   }
 
-  addPassword(
-    createPhoneDto: CreatePhoneDto,
-  ): EitherAsync<PhoneNotFound, Password> {
-    return this.findPhone(createPhoneDto.phone).chain(phone =>
-      EitherAsync(() =>
-        this.passwordService.generatePassword(createPhoneDto.password, phone),
-      ),
-    );
+  async addPassword(
+    phoneObj: Phone,
+    password:string
+  ): Promise<Either<PhoneNotFound, Password>> {
+    const phone = await this.findPhone(phoneObj);
+    return phone.asyncMap(phone => {
+      return this.passwordService.createAndSavePassword(
+        password,
+        phone,
+      );
+    });
   }
 
-  findPhone(phone: string | Phone | CreatePhoneDto): EitherAsync<PhoneNotFound, Phone> {
-    let phoneNumber: string;
-    if (typeof phone === 'string') {
-      phoneNumber = phone;
-    } else {
-      phoneNumber = phone.phone
+  async findPhone(
+    phone: string | Phone | CreatePhoneDto,
+  ): Promise<Either<PhoneNotFound, Phone>> {
+    const phoneNumber: string = this.extractPhoneNumber(phone);
+    const phoneInstance = await this.phoneRepository.findOne({
+      where: { phone: phoneNumber },
+    });
+    if (phoneInstance) {
+      return Either.right(phoneInstance);
     }
-    return EitherAsync(({ throwE }) =>
-      this.phoneRepository
-        .findOne({ where: { phone:phoneNumber } })
-        .then(phoneInstance => {
-          if (phoneInstance) {
-            return phoneInstance;
-          }
-          throwE(new PhoneNotFound(phoneNumber));
-        }),
-    );
+    return Either.left(new PhoneNotFound(phoneNumber));
   }
 
-  private phoneNotExists(
-    phoneNumber: string,
-  ): EitherAsync<PhoneAlreadyExists, true> {
-    return EitherAsync(({ throwE }) =>
-      this.phoneRepository
-        .findOne({ where: { phone: phoneNumber } })
-        .then(res => {
-          if (res) {
-            throwE(new PhoneAlreadyExists(phoneNumber));
-          }
-          return true as const;
-        }),
-    );
+  private async phoneNotExists(
+    phoneSrc: string | Phone | CreatePhoneDto,
+  ): Promise<Either<PhoneAlreadyExists, true>> {
+    const phoneNumber = this.extractPhoneNumber(phoneSrc);
+    const phone = await this.phoneRepository.findOne({
+      where: { phone: phoneNumber },
+    });
+    if (phone) {
+      return Either.left(new PhoneAlreadyExists(phone.phone));
+    } else {
+      return Either.right(true);
+    }
+  }
+
+  private extractPhoneNumber(phone: string | CreatePhoneDto | Phone) {
+    if (typeof phone === 'string') {
+      return phone;
+    } else {
+      return phone.phone;
+    }
   }
 }

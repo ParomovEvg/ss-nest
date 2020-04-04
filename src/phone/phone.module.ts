@@ -5,10 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Phone } from './entities/phone.entity';
 import { Password } from './entities/password.entity';
 import { PasswordService } from './password/password.service';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Phone, Password])],
   providers: [PhoneService, PasswordService],
-  controllers: [PhoneController]
+  controllers: [PhoneController],
+  exports: [PhoneService, PasswordService]
 })
 export class PhoneModule {}

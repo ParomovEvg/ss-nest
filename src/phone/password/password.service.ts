@@ -4,9 +4,9 @@ import { Password } from '../entities/password.entity';
 import { Repository } from 'typeorm';
 import { Phone } from '../entities/phone.entity';
 import { compare, hash } from 'bcrypt';
-import { EitherAsync } from 'purify-ts';
 import { PasswordsOfPhoneNotFound } from './errors/passwords-of-phone-not-found';
 import { CreatePhoneDto } from '../dto/CreatePhoneDto';
+import Either from '@sweet-monads/either';
 
 @Injectable()
 export class PasswordService {
@@ -17,48 +17,59 @@ export class PasswordService {
     private passwordRepository: Repository<Password>,
   ) {}
 
-  async generatePassword(passwordString: string, phone: Phone) {
+  async createPassword(
+    passwordSrc: string | CreatePhoneDto,
+    phone: Phone,
+  ): Promise<Password> {
+    const passwordString = this.extractPassword(passwordSrc);
     const password = this.passwordRepository.create();
     password.phone = phone;
-    password.password = await this.getHash(passwordString);
+    password.password = await hash(passwordString, this.saltRounds);
+    return password;
+  }
+
+  async createAndSavePassword(passwordString: string, phone: Phone) {
+    const password = await this.createPassword(passwordString, phone);
     await this.passwordRepository.save(password);
     return password;
   }
 
-  checkPhonePassword(
+  async checkPhonePassword(
     phone: Phone,
-    password: string | CreatePhoneDto,
-  ): EitherAsync<PasswordsOfPhoneNotFound, boolean> {
+    password: string | CreatePhoneDto | Password,
+  ): Promise<Either<PasswordsOfPhoneNotFound, Phone | null>> {
+    const passwordString = this.extractPassword(password);
+    const passwords = await this.passwordRepository.find({
+      where: { phone: phone},
+    });
+    console.log({passwords});
+    if (passwords.length === 0) {
+      return Either.left(new PasswordsOfPhoneNotFound(phone.phone));
+    }
+    const isValid = await Promise.all(
+      passwords.map(password => {
+        return this.checkPassword(passwordString, password);
+      }),
+    ).then(phones => phones.some(e => e));
+    return Either.right(isValid ? phone : null);
+  }
+
+  private async checkPassword(
+    passwordString: string,
+    password: Password,
+  ): Promise<boolean> {
+    return compare(passwordString, password.password);
+  }
+
+  private extractPassword(
+    password: string | CreatePhoneDto | Password,
+  ): string {
     let passwordString: string;
     if (typeof password === 'string') {
       passwordString = password;
     } else {
       passwordString = password.password;
     }
-    return EitherAsync(({ throwE }) => {
-      return this.passwordRepository
-        .find({ where: { phone: phone } })
-        .then(passwords => {
-          if (passwords.length === 0) {
-            throwE(new PasswordsOfPhoneNotFound(phone.phone));
-          }
-          return Promise.all(
-            passwords.map(password => {
-              return this.checkPassword(passwordString, password.password);
-            }),
-          ).then(phones => phones.some(e => e));
-        });
-    });
-  }
-
-  private async checkPassword(
-    passwordString: string,
-    hashString: string,
-  ): Promise<boolean> {
-    return compare(passwordString, hashString);
-  }
-
-  private async getHash(passwordString: string): Promise<string> {
-    return hash(passwordString, this.saltRounds);
+    return passwordString;
   }
 }
