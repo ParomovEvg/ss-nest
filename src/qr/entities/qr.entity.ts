@@ -5,9 +5,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Phone } from '../../phone/entities/phone.entity';
-import { Checkout } from './Checkout.entity';
-import { Draw } from './Draw.entity';
+import { Checkout } from './checkout.entity';
+import { Draw } from './draw.entity';
+import { Phone } from '../../auth/entities/phone.entity';
 
 @Entity()
 export class Qr {

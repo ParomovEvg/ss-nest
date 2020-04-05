@@ -1,14 +1,16 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { QrController } from './qr.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Checkout } from './entities/Checkout.entity';
-import { Qr } from './entities/Qr.entity';
-import { Draw } from './entities/Draw.entity';
 import { QrStringParserMiddleware } from './qr-string-parser.middleware';
+import { AuthModule } from '../auth/auth.module';
+import { Qr } from './entities/qr.entity';
+import { Draw } from './entities/draw.entity';
+import { Checkout } from './entities/checkout.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Checkout, Qr, Draw])],
-  controllers: [QrController]
+  imports: [TypeOrmModule.forFeature([Qr, Draw, Checkout]), AuthModule],
+  controllers: [QrController],
+  exports: [TypeOrmModule]
 })
 export class QrModule implements NestModule {
   configure(consumer: MiddlewareConsumer): any {

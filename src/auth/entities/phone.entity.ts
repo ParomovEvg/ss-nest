@@ -6,7 +6,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Password } from './password.entity';
-import { Qr } from '../../qr/entities/Qr.entity';
+import { Qr } from '../../qr/entities/qr.entity';
+
 
 @Entity()
 export class Phone {

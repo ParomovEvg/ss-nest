@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Password } from '../entities/password.entity';
 import { Repository } from 'typeorm';
-import { Phone } from '../entities/phone.entity';
 import { compare, hash } from 'bcrypt';
 import { PasswordsOfPhoneNotFound } from './errors/passwords-of-phone-not-found';
-import { CreatePhoneDto } from '../dto/CreatePhoneDto';
+import { CreatePhoneDto } from '../dto/create-phone.dto';
 import Either from '@sweet-monads/either';
+import { Password } from '../entities/password.entity';
+import { Phone } from '../entities/phone.entity';
 
 @Injectable()
 export class PasswordService {

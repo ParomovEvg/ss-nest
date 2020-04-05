@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Qr } from './Qr.entity';
+import { Qr } from './qr.entity';
 
 @Entity()
 export class Draw {

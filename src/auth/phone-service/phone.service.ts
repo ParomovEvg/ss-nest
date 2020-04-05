@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Phone } from './entities/phone.entity';
 import { Connection, Repository } from 'typeorm';
-import { Password } from './entities/password.entity';
-import { CreatePhoneDto } from './dto/CreatePhoneDto';
+import { CreatePhoneDto } from '../dto/create-phone.dto';
 import { PhoneNotFound } from './errors/phone-not-found';
 import { PhoneAlreadyExists } from './errors/phone-already-exists';
-import { PasswordService } from './password/password.service';
+import { PasswordService } from '../password-service/password.service';
 import Either from '@sweet-monads/either';
+import { Phone } from '../entities/phone.entity';
+import { Password } from '../entities/password.entity';
 
 @Injectable()
 export class PhoneService {

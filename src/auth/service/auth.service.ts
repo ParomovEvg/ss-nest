@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { PhoneService } from '../phone/phone.service';
-import { PasswordService } from '../phone/password/password.service';
-import { CreatePhoneDto } from '../phone/dto/CreatePhoneDto';
+import { PhoneService } from '../phone-service/phone.service';
+import { PasswordService } from '../password-service/password.service';
+import { CreatePhoneDto } from '../dto/create-phone.dto';
 import { JwtService } from '@nestjs/jwt';
-import { Phone } from '../phone/entities/phone.entity';
+import { Phone } from '../entities/phone.entity';
 
 @Injectable()
 export class AuthService {
