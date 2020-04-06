@@ -11,10 +11,11 @@ import { PasswordService } from './password-service/password.service';
 import { PhoneService } from './phone-service/phone.service';
 import { Phone } from './entities/phone.entity';
 import { Password } from './entities/password.entity';
+import { JwtAdminStrategy } from './strategy/jwt-admin.strategy';
 
 
 @Module({
-  providers: [AuthService, LocalStrategy, JwtStrategy, PasswordService, PhoneService],
+  providers: [AuthService, LocalStrategy, JwtStrategy,JwtAdminStrategy, PasswordService, PhoneService],
   imports: [
     PassportModule,
     JwtModule.register({

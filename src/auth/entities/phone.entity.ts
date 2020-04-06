@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { Password } from './password.entity';
 import { Qr } from '../../qr/entities/qr.entity';
-
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Phone {
@@ -19,6 +19,10 @@ export class Phone {
 
   @CreateDateColumn()
   registrationDate: string;
+
+  @Column({type:'boolean', default: false})
+  isAdmin:boolean;
+
 
   @OneToMany(
     type => Password,

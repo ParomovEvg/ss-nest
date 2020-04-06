@@ -11,7 +11,7 @@ export class Checkout {
   fn:string;
 
   @Column('text')
-  adress:string;
+  address:string;
 
   @OneToMany(type => Qr, qr => qr.checkout)
   checkoutQrs: Qr[];

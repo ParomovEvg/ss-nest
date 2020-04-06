@@ -1,11 +1,11 @@
-import { PhoneError } from './phone-error';
+import { PhoneErrors } from './PhoneErrors';
 
-export class PhoneNotFound extends PhoneError {
+export class PhoneNotFound extends Error {
   phone:string;
   constructor(phone:string) {
-    super(`phone ${phone} not found`);
+    super();
+    this.message = `phone ${phone} not found`;
     this.phone = phone;
-    this.name = "PhoneNotFound";
+    this.name = PhoneErrors.PhoneNotFound;
   }
-
 }

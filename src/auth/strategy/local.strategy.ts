@@ -8,7 +8,6 @@ import Either from '@sweet-monads/either';
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({usernameField: "phone"});
-    console.log(this)
   }
 
   async validate(phone:string, password: string) {

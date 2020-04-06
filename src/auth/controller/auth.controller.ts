@@ -2,7 +2,9 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
+  Query,
   Req,
   Request,
   UseGuards,
@@ -17,7 +19,12 @@ import { PhoneService } from '../phone-service/phone.service';
 import { AuthService } from '../service/auth.service';
 import { LocalAuthGuard } from '../guards/local-auth.guard';
 import { Phone } from '../entities/phone.entity';
+import { CreatePhoneResDto } from '../dto/create-phone.res.dto';
+import { eitherToDto } from '../../asets/eitherToDto';
+import { CreatePasswordResDto } from '../dto/create-password.res.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Auth")
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -33,16 +40,17 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  getProfile(@Request() req) {
+  getProfile(@Request() req): Phone {
     return req.user;
   }
 
   @Post('phone')
   async createUser(
     @Body() phoneDto: CreatePhoneDto,
-  ): Promise<Phone | PhoneAlreadyExists> {
-    console.log(phoneDto);
-    return this.phoneService.createPhone(phoneDto).then(e => e.value);
+  ): Promise<CreatePhoneResDto> {
+    return eitherToDto(
+      await this.phoneService.createPhone(phoneDto)
+    )
   }
 
   @UseGuards(JwtAuthGuard)
@@ -50,11 +58,13 @@ export class AuthController {
   async addPassword(
     @Req() req: JwtRequest,
     @Body() createPasswordDto: CreatePasswordDto,
-  ): Promise<PhoneNotFound | Phone> {
+  ): Promise<CreatePasswordResDto> {
     const phone = await this.phoneService.addPassword(
       req.user,
       createPasswordDto.password,
     );
-    return phone.map(password => password.phone).value;
+    return eitherToDto(
+      phone.map(password => password.phone)
+    )
   }
 }

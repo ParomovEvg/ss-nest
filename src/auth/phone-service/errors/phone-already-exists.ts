@@ -1,10 +1,11 @@
-import { PhoneError } from './phone-error';
+import { PhoneErrors } from './PhoneErrors';
 
-export class PhoneAlreadyExists extends PhoneError {
-  phone: string;
+export class PhoneAlreadyExists extends Error {
+  phone:string;
   constructor(phone:string) {
-    super(`phone ${phone} is already exists`);
+    super();
+    this.message = `phone ${phone} not found`;
     this.phone = phone;
-    this.name = "PhoneAlreadyExists";
+    this.name = PhoneErrors.PhoneAlreadyExists;
   }
 }
