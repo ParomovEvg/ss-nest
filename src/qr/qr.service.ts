@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Phone } from '../auth/phone/phone.entity';
 import { Checkout } from './checkout/checkout.entity';
 import { Draw } from './draw/draw.entity';
+import { CreateQrDto } from './qr.dto';
 
 @Injectable()
 export class QrService {
