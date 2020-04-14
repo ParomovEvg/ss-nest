@@ -1,0 +1,73 @@
+import { Injectable } from '@nestjs/common';
+import { Either, left, right } from '@sweet-monads/either';
+import {
+  createDateNotValid,
+  createDatesAreTaken,
+  createEndEarlierThanStart,
+  DateNotValid,
+  DatesAreTaken,
+  EndEarlierThanStart,
+} from '../draw/draw.errors.dto';
+import { Draw } from '../draw/draw.entity';
+
+@Injectable()
+export class DateService {
+  async checkDateRangeAreFree(
+    draws: Draw[],
+    start: Date,
+    end: Date,
+  ): Promise<Either<DatesAreTaken, [Date, Date]>> {
+    return draws
+      .map<Either<DatesAreTaken, [Date, Date]>>(draw => {
+        const drawStartNumber = Date.parse(draw.start);
+        const drawEndNumber = Date.parse(draw.end);
+        console.log(
+          drawStartNumber,
+          drawEndNumber,
+          start,
+          end,
+          +end < drawStartNumber,
+          +start >= drawEndNumber,
+        );
+        if (+end < drawStartNumber || +start >= drawEndNumber) {
+          return right([start, end]);
+        } else {
+          return left(
+            createDatesAreTaken({
+              start: start.toISOString(),
+              end: end.toISOString(),
+              startTaken: new Date(drawStartNumber).toISOString(),
+              endTaken: new Date(drawEndNumber).toISOString(),
+            }),
+          );
+        }
+      })
+      .reduce((lastEither, next) => {
+        return lastEither.chain(() => next);
+      }, right([start, end]));
+  }
+
+  checkEndStartPosition(
+    start: Date,
+    end: Date,
+  ): Either<EndEarlierThanStart, [Date, Date]> {
+    if (+end - +start  < -1) {
+      return left(
+        createEndEarlierThanStart({
+          end: end.toISOString(),
+          start: start.toISOString(),
+        }),
+      );
+    }
+    return right([start, end]);
+  }
+
+  parseDateString(dateString: string): Either<DateNotValid, Date> {
+    console.log(new Date(Date.parse(dateString)));
+    try {
+      return right(new Date(Date.parse(dateString)));
+    } catch (e) {
+      return left(createDateNotValid({ dateString: e.toISOString() }));
+    }
+  }
+}

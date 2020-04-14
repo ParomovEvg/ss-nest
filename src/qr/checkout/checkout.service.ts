@@ -1,11 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Checkout } from '../entities/checkout.entity';
+import { Checkout } from './checkout.entity';
 import { Repository } from 'typeorm';
-import { CreateCheckoutDto } from './dto/create-checkout.dto';
-import { CheckoutNotFoundById, CheckoutNotFoundByFn } from './errors/checkout-not-found';
-import Either from '@sweet-monads/either';
-import { CreateQrDto } from '../dto/create-qr.dto';
+import { CreateCheckoutDto, DeleteCheckoutResDto } from './checkout.dto';
+import {
+  CheckoutNotFoundByFn,
+  CheckoutNotFoundById,
+  createCheckoutAlreadyExist,
+  createCheckoutNotFoundByFn,
+  createCheckoutNotFoundById,
+} from './checkout.errors.dto';
+import { CreateQrDto } from '../qr.dto';
+import { Either, left, right } from '@sweet-monads/either';
+import { create } from 'domain';
 
 type FnAble = string | Checkout | CreateCheckoutDto | CreateQrDto;
 
@@ -22,17 +29,14 @@ export class CheckoutService {
     const fn = this.extractFn(checkoutSrc);
     const checkout = await this.checkoutRepository.findOne({ where: { fn } });
     if (checkout) {
-      return Either.right(checkout);
+      return right(checkout);
     } else {
-      return Either.left(new CheckoutNotFoundByFn(fn));
+      return left(createCheckoutNotFoundByFn({ fn }));
     }
   }
 
-  async getAll(
-  ): Promise<Either<null, Checkout[]>>{
-    return Either.right(
-      await this.checkoutRepository.find()
-    )
+  async getAll(): Promise<Either<null, Checkout[]>> {
+    return right(await this.checkoutRepository.find());
   }
 
   createCheckout(createCheckoutDto: CreateCheckoutDto): Checkout {
@@ -44,18 +48,28 @@ export class CheckoutService {
 
   async createCheckoutAndSave(
     createCheckoutDto: CreateCheckoutDto,
-  ): Promise<Checkout> {
-    const checkout = this.createCheckout(createCheckoutDto);
-    return await this.checkoutRepository.save(checkout);
+  ): Promise<Either<any, Checkout>> {
+    let error;
+    (await this.findCheckout(createCheckoutDto)).mapLeft(e => {
+      error = e;
+    });
+    if (error) {
+      const checkout = this.createCheckout(createCheckoutDto);
+      return right(await this.checkoutRepository.save(checkout));
+    } else {
+      return left(createCheckoutAlreadyExist({ fn: createCheckoutDto.fn }));
+    }
   }
 
-  async deleteCheckout(id: number): Promise<Either<CheckoutNotFoundById, number>> {
-    const checkout = await this.checkoutRepository.findOne({where:{id}});
+  async deleteCheckout(
+    id: number,
+  ): Promise<Either<CheckoutNotFoundById, DeleteCheckoutResDto['payload']>> {
+    const checkout = await this.checkoutRepository.findOne({ where: { id } });
     if (checkout) {
       await this.checkoutRepository.delete(checkout);
-      return Either.right(id);
+      return right({ checkoutId: id });
     } else {
-      return Either.left(new CheckoutNotFoundById(id));
+      return left(createCheckoutNotFoundById({ id }));
     }
   }
 

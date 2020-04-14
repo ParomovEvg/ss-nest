@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Qr } from './entities/qr.entity';
+import { Qr } from './qr.entity';
 import { Repository } from 'typeorm';
-import { Phone } from '../auth/entities/phone.entity';
-import { Checkout } from './entities/checkout.entity';
-import { Draw } from './entities/draw.entity';
+import { Phone } from '../auth/phone/phone.entity';
+import { Checkout } from './checkout/checkout.entity';
+import { Draw } from './draw/draw.entity';
 
 @Injectable()
 export class QrService {

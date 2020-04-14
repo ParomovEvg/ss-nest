@@ -1,9 +1,9 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
-import { CreateQrDto } from './dto/create-qr.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { JwtRequest } from '../auth/jwt-request';
-import { CreateCheckoutResDto } from './checkout/dto/create-checkout.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { CreateCheckoutResDto } from './checkout/checkout.dto';
+import { CreateQrDto } from './qr.dto';
 
 @Controller('qr')
 @ApiTags("Qr")
