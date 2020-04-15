@@ -20,7 +20,7 @@ export class Phone {
   @CreateDateColumn()
   registrationDate: string;
 
-  @Column({type:'boolean', default: false})
+  @Column({type:'boolean', default: false, })
   isAdmin:boolean;
 
 

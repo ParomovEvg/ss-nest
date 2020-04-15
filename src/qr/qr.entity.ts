@@ -16,13 +16,13 @@ export class Qr {
 
   @ManyToOne(
     type => Phone,
-    phone => phone.phoneQrs,
+    phone => phone.phoneQrs,{eager:true}
   )
   phone: Phone;
 
   @ManyToOne(
     type => Checkout,
-    checkout => checkout.checkoutQrs,
+    checkout => checkout.checkoutQrs, {eager:true}
   )
   checkout: Checkout;
 

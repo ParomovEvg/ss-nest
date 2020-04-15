@@ -21,7 +21,6 @@ export class FlatQrDto {
   id: string;
   phone: FlatPhoneDto;
   checkout: FlatCheckoutDto;
-  draw: FlatDrawDto;
   fp: string;
   fd: string;
   s: number;

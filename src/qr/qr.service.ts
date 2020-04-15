@@ -70,7 +70,6 @@ export class QrService {
           const qrDto: FlatQrDto = {
             ...qrRes,
             time: qrRes.time.toISOString(),
-            draw: this.drawService.mapDrawToFlatDraw(qrRes.draw)
           };
           return qrDto;
         }),
@@ -95,7 +94,6 @@ export class QrService {
       return time > ageLimit
     });
     const canAddQr = qrsInTimeLimit.length < allowedNumber;
-    console.log(qrsInTimeLimit, ageLimit);
 
     if (canAddQr) {
       return right(draw);

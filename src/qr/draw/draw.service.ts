@@ -13,7 +13,14 @@ import {
   NotDrawNow,
 } from './draw.errors.dto';
 import { DateService } from '../date/date.service';
-import { ChangeDrawDto, CreateDrawDto, CreateDrawNextDto, FlatDrawDto } from './draw.dto';
+import {
+  ChangeDrawDto,
+  CreateDrawDto,
+  CreateDrawNextDto,
+  FindFullDrawDto,
+  FlatDrawDto,
+  FullDrawDto,
+} from './draw.dto';
 
 @Injectable()
 export class DrawService {
@@ -39,6 +46,20 @@ export class DrawService {
       return right(draw);
     } else {
       return left(createNotDrawNow({ now: new Date().toISOString() }));
+    }
+  }
+
+  async findDraw(
+    findFullDrawDto: FindFullDrawDto,
+  ): Promise<Either<DrawNotFoundById, Draw>> {
+    const draw = await this.drawRepository.findOne({
+      where: { id: findFullDrawDto.id },
+      relations: ['drawQrs'],
+    });
+    if (draw) {
+      return right(draw);
+    } else {
+      return left(createDrawNotFoundById({ id: findFullDrawDto.id }));
     }
   }
 
@@ -124,11 +145,22 @@ export class DrawService {
     }
   }
 
-  mapDrawToFlatDraw<L>(d:  Draw):FlatDrawDto  {
-      return {
-        ...d,
-        end: d.end.toISOString(),
-        start: d.start.toISOString()
-      }
+  mapDrawToFlatDraw(d: Draw): FlatDrawDto {
+    return {
+      ...d,
+      end: d.end.toISOString(),
+      start: d.start.toISOString(),
+    };
+  }
+  mapDrawToFullDraw(d: Draw): FullDrawDto {
+    return {
+      ...d,
+      end: d.end.toISOString(),
+      start: d.start.toISOString(),
+      drawQrs: d.drawQrs.map(qr => ({
+        ...qr,
+        time: qr.time.toISOString(),
+      })),
+    };
   }
 }

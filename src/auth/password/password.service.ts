@@ -45,7 +45,6 @@ export class PasswordService {
     const passwords = await this.passwordRepository.find({
       where: { phone: phone },
     });
-    console.log({ passwords });
     if (passwords.length === 0) {
       return left(createPasswordsOfPhoneNotFound({ phone: phone.phone }));
     }

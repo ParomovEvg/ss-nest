@@ -1,10 +1,4 @@
-import {
-  IsDateString,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  Min,
-} from 'class-validator';
+import { IsDateString, IsNumber, IsString, Min } from 'class-validator';
 import { ResDto } from '../../asets/eitherToDto';
 import {
   DatesAreTaken,
@@ -13,6 +7,7 @@ import {
   DateNotValid,
   NotDrawNow,
 } from './draw.errors.dto';
+import { FlatQrDto } from '../qr.dto';
 
 export class FlatDrawDto {
   id: number;
@@ -23,6 +18,18 @@ export class FlatDrawDto {
   qrLimit: number;
   qrLimitPeriodMS: number;
 }
+
+export class FullDrawDto {
+  id: number;
+  start: string;
+  end: string;
+  description: string;
+  sLimit: number;
+  qrLimit: number;
+  qrLimitPeriodMS: number;
+  drawQrs: FlatQrDto[];
+}
+
 export enum DrawErrors {
   DatesAreTaken = 'DatesAreTaken',
   EndEarlierThanStart = 'EndEarlierThanStart',
@@ -114,6 +121,19 @@ export class ChangeDrawDto {
 
 export class ChangeDrawResDto implements ResDto {
   payload?: FlatDrawDto;
+  error: {
+    [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
+  };
+}
+
+//=====================
+// FindFullQrDto
+export class FindFullDrawDto {
+  id: number;
+}
+
+export class FindFullDrawResDto implements ResDto {
+  payload?: FullDrawDto;
   error: {
     [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
   };

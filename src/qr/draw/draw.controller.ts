@@ -17,6 +17,8 @@ import {
   DeleteDrawDto,
   DeleteDrawResDto,
   FindAllDrawResDto,
+  FindFullDrawDto,
+  FindFullDrawResDto,
   FindNowDrawResDto,
 } from './draw.dto';
 import { DrawService } from './draw.service';
@@ -36,6 +38,17 @@ export class DrawController {
       ),
       error: {},
     };
+  }
+
+  @Get(':id')
+  async findDrawWithQrs(
+    @Param() findFullDrawDto: FindFullDrawDto,
+  ): Promise<FindFullDrawResDto> {
+    return eitherToDto(
+      (await this.drawService.findDraw(findFullDrawDto)).map(
+        this.drawService.mapDrawToFullDraw,
+      ),
+    );
   }
 
   @Get('now')

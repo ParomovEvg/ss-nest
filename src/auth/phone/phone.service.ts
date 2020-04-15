@@ -27,7 +27,6 @@ export class PhoneService {
   ): Promise<Either<PhoneAlreadyExists, Phone>> {
     return (await this.phoneNotExists(createPhoneDto)).asyncMap(async () => {
       const phone: Phone = this.phoneRepository.create();
-      console.log(phone);
       phone.phone = createPhoneDto.phone;
       const password = await this.passwordService.createPassword(
         createPhoneDto.password,

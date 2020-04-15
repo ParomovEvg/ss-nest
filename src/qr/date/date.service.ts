@@ -56,7 +56,6 @@ export class DateService {
   }
 
   parseDateString(dateString: string): Either<DateNotValid, Date> {
-    console.log(new Date(Date.parse(dateString)));
     try {
       return right(new Date(Date.parse(dateString)));
     } catch (e) {
