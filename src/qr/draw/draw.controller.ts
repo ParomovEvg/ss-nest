@@ -1,5 +1,16 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
+import {
+  ChangeDrawSalaryLimitDto,
+  ChangeDrawSalaryLimitResDto,
   CreateDrawDto,
   CreateDrawNextDto,
   CreateDrawResDto,
@@ -50,17 +61,25 @@ export class DrawController {
     return eitherToDto(
       await this.drawService.createNextDraw(
         createDrawNextDto.end,
-        createDrawNextDto.description
-      )
-    )
+        createDrawNextDto.description,
+      ),
+    );
   }
 
   @Delete(':id')
   async deleteDraw(
     @Param() deleteDrawDto: DeleteDrawDto,
   ): Promise<DeleteDrawResDto> {
+    return eitherToDto(await this.drawService.deleteDraw(deleteDrawDto.id));
+  }
+
+  @Put(':id')
+  async changeDrawSalary(
+    @Body() changeDrawSalaryLimitDto: ChangeDrawSalaryLimitDto,
+    @Param('id') id: number,
+  ): Promise<ChangeDrawSalaryLimitResDto> {
     return eitherToDto(
-      await this.drawService.deleteDraw(deleteDrawDto.id)
-    )
+      await this.drawService.changeSalary(changeDrawSalaryLimitDto.sLimit, id),
+    );
   }
 }

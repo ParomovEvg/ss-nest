@@ -1,4 +1,4 @@
-import { IsDateString, IsString } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ResDto } from '../../asets/eitherToDto';
 import {
   DatesAreTaken,
@@ -13,6 +13,7 @@ export class FlatDrawDto {
   start: string;
   end: string;
   description: string;
+  sLimit: number;
 }
 export enum DrawErrors {
   DatesAreTaken = 'DatesAreTaken',
@@ -31,6 +32,9 @@ export class CreateDrawDto {
 
   @IsString()
   description: string;
+
+  @IsNumber()
+  sLimit: number;
 }
 
 export class CreateDrawResDto implements ResDto {
@@ -48,6 +52,9 @@ export class CreateDrawNextDto {
 
   @IsString()
   description: string;
+
+  @IsNumber()
+  sLimit: number;
 }
 
 export class DeleteDrawDto {
@@ -72,4 +79,17 @@ export class FindNowDrawResDto {
 export class FindAllDrawResDto {
   payload?: FlatDrawDto[];
   error: {};
+}
+
+//=====================
+// ChangeDrawSalaryLimit
+export class ChangeDrawSalaryLimitDto {
+  sLimit: number;
+}
+
+export class ChangeDrawSalaryLimitResDto implements ResDto {
+  payload?: FlatDrawDto;
+  error: {
+    [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
+  };
 }

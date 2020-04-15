@@ -29,11 +29,11 @@ export class DrawService {
   async findNowDraw(): Promise<Either<NotDrawNow, Draw>> {
     const draws = await this.findAllDraw();
     const draw = draws.find(draw => {
-      console.log(draw)
-      const start = Date.parse(draw.start)
-      const end = Date.parse(draw.end)
+      console.log(draw);
+      const start = Date.parse(draw.start);
+      const end = Date.parse(draw.end);
       const now = Date.now();
-      console.log(start, end, now)
+      console.log(start, end, now);
       return start < now && end > now;
     });
     if (draw) {
@@ -79,7 +79,7 @@ export class DrawService {
   async createNextDraw(end: string, description: string) {
     const draws = await this.findAllDraw();
     let startNum = draws.reduce<number>((lastNum, nextDraw) => {
-      const nextNum = Date.parse(nextDraw.end)
+      const nextNum = Date.parse(nextDraw.end);
       if (nextNum > lastNum) {
         return nextNum;
       }
@@ -92,10 +92,25 @@ export class DrawService {
     return this.createDraw(new Date(startNum).toISOString(), end, description);
   }
 
-  async deleteDraw(id: number): Promise<Either<DrawNotFoundById, {id:number}>> {
+  async deleteDraw(
+    id: number,
+  ): Promise<Either<DrawNotFoundById, { id: number }>> {
     const res = await this.drawRepository.delete({ id: id });
     if (res.affected) {
-      return right({id});
+      return right({ id });
+    } else {
+      return left(createDrawNotFoundById({ id }));
+    }
+  }
+
+  async changeSalary(
+    s: number,
+    id: number,
+  ): Promise<Either<DrawNotFoundById, Draw>> {
+    const draw = await this.drawRepository.findOne({ where: { id: id } });
+    if (draw) {
+      draw.sLimit = s;
+      return right(await this.drawRepository.save(draw));
     } else {
       return left(createDrawNotFoundById({ id }));
     }

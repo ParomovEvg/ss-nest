@@ -15,6 +15,9 @@ export class Draw {
   @Column({ type: 'text' })
   description: string;
 
+  @Column('bigint')
+  sLimit: number;
+
   @OneToMany(
     type => Qr,
     qr => qr.draw,
