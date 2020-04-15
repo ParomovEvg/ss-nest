@@ -11,8 +11,6 @@ import {
   CheckoutNotFoundById,
 } from './checkout.errors.dto';
 import { FlatQrDto } from '../qr.dto';
-import { PhoneErrors } from '../../auth/phone/phone.dto';
-import { PhoneAlreadyExists } from '../../auth/phone/phone.errors.dto';
 
 export enum CheckoutErrors {
   CheckoutNotFoundByFn = 'CheckoutNotFoundByFn',

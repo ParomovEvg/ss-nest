@@ -42,5 +42,5 @@ export class Qr {
   s: number;
 
   @CreateDateColumn()
-  time: string;
+  time: Date;
 }

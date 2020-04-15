@@ -1,4 +1,10 @@
-import { IsDateString, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  Min,
+} from 'class-validator';
 import { ResDto } from '../../asets/eitherToDto';
 import {
   DatesAreTaken,
@@ -14,6 +20,8 @@ export class FlatDrawDto {
   end: string;
   description: string;
   sLimit: number;
+  qrLimit: number;
+  qrLimitPeriodMS: number;
 }
 export enum DrawErrors {
   DatesAreTaken = 'DatesAreTaken',
@@ -26,15 +34,19 @@ export enum DrawErrors {
 export class CreateDrawDto {
   @IsDateString()
   start: string;
-
   @IsDateString()
   end: string;
-
   @IsString()
   description: string;
-
   @IsNumber()
+  @Min(0)
   sLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimitPeriodMS: number;
 }
 
 export class CreateDrawResDto implements ResDto {
@@ -49,12 +61,17 @@ export class CreateDrawResDto implements ResDto {
 export class CreateDrawNextDto {
   @IsDateString()
   end: string;
-
   @IsString()
   description: string;
-
   @IsNumber()
+  @Min(0)
   sLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimitPeriodMS: number;
 }
 
 export class DeleteDrawDto {
@@ -83,11 +100,19 @@ export class FindAllDrawResDto {
 
 //=====================
 // ChangeDrawSalaryLimit
-export class ChangeDrawSalaryLimitDto {
+export class ChangeDrawDto {
+  @IsNumber()
+  @Min(0)
   sLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimit: number;
+  @IsNumber()
+  @Min(0)
+  qrLimitPeriodMS: number;
 }
 
-export class ChangeDrawSalaryLimitResDto implements ResDto {
+export class ChangeDrawResDto implements ResDto {
   payload?: FlatDrawDto;
   error: {
     [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;

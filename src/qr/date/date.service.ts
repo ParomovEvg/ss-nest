@@ -19,16 +19,9 @@ export class DateService {
   ): Promise<Either<DatesAreTaken, [Date, Date]>> {
     return draws
       .map<Either<DatesAreTaken, [Date, Date]>>(draw => {
-        const drawStartNumber = Date.parse(draw.start);
-        const drawEndNumber = Date.parse(draw.end);
-        console.log(
-          drawStartNumber,
-          drawEndNumber,
-          start,
-          end,
-          +end < drawStartNumber,
-          +start >= drawEndNumber,
-        );
+        const drawStartNumber = +draw.start;
+        const drawEndNumber = +draw.end;
+
         if (+end < drawStartNumber || +start >= drawEndNumber) {
           return right([start, end]);
         } else {

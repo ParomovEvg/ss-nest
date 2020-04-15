@@ -1,8 +1,8 @@
 import { IsNotEmpty, IsOptional } from 'class-validator';
 import { FlatPhoneDto } from '../auth/phone/phone.dto';
 import { ResDto } from '../asets/eitherToDto';
-import { DrawErrors } from './draw/draw.dto';
-import { CheckoutErrors } from './checkout/checkout.dto';
+import { DrawErrors, FlatDrawDto } from './draw/draw.dto';
+import { CheckoutErrors, FlatCheckoutDto } from './checkout/checkout.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
 import { NotDrawNow } from './draw/draw.errors.dto';
 import { QrAlreadyExists, QrRegistrationLimitExceeded, QrSalaryNotEnough } from './qr.errors.dto';
@@ -20,8 +20,8 @@ const EE = {
 export class FlatQrDto {
   id: string;
   phone: FlatPhoneDto;
-  checkoutId: number;
-  drawId: number;
+  checkout: FlatCheckoutDto;
+  draw: FlatDrawDto;
   fp: string;
   fd: string;
   s: number;
@@ -37,7 +37,7 @@ export class CreateQrDto {
   @IsNotEmpty()
   fd: string;
   @IsNotEmpty()
-  s: string;
+  s: number;
   @IsOptional()
   qrString: string;
 }
@@ -45,11 +45,11 @@ export class CreateQrDto {
 export class CreateQrResDto implements ResDto {
   payload?: FlatQrDto;
   error: {
-    [EE.CheckoutErrors.CheckoutNotFoundByFn]: CheckoutNotFoundByFn;
-    [EE.DrawErrors.NotDrawNow]: NotDrawNow;
-    [QrErrorsDto.QrAlreadyExists]: QrAlreadyExists;
-    [QrErrorsDto.QrSalaryNotEnough]: QrSalaryNotEnough;
-    [QrErrorsDto.QrRegistrationLimitExceeded]: QrRegistrationLimitExceeded;
+    [EE.CheckoutErrors.CheckoutNotFoundByFn]?: CheckoutNotFoundByFn;
+    [EE.DrawErrors.NotDrawNow]?: NotDrawNow;
+    [QrErrorsDto.QrAlreadyExists]?: QrAlreadyExists;
+    [QrErrorsDto.QrSalaryNotEnough]?: QrSalaryNotEnough;
+    [QrErrorsDto.QrRegistrationLimitExceeded]?: QrRegistrationLimitExceeded;
   };
 }
 //=====================

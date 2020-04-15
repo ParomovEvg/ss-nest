@@ -11,14 +11,15 @@ export class QrAlreadyExists implements ErrorDto {
   name: QrAlreadyExistsName;
   message: string;
   param: {
-
+    fd: string;
+    fp: string;
   };
 }
 
 export const createQrAlreadyExists = createError(
   QrAlreadyExists,
   QrAlreadyExistsName.QrAlreadyExists,
-  () => ``,
+  ({ fd, fp }) => `Qr there fd = ${fd}; fp = ${fp}`,
 );
 //=====================
 // QrSalaryNotEnough
@@ -31,13 +32,14 @@ export class QrSalaryNotEnough implements ErrorDto {
   message: string;
   param: {
     s: number;
+    sLimit: number;
   };
 }
 
 export const createQrSalaryNotEnough = createError(
   QrSalaryNotEnough,
   QrSalaryNotEnoughName.QrSalaryNotEnough,
-  ({s}) => `Qr salary not enough s = ${s}`,
+  ({ s, sLimit }) => `Qr salary not enough s = ${s} : sLimit = ${sLimit}`,
 );
 //=====================
 // QrRegistrationLimitExceeded
@@ -49,16 +51,17 @@ export class QrRegistrationLimitExceeded implements ErrorDto {
   name: QrRegistrationLimitExceededName;
   message: string;
   param: {
-    phone: string
+    nextTime: string;
+    phone: string;
+    qrLimit: number;
   };
 }
 
 export const createQrRegistrationLimitExceeded = createError(
   QrRegistrationLimitExceeded,
   QrRegistrationLimitExceededName.QrRegistrationLimitExceeded,
-  ({ phone }) => `Qr registration limit exceeded of phone = ${phone}`,
+  ({ phone, qrLimit, nextTime }) =>
+    `Qr registration limit (${qrLimit}) exceeded of phone = ${phone}, next qr can be added in ${new Date(
+      Date.parse(nextTime),
+    ).toLocaleString()}`,
 );
-
-
-
-

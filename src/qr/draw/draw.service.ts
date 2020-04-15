@@ -13,6 +13,7 @@ import {
   NotDrawNow,
 } from './draw.errors.dto';
 import { DateService } from '../date/date.service';
+import { ChangeDrawDto, CreateDrawDto, CreateDrawNextDto, FlatDrawDto } from './draw.dto';
 
 @Injectable()
 export class DrawService {
@@ -29,11 +30,9 @@ export class DrawService {
   async findNowDraw(): Promise<Either<NotDrawNow, Draw>> {
     const draws = await this.findAllDraw();
     const draw = draws.find(draw => {
-      console.log(draw);
-      const start = Date.parse(draw.start);
-      const end = Date.parse(draw.end);
+      const start = +draw.start;
+      const end = +draw.end;
       const now = Date.now();
-      console.log(start, end, now);
       return start < now && end > now;
     });
     if (draw) {
@@ -44,14 +43,14 @@ export class DrawService {
   }
 
   createDraw(
-    startString: string,
-    endString: string,
-    description: string,
+    createDrawDto: CreateDrawDto,
   ): Promise<Either<DatesAreTaken | EndEarlierThanStart | DateNotValid, Draw>> {
     return this.dateService
-      .parseDateString(startString)
+      .parseDateString(createDrawDto.start)
       .chain(start =>
-        this.dateService.parseDateString(endString).map(end => [start, end]),
+        this.dateService
+          .parseDateString(createDrawDto.end)
+          .map(end => [start, end]),
       )
       .chain(([start, end]) =>
         this.dateService.checkEndStartPosition(start, end),
@@ -67,19 +66,22 @@ export class DrawService {
         valE
           .map(([start, end]) => {
             const draw = this.drawRepository.create();
-            draw.start = start.toISOString();
-            draw.end = end.toISOString();
-            draw.description = description;
+            draw.start = start;
+            draw.end = end;
+            draw.description = createDrawDto.description;
+            draw.sLimit = createDrawDto.sLimit;
+            draw.qrLimit = createDrawDto.qrLimit;
+            draw.qrLimitPeriodMS = createDrawDto.qrLimitPeriodMS;
             return draw;
           })
           .asyncMap(draw => this.drawRepository.save(draw)),
       );
   }
 
-  async createNextDraw(end: string, description: string) {
+  async createNextDraw(createDrawNextDto: CreateDrawNextDto) {
     const draws = await this.findAllDraw();
     let startNum = draws.reduce<number>((lastNum, nextDraw) => {
-      const nextNum = Date.parse(nextDraw.end);
+      const nextNum = +nextDraw.end;
       if (nextNum > lastNum) {
         return nextNum;
       }
@@ -87,9 +89,13 @@ export class DrawService {
     }, 0);
 
     if (startNum === 0) {
-      startNum = new Date().getMilliseconds();
+      startNum = Date.now();
     }
-    return this.createDraw(new Date(startNum).toISOString(), end, description);
+    const createDrawDto: CreateDrawDto = {
+      ...createDrawNextDto,
+      start: new Date(startNum).toISOString(),
+    };
+    return this.createDraw(createDrawDto);
   }
 
   async deleteDraw(
@@ -103,16 +109,26 @@ export class DrawService {
     }
   }
 
-  async changeSalary(
-    s: number,
+  async changeDraw(
+    changeDrawDto: ChangeDrawDto,
     id: number,
   ): Promise<Either<DrawNotFoundById, Draw>> {
     const draw = await this.drawRepository.findOne({ where: { id: id } });
     if (draw) {
-      draw.sLimit = s;
+      draw.sLimit = changeDrawDto.sLimit;
+      draw.qrLimit = changeDrawDto.qrLimit;
+      draw.qrLimitPeriodMS = changeDrawDto.qrLimitPeriodMS;
       return right(await this.drawRepository.save(draw));
     } else {
       return left(createDrawNotFoundById({ id }));
     }
+  }
+
+  mapDrawToFlatDraw<L>(d:  Draw):FlatDrawDto  {
+      return {
+        ...d,
+        end: d.end.toISOString(),
+        start: d.start.toISOString()
+      }
   }
 }

@@ -9,8 +9,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import {
-  ChangeDrawSalaryLimitDto,
-  ChangeDrawSalaryLimitResDto,
+  ChangeDrawDto,
+  ChangeDrawResDto,
   CreateDrawDto,
   CreateDrawNextDto,
   CreateDrawResDto,
@@ -31,14 +31,20 @@ export class DrawController {
   @Get()
   async findAll(): Promise<FindAllDrawResDto> {
     return {
-      payload: await this.drawService.findAllDraw(),
+      payload: (await this.drawService.findAllDraw()).map(
+        this.drawService.mapDrawToFlatDraw,
+      ),
       error: {},
     };
   }
 
   @Get('now')
   async findNow(): Promise<FindNowDrawResDto> {
-    return eitherToDto(await this.drawService.findNowDraw());
+    return eitherToDto(
+      (await this.drawService.findNowDraw()).map(
+        this.drawService.mapDrawToFlatDraw,
+      ),
+    );
   }
 
   @Post()
@@ -46,10 +52,8 @@ export class DrawController {
     @Body() createDrawDto: CreateDrawDto,
   ): Promise<CreateDrawResDto> {
     return eitherToDto(
-      await this.drawService.createDraw(
-        createDrawDto.start,
-        createDrawDto.end,
-        createDrawDto.description,
+      (await this.drawService.createDraw(createDrawDto)).map(
+        this.drawService.mapDrawToFlatDraw,
       ),
     );
   }
@@ -59,9 +63,8 @@ export class DrawController {
     @Body() createDrawNextDto: CreateDrawNextDto,
   ): Promise<CreateDrawResDto> {
     return eitherToDto(
-      await this.drawService.createNextDraw(
-        createDrawNextDto.end,
-        createDrawNextDto.description,
+      (await this.drawService.createNextDraw(createDrawNextDto)).map(
+        this.drawService.mapDrawToFlatDraw,
       ),
     );
   }
@@ -75,11 +78,13 @@ export class DrawController {
 
   @Put(':id')
   async changeDrawSalary(
-    @Body() changeDrawSalaryLimitDto: ChangeDrawSalaryLimitDto,
+    @Body() changeDrawSalaryLimitDto: ChangeDrawDto,
     @Param('id') id: number,
-  ): Promise<ChangeDrawSalaryLimitResDto> {
+  ): Promise<ChangeDrawResDto> {
     return eitherToDto(
-      await this.drawService.changeSalary(changeDrawSalaryLimitDto.sLimit, id),
+      (await this.drawService.changeDraw(changeDrawSalaryLimitDto, id)).map(
+        this.drawService.mapDrawToFlatDraw,
+      ),
     );
   }
 }
