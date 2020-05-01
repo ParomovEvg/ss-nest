@@ -10,7 +10,7 @@ import {
 import { JwtAdminAuthGuard } from '../../auth/guards/jwt-admin-auth.guard';
 import { CheckoutService } from './checkout.service';
 import { eitherToDto } from '../../asets/eitherToDto';
-import { ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiParam, ApiTags } from '@nestjs/swagger';
 import {
   CreateCheckoutDto,
   CreateCheckoutResDto,
@@ -21,6 +21,7 @@ import {
 } from './checkout.dto';
 
 @UseGuards(JwtAdminAuthGuard)
+@ApiBearerAuth('admin auth')
 @ApiTags('Checkout')
 @Controller('checkout')
 export class CheckoutController {

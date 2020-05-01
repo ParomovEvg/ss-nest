@@ -20,7 +20,7 @@ import { JwtAdminStrategy } from './strategy/jwt-admin.strategy';
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '1160s' },
+      signOptions: { expiresIn: '60s' },
     }),
     TypeOrmModule.forFeature([Phone, Password]),
   ],

@@ -14,11 +14,15 @@ import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { Phone } from './phone/phone.entity';
 import { eitherToDto } from '../asets/eitherToDto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreatePhoneDto, CreatePhoneResDto } from './phone/phone.dto';
-import { CreatePasswordDto, CreatePasswordResDto } from './password/password.dto';
+import {
+  CreatePasswordDto,
+  CreatePasswordResDto,
+} from './password/password.dto';
+import { LoginDto, LoginResDto } from './auth.dto';
 
-@ApiTags("Auth")
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -27,11 +31,18 @@ export class AuthController {
   ) {}
 
   @UseGuards(LocalAuthGuard)
-  @Post('login')
-  async login(@Request() req) {
-    return this.authService.login(req.user);
+  @Post()
+  async login(
+    @Request() req,
+    @Body() loginDto: LoginDto,
+  ): Promise<LoginResDto> {
+    return {
+      payload: await this.authService.login(req.user),
+      error: {},
+    };
   }
 
+  @ApiBearerAuth('user auth')
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Request() req): Phone {
@@ -42,11 +53,10 @@ export class AuthController {
   async createUser(
     @Body() phoneDto: CreatePhoneDto,
   ): Promise<CreatePhoneResDto> {
-    return eitherToDto(
-      await this.phoneService.createPhone(phoneDto)
-    )
+    return eitherToDto(await this.phoneService.createPhone(phoneDto));
   }
 
+  @ApiBearerAuth('user auth')
   @UseGuards(JwtAuthGuard)
   @Post('password')
   async addPassword(
@@ -57,8 +67,6 @@ export class AuthController {
       req.user,
       createPasswordDto.password,
     );
-    return eitherToDto(
-      phone.map(password => password.phone)
-    )
+    return eitherToDto(phone.map(password => password.phone));
   }
 }

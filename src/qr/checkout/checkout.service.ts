@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Checkout } from './checkout.entity';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { CreateCheckoutDto, DeleteCheckoutResDto } from './checkout.dto';
 import {
   CheckoutNotFoundByFn,
@@ -12,7 +12,6 @@ import {
 } from './checkout.errors.dto';
 import { CreateQrDto } from '../qr.dto';
 import { Either, left, right } from '@sweet-monads/either';
-import { create } from 'domain';
 
 type FnAble = string | Checkout | CreateCheckoutDto | CreateQrDto;
 
@@ -21,6 +20,7 @@ export class CheckoutService {
   constructor(
     @InjectRepository(Checkout)
     private checkoutRepository: Repository<Checkout>,
+
   ) {}
 
   async findCheckout(

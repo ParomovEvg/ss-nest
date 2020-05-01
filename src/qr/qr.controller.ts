@@ -1,7 +1,7 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { JwtRequest } from '../auth/jwt-request';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateQrDto, CreateQrResDto } from './qr.dto';
 import { eitherToDto } from '../asets/eitherToDto';
 import { QrService } from './qr.service';
@@ -9,6 +9,7 @@ import { QrService } from './qr.service';
 @Controller('qr')
 @ApiTags('Qr')
 @UseGuards(JwtAuthGuard)
+@ApiBearerAuth('user auth')
 export class QrController {
   constructor(private qrService: QrService) {}
 

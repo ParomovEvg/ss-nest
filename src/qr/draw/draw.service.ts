@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Draw } from './draw.entity';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { right, Either, left } from '@sweet-monads/either';
 import {
   createDrawNotFoundById,
@@ -21,6 +21,7 @@ import {
   FlatDrawDto,
   FullDrawDto,
 } from './draw.dto';
+import { Qr } from '../qr.entity';
 
 @Injectable()
 export class DrawService {
@@ -28,6 +29,7 @@ export class DrawService {
     @InjectRepository(Draw)
     private drawRepository: Repository<Draw>,
     private dateService: DateService,
+    private connection: Connection,
   ) {}
 
   findAllDraw(): Promise<Draw[]> {
@@ -122,12 +124,25 @@ export class DrawService {
   async deleteDraw(
     id: number,
   ): Promise<Either<DrawNotFoundById, { id: number }>> {
-    const res = await this.drawRepository.delete({ id: id });
-    if (res.affected) {
-      return right({ id });
-    } else {
-      return left(createDrawNotFoundById({ id }));
-    }
+    return this.findDraw({ id: id }).then(r =>
+      r.asyncMap(async draw => {
+        await this.connection.transaction(async tm => {
+          await tm
+            .createQueryBuilder()
+            .delete()
+            .from(Qr, 'qr')
+            .where('qr.id IN (:...ids)', { ids: draw.drawQrs.map(qr => qr.id) })
+            .execute();
+          await tm
+            .createQueryBuilder()
+            .delete()
+            .from(Draw, 'draw')
+            .where('draw.id = :id', { id: draw.id })
+            .execute();
+        });
+        return { id };
+      }),
+    );
   }
 
   async changeDraw(
