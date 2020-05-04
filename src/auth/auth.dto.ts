@@ -10,9 +10,11 @@ export class LoginDto {
   phone: string;
 }
 
+export class LoginResPayload {
+  access_token: string;
+}
+
 export class LoginResDto implements ResDto {
-  payload?: {
-    access_token: string;
-  };
+  payload?: LoginResPayload;
   error: {};
 }

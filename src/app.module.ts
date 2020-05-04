@@ -3,6 +3,7 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { QrModule } from './qr/qr.module';
+import { ContentModule } from './content/content.module';
 
 const username = process.env.POSTGRES_USER || 'a0319139_nest-ss';
 const password = process.env.POSTGRES_PASSWORD || '123';
@@ -21,6 +22,7 @@ const password = process.env.POSTGRES_PASSWORD || '123';
     }),
     AuthModule,
     QrModule,
+    ContentModule,
   ],
 })
 export class AppModule {

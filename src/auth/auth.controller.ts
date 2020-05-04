@@ -12,10 +12,9 @@ import { JwtRequest } from './jwt-request';
 import { PhoneService } from './phone/phone.service';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
-import { Phone } from './phone/phone.entity';
 import { eitherToDto } from '../asets/eitherToDto';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { CreatePhoneDto, CreatePhoneResDto } from './phone/phone.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { CreatePhoneDto, CreatePhoneResDto, FlatPhoneDto } from './phone/phone.dto';
 import {
   CreatePasswordDto,
   CreatePasswordResDto,
@@ -42,10 +41,9 @@ export class AuthController {
     };
   }
 
-  @ApiBearerAuth('user auth')
   @UseGuards(JwtAuthGuard)
   @Get('profile')
-  getProfile(@Request() req): Phone {
+  getProfile(@Request() req): FlatPhoneDto {
     return req.user;
   }
 
@@ -56,7 +54,6 @@ export class AuthController {
     return eitherToDto(await this.phoneService.createPhone(phoneDto));
   }
 
-  @ApiBearerAuth('user auth')
   @UseGuards(JwtAuthGuard)
   @Post('password')
   async addPassword(
