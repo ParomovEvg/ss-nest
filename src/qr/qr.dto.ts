@@ -43,12 +43,10 @@ export class CreateQrDto {
 
 export class CreateQrResDto implements ResDto {
   payload?: FlatQrDto;
-  error: {
-    [EE.CheckoutErrors.CheckoutNotFoundByFn]?: CheckoutNotFoundByFn;
-    [EE.DrawErrors.NotDrawNow]?: NotDrawNow;
-    [QrErrorsDto.QrAlreadyExists]?: QrAlreadyExists;
-    [QrErrorsDto.QrSalaryNotEnough]?: QrSalaryNotEnough;
-    [QrErrorsDto.QrRegistrationLimitExceeded]?: QrRegistrationLimitExceeded;
-  };
+  CheckoutNotFoundByFn?: CheckoutNotFoundByFn;
+  NotDrawNow?: NotDrawNow;
+  QrAlreadyExists?: QrAlreadyExists;
+  QrSalaryNotEnough?: QrSalaryNotEnough;
+  QrRegistrationLimitExceeded?: QrRegistrationLimitExceeded;
 }
 //=====================

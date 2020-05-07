@@ -36,7 +36,6 @@ export class DrawController {
       payload: (await this.drawService.findAllDraw()).map(
         this.drawService.mapDrawToFlatDraw,
       ),
-      error: {},
     };
   }
 

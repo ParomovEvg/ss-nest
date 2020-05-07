@@ -19,7 +19,5 @@ export class CreatePhoneDto {
 }
 export class CreatePhoneResDto implements ResDto {
   payload?: FlatPhoneDto;
-  error: {
-    [PhoneErrors.PhoneAlreadyExists]?: PhoneAlreadyExists;
-  };
+  PhoneAlreadyExists?: PhoneAlreadyExists;
 }

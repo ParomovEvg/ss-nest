@@ -1,11 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
+import { GetContentResDto } from './content.dto';
+import { ContentService } from './content.service';
 
 @ApiTags('Content')
 @Controller('content')
 export class ContentController {
-  @Get('home')
-  getHome(): string{
-    return 'HEllo world'
+  constructor(private contentService: ContentService) {}
+  @Get()
+  @ApiBadRequestResponse()
+  async getContent(): Promise<GetContentResDto> {
+    return {
+      payload: await this.contentService.getContent(),
+    };
   }
 }

@@ -13,8 +13,6 @@ export enum PasswordErrors {
 }
 
 export class CreatePasswordResDto implements ResDto {
-  error: {
-    [PasswordErrors.PasswordsOfPhoneNotFound]?: PasswordsOfPhoneNotFound;
-  };
+  PasswordsOfPhoneNotFound?: PasswordsOfPhoneNotFound;
   payload?: FlatPhoneDto;
 }

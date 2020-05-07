@@ -37,7 +37,6 @@ export class AuthController {
   ): Promise<LoginResDto> {
     return {
       payload: await this.authService.login(req.user),
-      error: {},
     };
   }
 

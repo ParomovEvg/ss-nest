@@ -58,11 +58,9 @@ export class CreateDrawDto {
 
 export class CreateDrawResDto implements ResDto {
   payload?: FlatDrawDto;
-  error: {
-    [DrawErrors.DatesAreTaken]?: DatesAreTaken;
-    [DrawErrors.EndEarlierThanStart]?: EndEarlierThanStart;
-    [DrawErrors.DateNotValid]?: DateNotValid;
-  };
+  DatesAreTaken?: DatesAreTaken;
+  EndEarlierThanStart?: EndEarlierThanStart;
+  DateNotValid?: DateNotValid;
 }
 
 export class CreateDrawNextDto {
@@ -88,21 +86,16 @@ export class DeleteDrawResDto implements ResDto {
   payload?: {
     id: number;
   };
-  error: {
-    [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
-  };
+  DrawNotFoundById?: DrawNotFoundById;
 }
 
 export class FindNowDrawResDto {
   payload?: FlatDrawDto;
-  error: {
-    [DrawErrors.NotDrawNow]?: NotDrawNow;
-  };
+  NotDrawNow?: NotDrawNow;
 }
 
 export class FindAllDrawResDto {
   payload?: FlatDrawDto[];
-  error: {};
 }
 
 //=====================
@@ -121,9 +114,7 @@ export class ChangeDrawDto {
 
 export class ChangeDrawResDto implements ResDto {
   payload?: FlatDrawDto;
-  error: {
-    [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
-  };
+  DrawNotFoundById?: DrawNotFoundById;
 }
 
 //=====================
@@ -134,7 +125,5 @@ export class FindFullDrawDto {
 
 export class FindFullDrawResDto implements ResDto {
   payload?: FullDrawDto;
-  error: {
-    [DrawErrors.DrawNotFoundById]?: DrawNotFoundById;
-  };
+  DrawNotFoundById?: DrawNotFoundById;
 }

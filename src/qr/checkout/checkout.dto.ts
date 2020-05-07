@@ -37,35 +37,26 @@ export class CreateCheckoutDto {
 
 export class CreateCheckoutResDto implements ResDto {
   payload?: FlatCheckoutDto;
-  error: {
-    [CheckoutErrors.CheckoutAlreadyExists]?: CheckoutAlreadyExists;
-  };
+  CheckoutAlreadyExists?: CheckoutAlreadyExists;
 }
 
 export class DeleteCheckoutResDto implements ResDto {
   payload?: {
     checkoutId: number;
   };
-  error: {
-    [CheckoutErrors.CheckoutNotFoundById]?: CheckoutNotFoundById;
-  };
+  CheckoutNotFoundById?: CheckoutNotFoundById;
 }
 
 export class FindAllCheckoutsResDto implements ResDto {
   payload?: FlatCheckoutDto[];
-  error: {};
 }
 
 export class FindCheckoutResDto implements ResDto {
-  error: {
-    [CheckoutErrors.CheckoutNotFoundByFn]?: CheckoutNotFoundByFn;
-  };
+  CheckoutNotFoundByFn?: CheckoutNotFoundByFn;
   payload?: FlatCheckoutDto;
 }
 
 export class FindQrsOfCheckoutResDto implements ResDto {
   payload?: FlatQrDto[];
-  error: {
-    [CheckoutErrors.CheckoutNotFoundByFn]?: CheckoutNotFoundByFn;
-  };
+  CheckoutNotFoundByFn?: CheckoutNotFoundByFn;
 }

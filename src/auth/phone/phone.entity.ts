@@ -7,7 +7,6 @@ import {
 } from 'typeorm';
 import { Password } from '../password/password.entity';
 import { Qr } from '../../qr/qr.entity';
-import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Phone {

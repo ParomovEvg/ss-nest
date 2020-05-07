@@ -15,6 +15,5 @@ export class LoginResPayload {
 }
 
 export class LoginResDto implements ResDto {
-  payload?: LoginResPayload;
-  error: {};
+  payload: LoginResPayload;
 }
