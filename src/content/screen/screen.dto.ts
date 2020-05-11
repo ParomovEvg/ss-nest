@@ -1,10 +1,16 @@
-import { ScreenAlreadyExists } from './screen.errors.dto';
+import { ScreenAlreadyExists, ScreenNotFoundById } from './screen.errors.dto';
 import { ResDto } from '../../asets/eitherToDto';
-import { TextFieldContentDto } from '../text/text.dto';
+import { FlatTextFieldDto, TextFieldContentDto } from '../text/text.dto';
 
 export class FlatScreenDto {
   id: number;
   name: string;
+}
+
+export class ScreenDto {
+  id: number;
+  name: string;
+  textFields: FlatTextFieldDto[];
 }
 
 export class ScreenContentDto {
@@ -28,4 +34,11 @@ export class CreateScreenResDto implements ResDto {
 // FindAllScreens
 export class FindAllScreensResDto implements ResDto {
   payload: FlatScreenDto[];
+}
+
+//=====================
+// FindScreenById
+export class FindScreenByIdResDto implements ResDto {
+  payload?: ScreenDto;
+  ScreenNotFoundById?: ScreenNotFoundById;
 }

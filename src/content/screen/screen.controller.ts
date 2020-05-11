@@ -3,6 +3,7 @@ import {
   CreateScreenDto,
   CreateScreenResDto,
   FindAllScreensResDto,
+  FindScreenByIdResDto,
 } from './screen.dto';
 import { eitherToDto } from '../../asets/eitherToDto';
 import { ScreenService } from './screen.service';
@@ -25,7 +26,9 @@ export class ScreenController {
   }
 
   @Get(':screenId')
-  async findScreenById(@Param('screenId') screenId: number) {
-    return
+  async findScreenById(
+    @Param('screenId') screenId: number,
+  ): Promise<FindScreenByIdResDto> {
+    return eitherToDto(await this.screenService.getScreenById(screenId));
   }
 }

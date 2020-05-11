@@ -7,7 +7,7 @@ import { last } from 'lodash';
 export class ContentService {
   constructor(private screenService: ScreenService) {}
   async getContent(): Promise<ScreenContentDto[]> {
-    const screens = await this.screenService.getAll();
+    const screens = await this.screenService.getAllScreensDeep();
     return screens.map<ScreenContentDto>(screen => ({
       ...screen,
       textFields: screen.textFields.map(({ values, ...rest }) => ({
