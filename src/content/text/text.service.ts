@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ContentText } from './content-text.entity';
-import { Repository } from 'typeorm';
+import { Connection, Repository } from 'typeorm';
 import { ContentTextField } from './content-text-field.entity';
 import {
   CreateTextDto,
   CreateTextFieldDto,
-  FlatTextDto,
   FlatTextFieldDto,
+  TextDto,
+  TextFieldDto,
 } from './text.dto';
 import { ScreenService } from '../screen/screen.service';
 import { Either, left, right } from '@sweet-monads/either';
@@ -27,6 +28,7 @@ export class TextService {
     @InjectRepository(ContentTextField)
     private textFieldRepository: Repository<ContentTextField>,
     private screenService: ScreenService,
+    private connection: Connection,
   ) {}
 
   async createField({
@@ -53,10 +55,44 @@ export class TextService {
     });
   }
 
+  async deleteTextField(
+    fieldId: number,
+  ): Promise<Either<TextFieldNotFoundById, { id: number }>> {
+    const field = await this.getFieldById(fieldId);
+
+    return await field.asyncMap(async field => {
+      await this.connection.transaction(async manager => {
+        await manager
+          .createQueryBuilder()
+          .delete()
+          .from(ContentText, 'text')
+          .where('text.id IN (:...ids)', {
+            ids: field.values.map(text => text.id),
+          })
+          .execute();
+        await manager.delete(ContentTextField, field);
+      });
+      return { id: fieldId };
+    });
+  }
+
+  async findTextFieldById(
+    fieldId: number,
+  ): Promise<Either<TextFieldNotFoundById, TextFieldDto>> {
+    return this.getFieldById(fieldId).then(r =>
+      r.map(filed => ({
+        ...filed,
+        values: filed.values.map(value => ({
+          ...value,
+          createDate: value.createDate.toISOString(),
+        })),
+      })),
+    );
+  }
   async createText({
     value,
     fieldId,
-  }: CreateTextDto): Promise<Either<TextFieldNotFoundById, FlatTextDto>> {
+  }: CreateTextDto): Promise<Either<TextFieldNotFoundById, TextDto>> {
     const field = await this.getFieldById(fieldId);
     return field.asyncMap(async field => {
       const text = this.textRepository.create();
@@ -67,29 +103,14 @@ export class TextService {
     });
   }
 
-  async findTextOfField(
-    fieldId: number,
-  ): Promise<Either<TextFieldNotFoundById, FlatTextDto[]>> {
-    const field = await this.getFieldById(fieldId);
-    return field.asyncMap(async filed => {
-      const texts = await this.textRepository.find({
-        where: { field: filed },
-        relations: ['field', 'field.screen'],
-      });
-      return texts.map<FlatTextDto>(text => ({
-        ...text,
-        createDate: text.createDate.toISOString(),
-      }));
-    });
-  }
-
-  async getFieldById(
+  private async getFieldById(
     fieldId: number,
   ): Promise<Either<TextFieldNotFoundById, ContentTextField>> {
     const field = await this.textFieldRepository.findOne({
-      where:{id: fieldId},
-      relations: ['screen'],
+      where: { id: fieldId },
+      relations: ['values'],
     });
+
     if (field) {
       return right(field);
     } else {

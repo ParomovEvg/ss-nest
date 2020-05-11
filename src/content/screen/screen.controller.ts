@@ -1,8 +1,13 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { CreateScreenDto, CreateScreenResDto } from './screen.dto';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  CreateScreenDto,
+  CreateScreenResDto,
+  FindAllScreensResDto,
+} from './screen.dto';
 import { eitherToDto } from '../../asets/eitherToDto';
 import { ScreenService } from './screen.service';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Content')
 @Controller('screen')
 export class ScreenController {
   constructor(private screenService: ScreenService) {}
@@ -12,5 +17,15 @@ export class ScreenController {
     @Body() createScreenDto: CreateScreenDto,
   ): Promise<CreateScreenResDto> {
     return eitherToDto(await this.screenService.createScreen(createScreenDto));
+  }
+
+  @Get()
+  async findAllScreens(): Promise<FindAllScreensResDto> {
+    return { payload: await this.screenService.findAll() };
+  }
+
+  @Get(':screenId')
+  async findScreenById(@Param('screenId') screenId: number) {
+    return
   }
 }

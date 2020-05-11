@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ContentScreen } from './content-screen.entity';
 import { Repository } from 'typeorm';
-import { CreateScreenDto, FlatScreenDto } from './screen.dto';
+import {
+  CreateScreenDto,
+  FindAllScreensResDto,
+  FlatScreenDto,
+} from './screen.dto';
 import { Either, left, right } from '@sweet-monads/either';
 import {
   createScreenAlreadyExists,
@@ -22,6 +26,10 @@ export class ScreenService {
     return this.screenRepository.find({
       relations: ['textFields', 'textFields.values'],
     });
+  }
+
+  async findAll(): Promise<FlatScreenDto[]> {
+    return this.screenRepository.find();
   }
 
   async createScreen({

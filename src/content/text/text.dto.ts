@@ -1,16 +1,18 @@
-import { FlatScreenDto } from '../screen/screen.dto';
+export class TextFieldDto {
+  id: number;
+  name: string;
+  values: TextDto[];
+}
+
+export class TextDto {
+  id: number;
+  createDate: string;
+  value: string;
+}
 
 export class FlatTextFieldDto {
   id: number;
   name: string;
-  screen: FlatScreenDto;
-}
-
-export class FlatTextDto {
-  id: number;
-  value: string;
-  createDate: string;
-  field: FlatTextFieldDto;
 }
 
 export class TextFieldContentDto {
@@ -55,12 +57,19 @@ export class CreateTextDto {
 }
 
 export class CreateTextResDto implements ResDto {
-  payload?: FlatTextDto;
+  payload?: TextDto;
 }
 
 //=====================
 // FindTextOfField
 export class FindTextOfFieldResDto implements ResDto {
-  payload?: FlatTextDto[];
+  payload?: TextFieldDto;
   TextFiledNotFoundById?: TextFieldNotFoundById;
+}
+
+//=====================
+// DeleteTextField
+export class DeleteTextFieldResDto implements ResDto {
+  payload?: { id: number };
+  TextFieldNotFoundById?: TextFieldNotFoundById;
 }
