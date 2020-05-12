@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   ManyToOne,
-  OneToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ContentImg } from './content-img.entity';
@@ -15,7 +15,10 @@ export class ContentImgField {
   @Column({ type: 'varchar', length: 255, unique: true })
   name: string;
 
-  @OneToOne(type => ContentImg)
+  @OneToMany(
+    type => ContentImg,
+    img => img.field,
+  )
   img: ContentImg;
 
   @ManyToOne(type => ContentScreen)

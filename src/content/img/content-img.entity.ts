@@ -1,9 +1,7 @@
 import {
   Column,
-  CreateDateColumn,
   Entity,
   ManyToOne,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ContentImgField } from './content-img-field.entity';
@@ -16,9 +14,6 @@ export class ContentImg {
   @Column({ type: 'varchar' })
   url: string;
 
-  @CreateDateColumn()
-  createDate: Date;
-
-  @OneToOne(type => ContentImgField)
+  @ManyToOne(type => ContentImgField)
   field: ContentImgField;
 }
