@@ -52,7 +52,7 @@ export class ScreenService {
   ): Promise<Either<ScreenNotFoundById, ContentScreen>> {
     const screen = await this.screenRepository.findOne({
       where: { id: id },
-      relations: ['textFields'],
+      relations: ['textFields','textFields.values'],
     });
     if (screen) {
       return right(screen);
