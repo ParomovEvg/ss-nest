@@ -7,7 +7,7 @@ import {
   FindAllScreensResDto,
   FlatScreenDto,
 } from './screen.dto';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
 import {
   createScreenAlreadyExists,
   createScreenNotFoundById,

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Draw } from './draw.entity';
 import { Connection, Repository } from 'typeorm';
-import { right, Either, left } from '@sweet-monads/either';
+import { right, Either, left } from 'useful-monads';
 import {
   createDrawNotFoundById,
   createNotDrawNow,
@@ -22,6 +22,7 @@ import {
   FullDrawDto,
 } from './draw.dto';
 import { Qr } from '../qr.entity';
+import { EitherAsync } from 'useful-monads/EitherAsync';
 
 @Injectable()
 export class DrawService {
@@ -85,20 +86,18 @@ export class DrawService {
           end,
         ),
       )
-      .then(valE =>
-        valE
-          .map(([start, end]) => {
-            const draw = this.drawRepository.create();
-            draw.start = start;
-            draw.end = end;
-            draw.description = createDrawDto.description;
-            draw.sLimit = createDrawDto.sLimit;
-            draw.qrLimit = createDrawDto.qrLimit;
-            draw.qrLimitPeriodMS = createDrawDto.qrLimitPeriodMS;
-            return draw;
-          })
-          .asyncMap(draw => this.drawRepository.save(draw)),
-      );
+      .map(([start, end]) => {
+        const draw = this.drawRepository.create();
+        draw.start = start;
+        draw.end = end;
+        draw.description = createDrawDto.description;
+        draw.sLimit = createDrawDto.sLimit;
+        draw.qrLimit = createDrawDto.qrLimit;
+        draw.qrLimitPeriodMS = createDrawDto.qrLimitPeriodMS;
+        return draw;
+      })
+      .asyncMap(draw => this.drawRepository.save(draw))
+      .run();
   }
 
   async createNextDraw(createDrawNextDto: CreateDrawNextDto) {
@@ -124,8 +123,8 @@ export class DrawService {
   async deleteDraw(
     id: number,
   ): Promise<Either<DrawNotFoundById, { id: number }>> {
-    return this.findDraw({ id: id }).then(r =>
-      r.asyncMap(async draw => {
+    return EitherAsync.from(this.findDraw({ id: id }))
+      .asyncMap(async draw => {
         await this.connection.transaction(async tm => {
           await tm
             .createQueryBuilder()
@@ -141,8 +140,8 @@ export class DrawService {
             .execute();
         });
         return { id };
-      }),
-    );
+      })
+      .run();
   }
 
   async changeDraw(

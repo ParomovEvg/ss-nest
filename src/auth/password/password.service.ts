@@ -9,7 +9,7 @@ import {
   createPasswordsOfPhoneNotFound,
   PasswordsOfPhoneNotFound,
 } from './password.errors.dto';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
 
 @Injectable()
 export class PasswordService {

@@ -1,3 +1,3 @@
-import { right } from '@sweet-monads/either';
+import { right } from 'useful-monads';
 
 export const emptyEitherInPromise = Promise.resolve(right(true))

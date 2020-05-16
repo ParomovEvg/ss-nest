@@ -4,7 +4,7 @@ import { ContentImg } from './content-img.entity';
 import { Repository } from 'typeorm';
 import { ContentImgField } from './content-img-field.entity';
 import { ScreenService } from '../screen/screen.service';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
 import { ScreenNotFoundById } from '../screen/screen.errors.dto';
 import { FlatImgFieldDto } from './img.dto';
 import {
@@ -12,7 +12,7 @@ import {
   ImgFieldAlreadyExistsInScreen,
 } from './img.errors.dto';
 import { ContentScreen } from '../screen/content-screen.entity';
-import { AsyncEither } from '../../asets/myEither/myMonad';
+import { EitherAsync } from 'useful-monads/EitherAsync';
 
 @Injectable()
 export class ImgService {
@@ -30,7 +30,7 @@ export class ImgService {
   ): Promise<
     Either<ScreenNotFoundById | ImgFieldAlreadyExistsInScreen, FlatImgFieldDto>
   > {
-    return new AsyncEither(this.screenService.getScreenById(screenId))
+    return EitherAsync.from(this.screenService.getScreenById(screenId))
       .asyncChain(screen => this.checkFieldName(name, screen))
       .asyncMap(async screen => {
         const field = this.imgFieldRepository.create();

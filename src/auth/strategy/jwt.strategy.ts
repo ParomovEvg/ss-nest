@@ -4,6 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { jwtConstants } from '../constants';
 import { PhoneService } from '../phone/phone.service';
 import { Phone } from '../phone/phone.entity';
+import { EitherAsync } from 'useful-monads/EitherAsync';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -16,13 +17,14 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any): Promise<Phone> {
-    let error, phone;
-    const phoneEither = await this.phoneService.findPhone(payload.phone);
-    phoneEither.mapRight(r => (phone = r)).mapLeft(e => (error = e));
-    if (error) {
-      throw error;
-    } else if (phone) {
-      return phone;
+    const either = await EitherAsync.from(
+      this.phoneService.findPhone(payload.phone),
+    ).extract();
+
+    if (either.left) {
+      throw either.left;
+    } else if (either.right) {
+      return either.right;
     } else {
       throw new UnauthorizedException();
     }

@@ -7,7 +7,7 @@ import { Checkout } from './checkout/checkout.entity';
 import { Draw } from './draw/draw.entity';
 import { CreateQrDto, FlatQrDto } from './qr.dto';
 import { CheckoutService } from './checkout/checkout.service';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
 import {
   createQrAlreadyExists,
   createQrRegistrationLimitExceeded,
@@ -19,6 +19,7 @@ import {
 import { DrawService } from './draw/draw.service';
 import { NotDrawNow } from './draw/draw.errors.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
+import { EitherAsync } from 'useful-monads/EitherAsync';
 
 @Injectable()
 export class QrService {
@@ -46,34 +47,31 @@ export class QrService {
       FlatQrDto
     >
   > {
-    return this.checkQr(createQrDto.fp, createQrDto.fd)
-      .then(r => r.asyncChain(() => this.drawService.findNowDraw()))
-      .then(r => r.asyncChain(draw => this.checkSalary(draw, createQrDto.s)))
-      .then(r =>
-        r.asyncChain(draw => this.checkQrRegistrationLimit(draw, phone)),
-      )
-      .then(r =>
-        r.asyncChain(async draw =>
-          this.checkoutService
-            .findCheckout(createQrDto.fn)
-            .then(r => r.map(checkout => ({ draw, checkout }))),
-        ),
-      )
-      .then(r =>
-        r.asyncMap(async ({ draw, checkout }) => {
-          const qr = this.qrRepository.create(createQrDto);
-          qr.phone = phone;
-          qr.draw = draw;
-          qr.checkout = checkout;
-          const qrRes = await this.qrRepository.save(qr);
+    return EitherAsync.from(this.checkQr(createQrDto.fp, createQrDto.fd))
+      .asyncChain(() => this.drawService.findNowDraw())
+      .asyncChain(draw => this.checkSalary(draw, createQrDto.s))
+      .asyncChain(draw => this.checkQrRegistrationLimit(draw, phone))
 
-          const qrDto: FlatQrDto = {
-            ...qrRes,
-            time: qrRes.time.toISOString(),
-          };
-          return qrDto;
-        }),
-      );
+      .asyncChain(async draw =>
+        this.checkoutService
+          .findCheckout(createQrDto.fn)
+          .then(r => r.map(checkout => ({ draw, checkout }))),
+      )
+
+      .asyncMap(async ({ draw, checkout }) => {
+        const qr = this.qrRepository.create(createQrDto);
+        qr.phone = phone;
+        qr.draw = draw;
+        qr.checkout = checkout;
+        const qrRes = await this.qrRepository.save(qr);
+
+        const qrDto: FlatQrDto = {
+          ...qrRes,
+          time: qrRes.time.toISOString(),
+        };
+        return qrDto;
+      })
+      .run();
   }
 
   async checkQrRegistrationLimit(
@@ -91,7 +89,7 @@ export class QrService {
     }
     const qrsInTimeLimit = qrs.filter(qr => {
       const time = +qr.time;
-      return time > ageLimit
+      return time > ageLimit;
     });
     const canAddQr = qrsInTimeLimit.length < allowedNumber;
 

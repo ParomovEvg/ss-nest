@@ -11,7 +11,7 @@ import {
   createCheckoutNotFoundById,
 } from './checkout.errors.dto';
 import { CreateQrDto } from '../qr.dto';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
 
 type FnAble = string | Checkout | CreateCheckoutDto | CreateQrDto;
 

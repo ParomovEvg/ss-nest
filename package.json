@@ -28,7 +28,6 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/swagger": "^4.5.1",
     "@nestjs/typeorm": "^7.0.0",
-    "@sweet-monads/either": "^2.0.0",
     "@types/lodash": "^4.14.150",
     "@types/url-parse": "^1.4.3",
     "bcrypt": "^4.0.1",
@@ -46,7 +45,8 @@
     "rxjs": "^6.5.4",
     "swagger-ui-express": "^4.1.4",
     "typeorm": "^0.2.24",
-    "url-parse": "^1.4.7"
+    "url-parse": "^1.4.7",
+    "useful-monads": "^0.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",

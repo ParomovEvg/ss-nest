@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Either, left, right } from '@sweet-monads/either';
 import {
   createDateNotValid,
   createDatesAreTaken,
@@ -9,6 +8,7 @@ import {
   EndEarlierThanStart,
 } from '../draw/draw.errors.dto';
 import { Draw } from '../draw/draw.entity';
+import { Either, left, right } from 'useful-monads';
 
 @Injectable()
 export class DateService {

@@ -11,7 +11,8 @@ import {
   PhoneNotFound,
 } from './phone.errors.dto';
 import { CreatePhoneDto } from './phone.dto';
-import { Either, left, right } from '@sweet-monads/either';
+import { Either, left, right } from 'useful-monads';
+import { EitherAsync } from 'useful-monads/EitherAsync';
 
 @Injectable()
 export class PhoneService {
@@ -25,19 +26,21 @@ export class PhoneService {
   async createPhone(
     createPhoneDto: CreatePhoneDto,
   ): Promise<Either<PhoneAlreadyExists, Phone>> {
-    return (await this.phoneNotExists(createPhoneDto)).asyncMap(async () => {
-      const phone: Phone = this.phoneRepository.create();
-      phone.phone = createPhoneDto.phone;
-      const password = await this.passwordService.createPassword(
-        createPhoneDto.password,
-        phone,
-      );
-      await this.connection.transaction(async manager => {
-        await manager.save(phone);
-        await manager.save(password);
-      });
-      return Promise.resolve(phone);
-    });
+    return EitherAsync.from(this.phoneNotExists(createPhoneDto))
+      .asyncMap(async () => {
+        const phone: Phone = this.phoneRepository.create();
+        phone.phone = createPhoneDto.phone;
+        const password = await this.passwordService.createPassword(
+          createPhoneDto.password,
+          phone,
+        );
+        await this.connection.transaction(async manager => {
+          await manager.save(phone);
+          await manager.save(password);
+        });
+        return Promise.resolve(phone);
+      })
+      .run();
   }
 
   async addPassword(
@@ -45,9 +48,11 @@ export class PhoneService {
     password: string,
   ): Promise<Either<PhoneNotFound, Password>> {
     const phone = await this.findPhone(phoneObj);
-    return phone.asyncMap(phone => {
-      return this.passwordService.createAndSavePassword(password, phone);
-    });
+    return phone
+      .asyncMap(phone => {
+        return this.passwordService.createAndSavePassword(password, phone);
+      })
+      .run();
   }
 
   async findPhone(
