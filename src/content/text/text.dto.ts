@@ -58,6 +58,7 @@ export class CreateTextDto {
 
 export class CreateTextResDto implements ResDto {
   payload?: TextDto;
+  TextFiledNotFoundById?: TextFieldNotFoundById;
 }
 
 //=====================
