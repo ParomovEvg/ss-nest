@@ -12,4 +12,9 @@ export class ImgController {
   ): Promise<CreateImgFieldResDto> {
     return eitherToDto(await this.imgService.createImgField(screenId, name));
   }
+
+  @Post('value')
+  async creatImg(@Body() {name}:{name:string}){
+    return 'helfjal;df'
+  }
 }
