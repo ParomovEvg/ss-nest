@@ -51,13 +51,11 @@ export class QrService {
       .asyncChain(() => this.drawService.findNowDraw())
       .asyncChain(draw => this.checkSalary(draw, createQrDto.s))
       .asyncChain(draw => this.checkQrRegistrationLimit(draw, phone))
-
       .asyncChain(async draw =>
         this.checkoutService
           .findCheckout(createQrDto.fn)
           .then(r => r.map(checkout => ({ draw, checkout }))),
       )
-
       .asyncMap(async ({ draw, checkout }) => {
         const qr = this.qrRepository.create(createQrDto);
         qr.phone = phone;

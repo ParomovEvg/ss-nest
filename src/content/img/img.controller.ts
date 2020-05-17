@@ -16,5 +16,6 @@ export class ImgController {
   @Post('value')
   async creatImg(@Body() {name}:{name:string}){
     return 'helfjal;df'
+
   }
 }
