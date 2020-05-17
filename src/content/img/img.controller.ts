@@ -17,5 +17,6 @@ export class ImgController {
   async creatImg(@Body() {name}:{name:string}){
     return 'helfjal;df'
 
+
   }
 }
