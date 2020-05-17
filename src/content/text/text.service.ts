@@ -68,13 +68,16 @@ export class TextService {
       .asyncMap(async field => {
         await this.connection.transaction(async manager => {
           await manager
-            .createQueryBuilder()
-            .delete()
-            .from(ContentText, 'text')
-            .where('text.id IN (:...ids)', {
-              ids: field.values.map(text => text.id),
-            })
-            .execute();
+            .getRepository(ContentText)
+            .delete(field.values.map(e => e.id));
+          // await manager
+          //   .createQueryBuilder()
+          //   .delete()
+          //   .from(ContentText, 'text')
+          //   .where('text.id IN (:...ids)', {
+          //     ids: field.values.map(text => text.id),
+          //   })
+          //   .execute();
           await manager.delete(ContentTextField, field);
         });
         return { id: fieldId };
