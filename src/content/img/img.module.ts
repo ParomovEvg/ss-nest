@@ -12,6 +12,6 @@ import { ScreenModule } from '../screen/screen.module';
     ScreenModule,
   ],
   controllers: [ImgController],
-  providers: [ImgService],
+  providers: [ImgService, ],
 })
 export class ImgModule {}

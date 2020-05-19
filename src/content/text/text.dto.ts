@@ -18,7 +18,7 @@ export class FlatTextFieldDto {
 export class TextFieldContentDto {
   id: number;
   name: string;
-  value: TextContentDto;
+  value?: TextContentDto;
 }
 export class TextContentDto {
   id: number;

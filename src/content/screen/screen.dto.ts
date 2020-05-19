@@ -1,6 +1,11 @@
 import { ScreenAlreadyExists, ScreenNotFoundById } from './screen.errors.dto';
 import { ResDto } from '../../asets/eitherToDto';
-import { FlatTextFieldDto, TextFieldContentDto, TextFieldDto } from '../text/text.dto';
+import {
+  FlatTextFieldDto,
+  TextFieldContentDto,
+  TextFieldDto,
+} from '../text/text.dto';
+import { ImgFieldContentDto, ImgFieldDto } from '../img/img.dto';
 
 export class FlatScreenDto {
   id: number;
@@ -11,12 +16,14 @@ export class ScreenDto {
   id: number;
   name: string;
   textFields: TextFieldDto[];
+  imgFields: ImgFieldDto[];
 }
 
 export class ScreenContentDto {
   id: number;
   name: string;
   textFields: TextFieldContentDto[];
+  imgFields: ImgFieldContentDto[];
 }
 //=====================
 // CreateScreen

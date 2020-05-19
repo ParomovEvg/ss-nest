@@ -1,7 +1,28 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { CreateImgFieldDto, CreateImgFieldResDto } from './img.dto';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import {
+  CreateImgFieldDto,
+  CreateImgFieldResDto,
+  CreateImgResDto,
+  DeleteImgFieldResDto,
+  FindImgFieldByIdResDto,
+  GetImgBeforeResDto,
+} from './img.dto';
 import { eitherToDto } from '../../asets/eitherToDto';
 import { ImgService } from './img.service';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiConsumes } from '@nestjs/swagger';
+import { ApiImplicitFile } from '@nestjs/swagger/dist/decorators/api-implicit-file.decorator';
+import { diskStorage } from 'multer';
+import { v4 } from 'uuid';
 
 @Controller('img')
 export class ImgController {
@@ -13,10 +34,48 @@ export class ImgController {
     return eitherToDto(await this.imgService.createImgField(screenId, name));
   }
 
-  @Post('value')
-  async creatImg(@Body() {name}:{name:string}){
-    return 'helfjal;df'
+  @Delete('field/:fieldId')
+  async deleteImgField(
+    @Param('fieldId') fieldId: number,
+  ): Promise<DeleteImgFieldResDto> {
+    return eitherToDto(await this.imgService.deleteImgField(fieldId));
+  }
 
+  @Get('field/:fieldId')
+  async findFieldById(
+    @Param('fieldId') fieldId: number,
+  ): Promise<FindImgFieldByIdResDto> {
+    return eitherToDto(await this.imgService.findFiledById(fieldId));
+  }
 
+  @Post('field/:fieldId/value')
+  @ApiConsumes('multipart/form-data')
+  @ApiImplicitFile({ name: 'file', required: true })
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: diskStorage({
+        destination: './uploads',
+        filename: (req, file1, callback) => {
+          callback(null, v4());
+        },
+      }),
+    }),
+  )
+  async uploadFile(
+    @UploadedFile()
+    file: {
+      path: string;
+    },
+    @Param('fieldId') fieldId: number,
+  ): Promise<CreateImgResDto> {
+    return eitherToDto(await this.imgService.createImg(fieldId, file.path));
+  }
+
+  @Get('field/:fieldId/value/:imgId/before')
+  async getImgBefore(
+    @Param('fieldId') filedId: number,
+    @Param('imgId') imgId: number,
+  ): Promise<GetImgBeforeResDto> {
+    return eitherToDto(await this.imgService.getImageBefore(filedId, imgId));
   }
 }

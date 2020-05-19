@@ -14,6 +14,10 @@ export class ContentService {
         ...rest,
         value: last(values),
       })),
+      imgFields: screen.imgFields.map(({ img, ...rest }) => ({
+        ...rest,
+        img: last(img),
+      })),
     }));
   }
 }

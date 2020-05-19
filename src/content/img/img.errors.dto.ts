@@ -41,3 +41,64 @@ export const createImgFieldNotFoundById = createError(
   ImgFieldNotFoundByIdName.ImgFieldNotFoundById,
   ({ id }) => `Img Field not found By id = ${id}`,
 );
+//=====================
+// ImgVersionBeforeNotFound
+enum ImgVersionBeforeNotFoundName {
+  ImgVersionBeforeNotFound = 'ImgVersionBeforeNotFound',
+}
+
+export class ImgVersionBeforeNotFound implements ErrorDto {
+  name: ImgVersionBeforeNotFoundName;
+  message: string;
+  param: {
+    fieldId: number;
+    imgId: number;
+  };
+}
+
+export const createImgVersionBeforeNotFound = createError(
+  ImgVersionBeforeNotFound,
+  ImgVersionBeforeNotFoundName.ImgVersionBeforeNotFound,
+  ({ fieldId }) => `Это последняя сохранённая версия поля fieldId = ${fieldId}`,
+);
+
+//=====================
+// ImgNotFoundById
+enum ImgNotFoundByIdName {
+  ImgNotFoundById = 'ImgNotFoundById',
+}
+
+export class ImgNotFoundById implements ErrorDto {
+  name: ImgNotFoundByIdName;
+  message: string;
+  param: {
+    id: number;
+  };
+}
+
+export const createImgNotFoundById = createError(
+  ImgNotFoundById,
+  ImgNotFoundByIdName.ImgNotFoundById,
+  ({ id }) => `Изображение с id = ${id} не найдено`,
+);
+//=====================
+// ImgNotFoundByIdInField
+enum ImgNotFoundByIdInFieldName {
+  ImgNotFoundByIdInField = 'ImgNotFoundByIdInField',
+}
+
+export class ImgNotFoundByIdInField implements ErrorDto {
+  name: ImgNotFoundByIdInFieldName;
+  message: string;
+  param: {
+    imgId: number;
+    fieldId: number;
+  };
+}
+
+export const createImgNotFoundByIdInField = createError(
+  ImgNotFoundByIdInField,
+  ImgNotFoundByIdInFieldName.ImgNotFoundByIdInField,
+  ({ imgId, fieldId }) =>
+    `Изображение imgId = ${imgId} не найдено в поле с fieldId = ${fieldId}`,
+);

@@ -19,7 +19,7 @@ export class ContentImgField {
     type => ContentImg,
     img => img.field,
   )
-  img: ContentImg;
+  img: ContentImg[];
 
   @ManyToOne(type => ContentScreen)
   screen: ContentScreen;

@@ -24,7 +24,12 @@ export class ScreenService {
 
   async getAllScreensDeep(): Promise<ContentScreen[]> {
     return this.screenRepository.find({
-      relations: ['textFields', 'textFields.values'],
+      relations: [
+        'textFields',
+        'textFields.values',
+        'imgFields',
+        'imgFields.img',
+      ],
     });
   }
 
@@ -52,7 +57,12 @@ export class ScreenService {
   ): Promise<Either<ScreenNotFoundById, ContentScreen>> {
     const screen = await this.screenRepository.findOne({
       where: { id: id },
-      relations: ['textFields','textFields.values'],
+      relations: [
+        'textFields',
+        'textFields.values',
+        'imgFields',
+        'imgFields.img',
+      ],
     });
     if (screen) {
       return right(screen);
