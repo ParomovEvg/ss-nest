@@ -4,21 +4,25 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { QrModule } from './qr/qr.module';
 import { ContentModule } from './content/content.module';
-
-const username = process.env.POSTGRES_USER || 'a0319139_nest-ss';
-const password = process.env.POSTGRES_PASSWORD || '123';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'wedinvite.ru',
-      port: 3306,
-      username,
-      password,
-      database: 'a0319139_nest-ss',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      autoLoadEntities:true
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DATABASE_HOST'),
+        port: configService.get<number>('DATABASE_PORT'),
+        username: configService.get<string>('DATABASE_USERNAME'),
+        password: configService.get<string>('DATABASE_PASSWORD'),
+        database: configService.get<string>('DATABASE_DATABASE'),
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        autoLoadEntities: true,
+      }),
     }),
     AuthModule,
     QrModule,

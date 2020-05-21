@@ -24,6 +24,7 @@ import { dropRight } from 'lodash';
 const fs = require('fs').promises;
 import * as Path from 'path';
 import { URL } from 'url';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ImgService {
@@ -34,6 +35,7 @@ export class ImgService {
     private imgFieldRepository: Repository<ContentImgField>,
     private screenService: ScreenService,
     private connection: Connection,
+    private configService: ConfigService,
   ) {
     this.imgRepository.find().then(images => {
       const host = hostname();
@@ -129,13 +131,16 @@ export class ImgService {
         return this.findFiledById(field.id);
       })
       .asyncMap(field => {
-        console.log(field, path, hostname());
-        const url = new URL(Path.format({ dir: path }), `http://${hostname()}`);
+        const url = new URL(
+          Path.format({ dir: path }),
+          this.configService.get<string>('IMG_BASE'),
+        );
         const img = this.imgRepository.create();
         img.field = field;
         img.url = url.toString();
         img.path = path;
         img.host = hostname();
+
         return this.imgRepository.save(img);
       })
       .run();
