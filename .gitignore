@@ -5,6 +5,9 @@
 # upload
 uploads
 
+# env
+.env
+
 # Logs
 logs
 *.log
