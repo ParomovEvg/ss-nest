@@ -70,7 +70,7 @@ export class PasswordService {
     if (typeof password === 'string') {
       passwordString = password;
     } else {
-      passwordString = password.password;
+      passwordString = password?.password;
     }
     return passwordString;
   }
