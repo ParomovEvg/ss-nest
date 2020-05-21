@@ -86,7 +86,7 @@ export class PhoneService {
     if (typeof phone === 'string') {
       return phone;
     } else {
-      return phone.phone;
+      return phone?.phone;
     }
   }
 }
