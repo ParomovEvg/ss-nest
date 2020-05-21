@@ -132,7 +132,7 @@ export class ImgService {
       })
       .asyncMap(field => {
         const url = new URL(
-          Path.format({ dir: path }),
+          path,
           this.configService.get<string>('IMG_BASE'),
         );
         const img = this.imgRepository.create();

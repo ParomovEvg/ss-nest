@@ -23,6 +23,7 @@ import { ApiConsumes } from '@nestjs/swagger';
 import { ApiImplicitFile } from '@nestjs/swagger/dist/decorators/api-implicit-file.decorator';
 import { diskStorage } from 'multer';
 import { v4 } from 'uuid';
+import { last } from 'lodash';
 
 @Controller('img')
 export class ImgController {
@@ -56,7 +57,9 @@ export class ImgController {
       storage: diskStorage({
         destination: './uploads',
         filename: (req, file1, callback) => {
-          callback(null, v4());
+          const ext = last(file1.originalname.split('.'));
+
+          callback(null, v4() + '.' + ext);
         },
       }),
     }),
