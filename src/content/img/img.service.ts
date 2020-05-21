@@ -97,9 +97,11 @@ export class ImgService {
     return EitherAsync.from(this.findFiledById(fieldId))
       .asyncMap(async field => {
         await this.connection.transaction(async manager => {
-          await manager
-            .getRepository(ContentImg)
-            .delete(field.img.map(img => img.id));
+          if(field.img.length){
+            await manager
+              .getRepository(ContentImg)
+              .delete(field.img.map(img => img.id));
+          }
           await manager.getRepository(ContentImgField).delete(field);
           for (const img of field.img) {
             await fs.unlink(img.path);
