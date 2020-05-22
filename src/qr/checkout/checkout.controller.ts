@@ -7,7 +7,7 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { JwtAdminAuthGuard } from '../../auth/guards/jwt-admin-auth.guard';
+// import { JwtAdminAuthGuard } from '../../auth/guards/jwt-admin-auth.guard';
 import { CheckoutService } from './checkout.service';
 import { eitherToDto } from '../../asets/eitherToDto';
 import {  ApiParam, ApiTags } from '@nestjs/swagger';
@@ -20,7 +20,7 @@ import {
   FindQrsOfCheckoutResDto,
 } from './checkout.dto';
 
-@UseGuards(JwtAdminAuthGuard)
+// @UseGuards(JwtAdminAuthGuard)
 @ApiTags('Checkout')
 @Controller('checkout')
 export class CheckoutController {
