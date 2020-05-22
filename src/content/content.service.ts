@@ -18,6 +18,10 @@ export class ContentService {
         ...rest,
         img: last(img),
       })),
+      mdFields: screen.mdFields.map(({ values, ...rest }) => ({
+        ...rest,
+        value: last(values),
+      })),
     }));
   }
 }

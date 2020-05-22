@@ -1,28 +1,27 @@
 import { ResDto } from '../../asets/eitherToDto';
 import { ScreenNotFoundById } from '../screen/screen.errors.dto';
+import { IsJSON, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import {
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-} from 'class-validator';
-import { MdFieldAlreadyExistInScreen } from './md.errors.dto';
+  MdFieldAlreadyExistInScreen,
+  MdFieldNotFoundById,
+} from './md.errors.dto';
 
-class MdDto {
+export class MdDto {
   id: number;
   value: string;
 }
-class MdFieldDto {
+export class MdFieldDto {
   id: number;
   name: string;
   label: string;
   values: MdDto[];
 }
-class FlatMdFieldDto {
+export class FlatMdFieldDto {
   id: number;
   name: string;
   label: string;
 }
-class MdFieldContentDto {
+export class MdFieldContentDto {
   id: number;
   name: string;
   label: string;
@@ -30,32 +29,51 @@ class MdFieldContentDto {
 }
 
 //=====================
-// CreateMdFieldDto
-export class CreateMdFieldDtoDto {
-  @IsNumber()
-  @IsNotEmpty()
-  id: number;
+// CreateMdField
+export class CreateMdFieldDto {
   @IsString()
   @IsNotEmpty()
   name: string;
   @IsString()
   @IsNotEmpty()
   label: string;
+  @IsNumber()
+  @IsNotEmpty()
+  screenId: number;
 }
 
-export class CreateMdFieldDtoResDto implements ResDto {
+export class CreateMdFieldResDto implements ResDto {
   payload?: FlatMdFieldDto;
   ScreenNotFoundById?: ScreenNotFoundById;
   MdFieldAlreadyExistInScreen?: MdFieldAlreadyExistInScreen;
 }
 
 //=====================
-// CreateMdDto
-export class CreateMdDtoDto {
-
+// CreateMd
+export class CreateMdDto {
+  @IsNumber()
+  @IsNotEmpty()
+  fieldId: number;
+  @IsString()
+  @IsNotEmpty()
+  value: string;
 }
 
-export class CreateMdDtoResDto implements ResDto {
+export class CreateMdResDto implements ResDto {
   payload?: MdDto;
+  MdFieldNotFoundById?: MdFieldNotFoundById;
 }
 
+//=====================
+// DeleteMdField
+export class DeleteMdFieldResDto implements ResDto {
+  payload?: { id: number };
+  MdFieldNotFoundById?: MdFieldNotFoundById;
+}
+
+//=====================
+// FindMdField
+export class FindMdFieldResDto implements ResDto {
+  payload?: MdFieldDto;
+  MdFieldNotFoundById?: MdFieldNotFoundById;
+}

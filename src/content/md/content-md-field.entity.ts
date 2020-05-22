@@ -12,7 +12,7 @@ export class ContentMdField {
   label: string;
   @OneToMany(
     type => ContentMd,
-    md => md.value,
+    md => md.field,
   )
   values: ContentMd[];
 

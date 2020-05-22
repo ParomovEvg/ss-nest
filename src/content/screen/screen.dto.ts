@@ -6,6 +6,7 @@ import {
   TextFieldDto,
 } from '../text/text.dto';
 import { ImgFieldContentDto, ImgFieldDto } from '../img/img.dto';
+import { MdFieldContentDto } from '../md/md.dto';
 
 export class FlatScreenDto {
   id: number;
@@ -17,6 +18,7 @@ export class ScreenDto {
   name: string;
   textFields: TextFieldDto[];
   imgFields: ImgFieldDto[];
+  mdFields: MdFieldContentDto[];
 }
 
 export class ScreenContentDto {
@@ -24,6 +26,7 @@ export class ScreenContentDto {
   name: string;
   textFields: TextFieldContentDto[];
   imgFields: ImgFieldContentDto[];
+  mdFields: MdFieldContentDto[];
 }
 //=====================
 // CreateScreen
