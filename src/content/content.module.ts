@@ -11,10 +11,7 @@ import { ScreenModule } from './screen/screen.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([
-      ContentMdField,
-      ContentMd,
-    ]),
+
     TextModule,
     ImgModule,
     MdModule,
