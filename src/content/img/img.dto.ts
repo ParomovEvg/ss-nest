@@ -77,3 +77,16 @@ export class GetImgBeforeResDto implements ResDto {
   ImgFieldNotFoundById?: ImgFieldNotFoundById;
   ImgNotFoundByIdInField?: ImgNotFoundByIdInField;
 }
+
+//=====================
+// MakeImgLast
+export class SaveImgLastDto {
+  @IsNumber()
+  @IsNotEmpty()
+  imgId: number;
+}
+
+export class SaveImgLastResDto implements ResDto {
+  payload?: ImgDto;
+  ImgNotFoundById?:ImgNotFoundById;
+}

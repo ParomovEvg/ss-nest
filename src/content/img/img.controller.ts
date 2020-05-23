@@ -15,6 +15,8 @@ import {
   DeleteImgFieldResDto,
   FindImgFieldByIdResDto,
   GetImgBeforeResDto,
+  SaveImgLastDto,
+  SaveImgLastResDto,
 } from './img.dto';
 import { eitherToDto } from '../../asets/eitherToDto';
 import { ImgService } from './img.service';
@@ -80,5 +82,12 @@ export class ImgController {
     @Param('imgId') imgId: number,
   ): Promise<GetImgBeforeResDto> {
     return eitherToDto(await this.imgService.getImageBefore(filedId, imgId));
+  }
+
+  @Post('value/before')
+  async saveImgBefore(
+    @Body() saveImgLastDto: SaveImgLastDto,
+  ): Promise<SaveImgLastResDto> {
+    return eitherToDto(await this.imgService.saveImgLast(saveImgLastDto.imgId));
   }
 }

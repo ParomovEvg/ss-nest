@@ -10,21 +10,24 @@ import { FlatImgFieldDto, ImgDto } from './img.dto';
 import {
   createImgFieldAlreadyExistsInScreen,
   createImgFieldNotFoundById,
+  createImgNotFoundById,
   createImgNotFoundByIdInField,
   createImgVersionBeforeNotFound,
   ImgFieldAlreadyExistsInScreen,
   ImgFieldNotFoundById,
+  ImgNotFoundById,
   ImgNotFoundByIdInField,
   ImgVersionBeforeNotFound,
 } from './img.errors.dto';
 import { ContentScreen } from '../screen/content-screen.entity';
 import { EitherAsync } from 'useful-monads/EitherAsync';
 import { hostname } from 'os';
-import { dropRight } from 'lodash';
+import { dropRight, last } from 'lodash';
 const fs = require('fs').promises;
 import * as Path from 'path';
 import { URL } from 'url';
 import { ConfigService } from '@nestjs/config';
+import { v4 } from 'uuid';
 
 @Injectable()
 export class ImgService {
@@ -97,7 +100,7 @@ export class ImgService {
     return EitherAsync.from(this.findFiledById(fieldId))
       .asyncMap(async field => {
         await this.connection.transaction(async manager => {
-          if(field.img.length){
+          if (field.img.length) {
             await manager
               .getRepository(ContentImg)
               .delete(field.img.map(img => img.id));
@@ -118,25 +121,11 @@ export class ImgService {
   ): Promise<Either<ImgFieldNotFoundById, ContentImg>> {
     return EitherAsync.from(this.findFiledById(fieldId))
       .asyncChain(async field => {
-        const images = field.img;
-        if (images.length > 2) {
-          const imagesToDelete = dropRight(images, 2);
-          try {
-            for (const img of imagesToDelete) {
-              await fs.unlink(img.path);
-            }
-          } catch (e) {
-            console.log(e);
-          }
-          await this.imgRepository.delete(imagesToDelete.map(img => img.id));
-        }
+        await this.deleteIfMoreThenLimit(field, 2);
         return this.findFiledById(field.id);
       })
       .asyncMap(field => {
-        const url = new URL(
-          path,
-          this.configService.get<string>('IMG_BASE'),
-        );
+        const url = new URL(path, this.configService.get<string>('IMG_BASE'));
         const img = this.imgRepository.create();
         img.field = field;
         img.url = url.toString();
@@ -144,6 +133,29 @@ export class ImgService {
         img.host = hostname();
 
         return this.imgRepository.save(img);
+      })
+      .run();
+  }
+
+  saveImgLast(imgId): Promise<Either<ImgNotFoundById, ImgDto>> {
+    return EitherAsync.from(this.findImg(imgId))
+      .asyncMap(async img => {
+        const newImg = this.imgRepository.create();
+        const ext = last(img.path.split('.'));
+        const newPath = 'uploads/' + v4() + '.' + ext;
+        await fs.copyFile(img.path, newPath);
+        const url = new URL(
+          newPath,
+          this.configService.get<string>('IMG_BASE'),
+        );
+        newImg.field = img.field;
+        newImg.url = url.toString();
+        newImg.path = newPath;
+        newImg.host = hostname();
+        await this.deleteIfMoreThenLimit(img.field, 2);
+        const copyImg = await this.imgRepository.save(newImg);
+        delete copyImg.field;
+        return copyImg;
       })
       .run();
   }
@@ -222,6 +234,32 @@ export class ImgService {
       );
     } else {
       return right(screen);
+    }
+  }
+
+  async findImg(imgId: number): Promise<Either<ImgNotFoundById, ContentImg>> {
+    const img = await this.imgRepository.findOne({
+      where: { id: imgId },
+      relations: ['field', 'field.img'],
+    });
+    if (img) {
+      return right(img);
+    } else {
+      return left(createImgNotFoundById({ id: imgId }));
+    }
+  }
+  async deleteIfMoreThenLimit(field: ContentImgField, limit: number) {
+    const images = field.img;
+    if (images.length > limit) {
+      const imagesToDelete = dropRight(images, limit);
+      try {
+        for (const img of imagesToDelete) {
+          await fs.unlink(img.path);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+      await this.imgRepository.delete(imagesToDelete.map(img => img.id));
     }
   }
 }
