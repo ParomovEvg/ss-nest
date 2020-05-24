@@ -64,6 +64,8 @@ export class ScreenService {
         'textFields.values',
         'imgFields',
         'imgFields.img',
+        'mdFields',
+        'mdFields.values'
       ],
     });
     if (screen) {
