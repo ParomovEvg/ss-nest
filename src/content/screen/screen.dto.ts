@@ -7,6 +7,7 @@ import {
 } from '../text/text.dto';
 import { ImgFieldContentDto, ImgFieldDto } from '../img/img.dto';
 import { MdFieldContentDto } from '../md/md.dto';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class FlatScreenDto {
   id: number;
@@ -50,5 +51,25 @@ export class FindAllScreensResDto implements ResDto {
 // FindScreenById
 export class FindScreenByIdResDto implements ResDto {
   payload?: ScreenDto;
+  ScreenNotFoundById?: ScreenNotFoundById;
+}
+
+//=====================
+// DeleteScreen
+export class DeleteScreenResDto implements ResDto {
+  payload?: { id: number };
+  ScreenNotFoundById?: ScreenNotFoundById;
+}
+
+//=====================
+// ChangeScreenName
+export class ChangeScreenNameDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+}
+
+export class ChangeScreenNameResDto implements ResDto {
+  payload?: FlatScreenDto;
   ScreenNotFoundById?: ScreenNotFoundById;
 }

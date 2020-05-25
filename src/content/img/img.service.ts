@@ -1,4 +1,4 @@
-import { Injectable, Post } from '@nestjs/common';
+import { forwardRef, Inject, Injectable, Post } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ContentImg } from './content-img.entity';
 import { Connection, Repository } from 'typeorm';
@@ -36,6 +36,7 @@ export class ImgService {
     private imgRepository: Repository<ContentImg>,
     @InjectRepository(ContentImgField)
     private imgFieldRepository: Repository<ContentImgField>,
+    @Inject(forwardRef(() => ScreenService))
     private screenService: ScreenService,
     private connection: Connection,
     private configService: ConfigService,

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ContentText } from './content-text.entity';
 import { Connection, Repository } from 'typeorm';
@@ -28,6 +28,7 @@ export class TextService {
     private textRepository: Repository<ContentText>,
     @InjectRepository(ContentTextField)
     private textFieldRepository: Repository<ContentTextField>,
+    @Inject(forwardRef(() => ScreenService))
     private screenService: ScreenService,
     private connection: Connection,
   ) {}
@@ -67,17 +68,10 @@ export class TextService {
     return EitherAsync.from(this.getFieldById(fieldId))
       .asyncMap(async field => {
         await this.connection.transaction(async manager => {
-          await manager
-            .getRepository(ContentText)
-            .delete(field.values.map(e => e.id));
-          // await manager
-          //   .createQueryBuilder()
-          //   .delete()
-          //   .from(ContentText, 'text')
-          //   .where('text.id IN (:...ids)', {
-          //     ids: field.values.map(text => text.id),
-          //   })
-          //   .execute();
+          if (field.values.length)
+            await manager
+              .getRepository(ContentText)
+              .delete(field.values.map(e => e.id));
           await manager.delete(ContentTextField, field);
         });
         return { id: fieldId };

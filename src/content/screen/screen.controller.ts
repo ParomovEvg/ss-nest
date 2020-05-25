@@ -1,7 +1,18 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
+import {
+  ChangeScreenNameDto,
+  ChangeScreenNameResDto,
   CreateScreenDto,
   CreateScreenResDto,
+  DeleteScreenResDto,
   FindAllScreensResDto,
   FindScreenByIdResDto,
 } from './screen.dto';
@@ -30,5 +41,22 @@ export class ScreenController {
     @Param('screenId') screenId: number,
   ): Promise<FindScreenByIdResDto> {
     return eitherToDto(await this.screenService.getScreenById(screenId));
+  }
+
+  @Delete(':screenId')
+  async deleteScreenById(
+    @Param('screenId') screenId: number,
+  ): Promise<DeleteScreenResDto> {
+    return eitherToDto(await this.screenService.deleteScreen(screenId));
+  }
+
+  @Put(':screenId')
+  async changeScreenName(
+    @Param('screenId') screenId: number,
+    @Body() changeScreenNameDto: ChangeScreenNameDto,
+  ): Promise<ChangeScreenNameResDto> {
+    return eitherToDto(
+      await this.screenService.changeScreenName(screenId, changeScreenNameDto),
+    );
   }
 }

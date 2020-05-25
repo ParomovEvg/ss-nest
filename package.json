@@ -50,7 +50,7 @@
     "swagger-ui-express": "^4.1.4",
     "typeorm": "^0.2.24",
     "url-parse": "^1.4.7",
-    "useful-monads": "^0.2.0",
+    "useful-monads": "^0.3.0",
     "uuid": "^8.0.0"
   },
   "devDependencies": {

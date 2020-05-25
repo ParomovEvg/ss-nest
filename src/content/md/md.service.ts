@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ContentMdField } from './content-md-field.entity';
 import { Connection, Repository } from 'typeorm';
@@ -28,6 +28,7 @@ export class MdService {
     private mdFieldRepository: Repository<ContentMdField>,
     @InjectRepository(ContentMd)
     private mdRepository: Repository<ContentMd>,
+    @Inject(forwardRef(() => ScreenService))
     private screenService: ScreenService,
     private connection: Connection,
   ) {}
@@ -90,9 +91,11 @@ export class MdService {
     return EitherAsync.from(this.findMdField(fieldId))
       .asyncMap(async field => {
         await this.connection.transaction(async mr => {
-          await mr
-            .getRepository(ContentMd)
-            .delete(field.values.map(value => value.id));
+          if(field.values.length){
+            await mr
+              .getRepository(ContentMd)
+              .delete(field.values.map(value => value.id));
+          }
           await mr.getRepository(ContentMdField).delete(field);
         });
         return { id: field.id };
