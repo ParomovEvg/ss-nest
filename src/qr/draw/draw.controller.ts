@@ -23,9 +23,9 @@ import {
 } from './draw.dto';
 import { DrawService } from './draw.service';
 import { eitherToDto } from '../../asets/eitherToDto';
-import { JwtAdminAuthGuard } from '../../auth/guards/jwt-admin-auth.guard';
+// import { JwtAdminAuthGuard } from '../../auth/guards/jwt-admin-auth.guard';
 import {  ApiTags } from '@nestjs/swagger';
-@UseGuards(JwtAdminAuthGuard)
+// @UseGuards(JwtAdminAuthGuard)
 @ApiTags('Draw')
 @Controller('draw')
 export class DrawController {
