@@ -30,7 +30,7 @@ AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRootAsync({
                 inject: [config_1.ConfigService],
                 useFactory: (configService) => ({
-                    type: 'mysql',
+                    type: 'postgres',
                     host: configService.get('DATABASE_HOST'),
                     port: configService.get('DATABASE_PORT'),
                     username: configService.get('DATABASE_USERNAME'),

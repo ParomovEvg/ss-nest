@@ -17,6 +17,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any): Promise<Phone> {
+    if (!payload?.phone) {
+      throw new UnauthorizedException();
+    }
+
     const either = await EitherAsync.from(
       this.phoneService.findPhone(payload.phone),
     ).extract();

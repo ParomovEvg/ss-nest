@@ -17,6 +17,9 @@ export class JwtAdminStrategy extends PassportStrategy(Strategy, 'jwt-admin') {
   }
 
   async validate(payload: any): Promise<Phone> {
+    if (!payload?.phone) {
+      throw new UnauthorizedException();
+    }
     const res = await EitherAsync.from(
       this.phoneService.findPhone(payload.phone),
     ).extract();

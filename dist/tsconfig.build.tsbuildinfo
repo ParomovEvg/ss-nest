@@ -2434,7 +2434,7 @@
         "signature": "d306be26f96b4bd9b279cd7da9d1355d5ce4060a2bb254489c1b95c87057eb38"
       },
       "../src/auth/strategy/jwt.strategy.ts": {
-        "version": "5c626b1f6719d6c8c0305713b75de7950ce2e51df6feab2c5677b6b5df13d01e",
+        "version": "5144d27fe24d2640e9e8269633da7e4b56799f3a9759b8452e5eed31fa5aa24e",
         "signature": "d301bdab54a1f7823ea4feaa4ac1466dea0b002ba4588b5b879cc6cce90e7186"
       },
       "../src/auth/guards/jwt-auth.guard.ts": {
@@ -2598,7 +2598,7 @@
         "signature": "a8980c7f64ed3819c0032d24e94c7d6962e3d13c5007134052659d2cd6421f7b"
       },
       "../src/auth/strategy/jwt-admin.strategy.ts": {
-        "version": "445f84a2cdc3d306ac037842d68c7cf1fccb1a3f928bbfc1b3bf9470602a896d",
+        "version": "0e82fa550afb33edac8a3576fb35ca05545a49a3fab6362c47cd05fbed19b601",
         "signature": "ef062d23fc455f988cfe3dcdfa0d7f352f40c5f222bf73444da73300f3aec088"
       },
       "../src/auth/auth.module.ts": {
@@ -2958,7 +2958,7 @@
         "signature": "da3a561c98a4b324f822c0910719f7d0b7c82f9e39d38475f64779607de9b3b1"
       },
       "../src/app.module.ts": {
-        "version": "0719e4b713544a19426604f9b65cc61c3c1031d9c00da9b09aa168a81aa74d71",
+        "version": "c451b57899e31c1855c2e6912c4e985e3c75a4e234c76e7ab51306995552ae24",
         "signature": "952ad08759f8f7b2fa9451d437031294a9b00ccddc43983092fea9b3f67b0199"
       },
       "../node_modules/@nestjs/core/adapters/index.d.ts": {
@@ -17467,7 +17467,6 @@
       "../src/auth/strategy/local.strategy.ts",
       "../src/auth/constants.ts",
       "../node_modules/@types/passport-jwt/index.d.ts",
-      "../src/auth/strategy/jwt.strategy.ts",
       "../src/auth/guards/jwt-auth.guard.ts",
       "../src/auth/jwt-request.ts",
       "../src/auth/guards/local-auth.guard.ts",
@@ -17508,7 +17507,6 @@
       "../node_modules/@nestjs/swagger/index.d.ts",
       "../src/auth/auth.dto.ts",
       "../src/auth/auth.controller.ts",
-      "../src/auth/strategy/jwt-admin.strategy.ts",
       "../src/auth/auth.module.ts",
       "../src/qr/draw/draw.errors.dto.ts",
       "../src/qr/draw/draw.dto.ts",
@@ -17522,6 +17520,7 @@
       "../src/qr/qr.service.ts",
       "../src/qr/qr.controller.ts",
       "../src/qr/qr-string-parser.middleware.ts",
+      "../src/qr/draw/draw.controller.ts",
       "../src/qr/checkout/checkout.controller.ts",
       "../src/qr/qr.module.ts",
       "../src/content/screen/screen.errors.dto.ts",
@@ -17597,7 +17596,6 @@
       "../src/content/md/md.controller.ts",
       "../src/content/text/text.controller.ts",
       "../src/content/content.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
@@ -17675,7 +17673,9 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/qr/draw/draw.controller.ts"
+      "../src/auth/strategy/jwt.strategy.ts",
+      "../src/auth/strategy/jwt-admin.strategy.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.8.3"

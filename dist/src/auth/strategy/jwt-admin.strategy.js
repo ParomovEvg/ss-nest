@@ -25,6 +25,9 @@ let JwtAdminStrategy = class JwtAdminStrategy extends passport_1.PassportStrateg
         this.phoneService = phoneService;
     }
     async validate(payload) {
+        if (!(payload === null || payload === void 0 ? void 0 : payload.phone)) {
+            throw new common_1.UnauthorizedException();
+        }
         const res = await EitherAsync_1.EitherAsync.from(this.phoneService.findPhone(payload.phone)).extract();
         if (res.left) {
             throw res.left;
