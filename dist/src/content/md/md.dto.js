@@ -37,7 +37,7 @@ class MdFieldContentDto {
 exports.MdFieldContentDto = MdFieldContentDto;
 class CreateMdFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, label: { required: true, type: () => String }, screenId: { required: true, type: () => Number } };
+        return { name: { required: true, type: () => String }, label: { required: true, type: () => String }, screenId: { required: true, type: () => Number } };
     }
 }
 __decorate([
