@@ -6,10 +6,10 @@ export class Draw {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'datetime', default:null })
+  @Column({ type: 'timestamptz', default: null })
   start: Date;
 
-  @Column({ type: 'datetime', default:null })
+  @Column({ type: 'timestamptz', default: null })
   end: Date;
 
   @Column({ type: 'text' })

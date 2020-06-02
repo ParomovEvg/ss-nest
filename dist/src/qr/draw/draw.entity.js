@@ -22,11 +22,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Draw.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'datetime', default: null }),
+    typeorm_1.Column({ type: 'timestamptz', default: null }),
     __metadata("design:type", Date)
 ], Draw.prototype, "start", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'datetime', default: null }),
+    typeorm_1.Column({ type: 'timestamptz', default: null }),
     __metadata("design:type", Date)
 ], Draw.prototype, "end", void 0);
 __decorate([
