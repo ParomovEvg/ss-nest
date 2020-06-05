@@ -29,15 +29,16 @@ let ContentService = class ContentService {
     }
     async getContent() {
         const screens = await this.screenService.getAllScreensDeep();
+        console.log(screens);
         return screens.map(screen => (Object.assign(Object.assign({}, screen), { textFields: screen.textFields.map((_a) => {
                 var { values } = _a, rest = __rest(_a, ["values"]);
-                return (Object.assign(Object.assign({}, rest), { value: lodash_1.last(values) }));
+                return (Object.assign(Object.assign({}, rest), { value: lodash_1.first(values) }));
             }), imgFields: screen.imgFields.map((_a) => {
                 var { img } = _a, rest = __rest(_a, ["img"]);
-                return (Object.assign(Object.assign({}, rest), { img: lodash_1.last(img) }));
+                return (Object.assign(Object.assign({}, rest), { img: lodash_1.first(img) }));
             }), mdFields: screen.mdFields.map((_a) => {
                 var { values } = _a, rest = __rest(_a, ["values"]);
-                return (Object.assign(Object.assign({}, rest), { value: lodash_1.last(values) }));
+                return (Object.assign(Object.assign({}, rest), { value: lodash_1.first(values) }));
             }) })));
     }
 };

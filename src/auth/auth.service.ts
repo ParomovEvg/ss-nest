@@ -5,6 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Phone } from './phone/phone.entity';
 import { CreatePhoneDto } from './phone/phone.dto';
 import { EitherAsync } from 'useful-monads/EitherAsync';
+import { LoginDto } from './auth.dto';
 
 @Injectable()
 export class AuthService {
@@ -14,10 +15,10 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async validate(createPhoneDto: CreatePhoneDto) {
-    return EitherAsync.from(this.phoneService.findPhone(createPhoneDto))
+  async validate(loginDto: LoginDto) {
+    return EitherAsync.from(this.phoneService.findPhone(loginDto))
       .asyncChain(phone =>
-        this.passwordService.checkPhonePassword(phone, createPhoneDto),
+        this.passwordService.checkPhonePassword(phone, loginDto),
       )
       .run();
   }

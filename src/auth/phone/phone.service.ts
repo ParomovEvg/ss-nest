@@ -13,6 +13,7 @@ import {
 import { CreatePhoneDto } from './phone.dto';
 import { Either, left, right } from 'useful-monads';
 import { EitherAsync } from 'useful-monads/EitherAsync';
+import { SendPasswordMailService } from '../../send-password/send-password-mail/send-password-mail.service';
 
 @Injectable()
 export class PhoneService {
@@ -21,36 +22,34 @@ export class PhoneService {
     private phoneRepository: Repository<Phone>,
     private passwordService: PasswordService,
     private connection: Connection,
+    private sendPasswordMailService: SendPasswordMailService,
   ) {}
 
-  async createPhone(
-    createPhoneDto: CreatePhoneDto,
-  ): Promise<Either<PhoneAlreadyExists, Phone>> {
-    return EitherAsync.from(this.phoneNotExists(createPhoneDto))
-      .asyncMap(async () => {
-        const phone: Phone = this.phoneRepository.create();
-        phone.phone = createPhoneDto.phone;
-        const password = await this.passwordService.createPassword(
-          createPhoneDto.password,
-          phone,
-        );
-        await this.connection.transaction(async manager => {
-          await manager.save(phone);
-          await manager.save(password);
-        });
-        return Promise.resolve(phone);
-      })
-      .run();
+  async createPhone(createPhoneDto: CreatePhoneDto): Promise<Phone> {
+    const phone = await EitherAsync.from(
+      this.findPhone(createPhoneDto.phone),
+    ).orDefault(this.phoneRepository.create());
+    phone.phone = createPhoneDto.phone;
+    const password = await this.passwordService.createPassword(phone);
+    await this.connection.transaction(async manager => {
+      await manager.save(phone);
+      await manager.save(password);
+    });
+    return Promise.resolve(phone);
   }
 
-  async addPassword(
-    phoneObj: Phone,
-    password: string,
-  ): Promise<Either<PhoneNotFound, Password>> {
+  async addPassword(phoneObj: Phone): Promise<Either<PhoneNotFound, Password>> {
     const phone = await this.findPhone(phoneObj);
     return phone
-      .asyncMap(phone => {
-        return this.passwordService.createAndSavePassword(password, phone);
+      .asyncMap(async phone => {
+        const password = await this.passwordService.createAndSavePassword(
+          phone,
+        );
+        await this.sendPasswordMailService.sendPassword(
+          phone.phone,
+          password.password,
+        );
+        return password;
       })
       .run();
   }

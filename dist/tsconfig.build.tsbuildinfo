@@ -1961,6 +1961,26 @@
         "version": "de2067c64cca960b3a01981137f5dc871800d3d526d3bdbfc4e0c3973e721783",
         "signature": "ea72f8426f6c512dc2939251a567e34f4e83519c405767d37c778ef674392a56"
       },
+      "../src/asets/error.dto.ts": {
+        "version": "b42842210d66b636b9a420bf86253be33fc94689e97c849c0bb8449694729430",
+        "signature": "7df444e049fef25257813a64a533ac27921eea1672fd777b9688232af7077d14"
+      },
+      "../node_modules/useful-monads/eitherasync.d.ts": {
+        "version": "7715eb4677463a56e0ad6c900fb110299f85b2fcf905dccb52e2e3f69b5f2f04",
+        "signature": "7715eb4677463a56e0ad6c900fb110299f85b2fcf905dccb52e2e3f69b5f2f04"
+      },
+      "../node_modules/useful-monads/either.d.ts": {
+        "version": "68389705139d9650d4317a1e062315beabbf02789b70477c89277ad39bb31ec7",
+        "signature": "68389705139d9650d4317a1e062315beabbf02789b70477c89277ad39bb31ec7"
+      },
+      "../node_modules/useful-monads/index.d.ts": {
+        "version": "d7346bdb969e232fe39a50e94aca4cdc6ea0d123d144a2053df4cd7b950ac520",
+        "signature": "d7346bdb969e232fe39a50e94aca4cdc6ea0d123d144a2053df4cd7b950ac520"
+      },
+      "../src/asets/eithertodto.ts": {
+        "version": "2b0e543aab11a6208f763d0cdc82068fe1e4a0a45f18e03279e47ead4a0646f1",
+        "signature": "92c8ea7dc96c9a65f61c74605b59a1f9de01f2dbedc9f4d47bc1af08bb195d5f"
+      },
       "../node_modules/class-validator/validation/validationerror.d.ts": {
         "version": "8b5ad058f8dab857050fdbb092b9f1267d22641f0f746cd8a7abee85b48bb83a",
         "signature": "8b5ad058f8dab857050fdbb092b9f1267d22641f0f746cd8a7abee85b48bb83a"
@@ -2033,49 +2053,29 @@
         "version": "70aecfd981af29d74ba7ab6667b9cc2a53459d8eb099c139fd2aa54c3059c71d",
         "signature": "70aecfd981af29d74ba7ab6667b9cc2a53459d8eb099c139fd2aa54c3059c71d"
       },
-      "../src/asets/error.dto.ts": {
-        "version": "b42842210d66b636b9a420bf86253be33fc94689e97c849c0bb8449694729430",
-        "signature": "7df444e049fef25257813a64a533ac27921eea1672fd777b9688232af7077d14"
-      },
-      "../node_modules/useful-monads/eitherasync.d.ts": {
-        "version": "7715eb4677463a56e0ad6c900fb110299f85b2fcf905dccb52e2e3f69b5f2f04",
-        "signature": "7715eb4677463a56e0ad6c900fb110299f85b2fcf905dccb52e2e3f69b5f2f04"
-      },
-      "../node_modules/useful-monads/either.d.ts": {
-        "version": "68389705139d9650d4317a1e062315beabbf02789b70477c89277ad39bb31ec7",
-        "signature": "68389705139d9650d4317a1e062315beabbf02789b70477c89277ad39bb31ec7"
-      },
-      "../node_modules/useful-monads/index.d.ts": {
-        "version": "d7346bdb969e232fe39a50e94aca4cdc6ea0d123d144a2053df4cd7b950ac520",
-        "signature": "d7346bdb969e232fe39a50e94aca4cdc6ea0d123d144a2053df4cd7b950ac520"
-      },
-      "../src/asets/eithertodto.ts": {
-        "version": "2b0e543aab11a6208f763d0cdc82068fe1e4a0a45f18e03279e47ead4a0646f1",
-        "signature": "92c8ea7dc96c9a65f61c74605b59a1f9de01f2dbedc9f4d47bc1af08bb195d5f"
-      },
       "../src/auth/phone/phone.errors.dto.ts": {
         "version": "a80f0cdcbf4ac922448640dcb770bbdfc909b77d0bad6dc10de54872fb5457f8",
         "signature": "ffc79c47da542e57f2428bbdaa36f26a37d7c372ddc55beac9d1a309d23878f8"
       },
       "../src/auth/phone/phone.dto.ts": {
-        "version": "10e7a1eaa5ce226f7f1ec0fb06d1ac746e9270f5ad54815aaa8e899e9c32d34b",
-        "signature": "8453e72c76d9f2fdb003f6509533ac3eebcb833300433ebe62339af15edccdc7"
+        "version": "1e2731bed65b145c9b397f2d03d4cb9c46e586c58b28cc42db0f338c5289aeaa",
+        "signature": "f2e6934c1f50d497965aec935cc64ade50bb554508982df93ccfdf0c399cd840"
       },
       "../src/auth/password/password.dto.ts": {
-        "version": "fa08c2e778e2ada11ae57987ce04b3cbe8cdffc7fd937f299cd90ae872cc7347",
-        "signature": "4b5793b9633a809f18804711810d498edce805e08664d453d4ecee7f8f81ba93"
+        "version": "bb7edb702068752623a8075beda6bae415732a6b1251e25d02dd2efbc26bd5bf",
+        "signature": "569f2f5c80122df7836e587ddb1a4233690145476908921e553b2b537e739fa0"
       },
       "../src/auth/password/password.errors.dto.ts": {
         "version": "622d0e446350034b20a4405bb3bb81f367f05a4baba7741fa7c4e0cf87b86372",
         "signature": "adbc2f2b1e5e6a68c80c315d5e0c21192bdd19dce4d0e3b7ec0387966450cf53"
       },
-      "../src/auth/password/password.service.ts": {
-        "version": "0b7474778dd2fe9a0650fd7939fcd8dec4b1264c7b6c85e43e7bd2992db8b266",
-        "signature": "db48c566b6c766e9d92c93ac91fce544fd67a498d2bc09cd8a8b1842986e3d75"
+      "../node_modules/generate-password/src/generate.d.ts": {
+        "version": "1c3d9a83e28350194143dcdc598df89ce3747e813fe95220ee72adbfec56f959",
+        "signature": "1c3d9a83e28350194143dcdc598df89ce3747e813fe95220ee72adbfec56f959"
       },
-      "../src/auth/phone/phone.service.ts": {
-        "version": "a6c12604e9d44e1389fd33f95a771423621f7b760fbd6931cc833ddb77f22df2",
-        "signature": "9add94fcdced4a77863e26b198983986100bf4dbeac704551a2a10442e680f1e"
+      "../src/auth/auth.dto.ts": {
+        "version": "92efeac11536b5244e713fadc86350597ebf0615a136a89fda15091481523c6e",
+        "signature": "5f01d4d84ae494c2fd4880876469824b1606697a7c582b13f31f13b74254cb00"
       },
       "../node_modules/@types/node/globals.d.ts": {
         "version": "1236b98326630298e0b9cd30ccecd77560ac925140b753f1b1a0ffc6e7b51ad4",
@@ -2257,6 +2257,78 @@
         "version": "6e19418b881b57998d218487d41d85534c7fa5ab329bbc72afe571e7683d774a",
         "signature": "6e19418b881b57998d218487d41d85534c7fa5ab329bbc72afe571e7683d774a"
       },
+      "../node_modules/@types/nodemailer/lib/dkim/index.d.ts": {
+        "version": "971b6006a4610efd734e051f5d1421f87bc0c73bfc3cd205819236d497cba1e4",
+        "signature": "971b6006a4610efd734e051f5d1421f87bc0c73bfc3cd205819236d497cba1e4"
+      },
+      "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": {
+        "version": "d9be0e7047e30df44cafac456f18dd3f43af529225ad747c7330e835da6b370c",
+        "signature": "d9be0e7047e30df44cafac456f18dd3f43af529225ad747c7330e835da6b370c"
+      },
+      "../node_modules/@types/nodemailer/lib/xoauth2.d.ts": {
+        "version": "a9d32ef46fa1075bfeff4a4ab96c1331254558865ca9c7bf383712baa297f065",
+        "signature": "a9d32ef46fa1075bfeff4a4ab96c1331254558865ca9c7bf383712baa297f065"
+      },
+      "../node_modules/@types/nodemailer/lib/mailer/index.d.ts": {
+        "version": "bf54271e59aa6df4670631b40b7fc0666e8ac0978fae18f96ed99f37fb8b3936",
+        "signature": "bf54271e59aa6df4670631b40b7fc0666e8ac0978fae18f96ed99f37fb8b3936"
+      },
+      "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts": {
+        "version": "689b62c8e45e8f63dacf3a6de1655e06d524cf853f9a96f9446461553c49bd84",
+        "signature": "689b62c8e45e8f63dacf3a6de1655e06d524cf853f9a96f9446461553c49bd84"
+      },
+      "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": {
+        "version": "559d3b5e23b28a26355233cd54b496701c6837fd9b539511158e44c028d7b8c5",
+        "signature": "559d3b5e23b28a26355233cd54b496701c6837fd9b539511158e44c028d7b8c5"
+      },
+      "../node_modules/@types/nodemailer/lib/shared.d.ts": {
+        "version": "06fdb97fb4733b9ff5a24fc3bf9c0713c93231d361f27ea95ed05bfab679ac61",
+        "signature": "06fdb97fb4733b9ff5a24fc3bf9c0713c93231d361f27ea95ed05bfab679ac61"
+      },
+      "../node_modules/@types/nodemailer/lib/json-transport.d.ts": {
+        "version": "f5af2c4bee48b94b4a247464406d600b5232036df7b835d16504f84303977474",
+        "signature": "f5af2c4bee48b94b4a247464406d600b5232036df7b835d16504f84303977474"
+      },
+      "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": {
+        "version": "2739f287a5d26386849a9e1fd05421ece3366ae533f7569654ab73cc74d30aae",
+        "signature": "2739f287a5d26386849a9e1fd05421ece3366ae533f7569654ab73cc74d30aae"
+      },
+      "../node_modules/@types/nodemailer/lib/ses-transport.d.ts": {
+        "version": "dd335f22e01cf7abb3445c837e2a8a94650fc23b37572876581d36c2b8f96cb8",
+        "signature": "dd335f22e01cf7abb3445c837e2a8a94650fc23b37572876581d36c2b8f96cb8"
+      },
+      "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": {
+        "version": "f44c29cd43b1b2ebcb49b51b3315c85d00fd5ed66b80a7c7a629ad27132bf213",
+        "signature": "f44c29cd43b1b2ebcb49b51b3315c85d00fd5ed66b80a7c7a629ad27132bf213"
+      },
+      "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts": {
+        "version": "b5a4a00d0d26d9ca9ce666ea46c2cf84f12139aa4e57b648d22c33362e25554a",
+        "signature": "b5a4a00d0d26d9ca9ce666ea46c2cf84f12139aa4e57b648d22c33362e25554a"
+      },
+      "../node_modules/@types/nodemailer/lib/stream-transport.d.ts": {
+        "version": "d10c3e41c9d07022049b732e9b5e8d16a5e584393cfa589b299ac29630ab671a",
+        "signature": "d10c3e41c9d07022049b732e9b5e8d16a5e584393cfa589b299ac29630ab671a"
+      },
+      "../node_modules/@types/nodemailer/index.d.ts": {
+        "version": "7c9ad24b7763a35bc2b94f495ee80a4f08f5d7f6fa677526c9931af90fdf6da5",
+        "signature": "7c9ad24b7763a35bc2b94f495ee80a4f08f5d7f6fa677526c9931af90fdf6da5"
+      },
+      "../src/send-password/send-password.interface.ts": {
+        "version": "d55c7fd5dcfb7024516ca4799eea270bd8384870ec5b0df29b139ec9b2d6a42c",
+        "signature": "fc283bbacb735f1e05d6b5a5cfce2d1cc02b4d1a8ad0d87ba3a58fadb0ddcd44"
+      },
+      "../src/send-password/send-password-mail/send-password-mail.service.ts": {
+        "version": "75715aa4f9b2b03f23f349380ebcc778492ea0c69cbbdefeaf98b47292c9f45a",
+        "signature": "f0ea7d6903ef2cb8d8057625455d1dedfa80b514f1bbed7d6a257ef8ecc2d219"
+      },
+      "../src/auth/password/password.service.ts": {
+        "version": "b4bdec78241bc4acbdabe71e5a3eaa6ba8d58ac5f13a79a3944f61e8025224bf",
+        "signature": "d94ae43da35a18cbde55b94c71c050a1a0aa35032c8a1abe9744c16bbb6f7a53"
+      },
+      "../src/auth/phone/phone.service.ts": {
+        "version": "a579d52e80ebd9f9dbc8e688068498f1cb01aa6f7b392eb794762a96d405f722",
+        "signature": "8132e6fb026972c0ba7cf2849e934de469751a8fdbab715e7a2b63a30611ed72"
+      },
       "../node_modules/@types/jsonwebtoken/index.d.ts": {
         "version": "ed2e832899b97594aebebb6f4e29124156d85edad0c4764d3b8a3e5ad1db7eb5",
         "signature": "ed2e832899b97594aebebb6f4e29124156d85edad0c4764d3b8a3e5ad1db7eb5"
@@ -2286,8 +2358,8 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f"
       },
       "../src/auth/auth.service.ts": {
-        "version": "6d806b83a3321a46353a7898eabb96d2eee1479892b0974e564d96a9d47a95c2",
-        "signature": "ca28c733486573c0fbdc383afff6a928365cce5faf1f1bf9eda386ec8d393215"
+        "version": "68c94140a5d32e919621a56edb999fef7d5c73ad376048493e5193c3ba4aecae",
+        "signature": "a4240a4c7150fa7117d16515447bea1ad257a38238e9095361e30d3fb6cc8854"
       },
       "../node_modules/@types/range-parser/index.d.ts": {
         "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
@@ -2537,20 +2609,20 @@
         "version": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f"
       },
-      "../src/auth/auth.dto.ts": {
-        "version": "92efeac11536b5244e713fadc86350597ebf0615a136a89fda15091481523c6e",
-        "signature": "5f01d4d84ae494c2fd4880876469824b1606697a7c582b13f31f13b74254cb00"
-      },
       "../src/auth/auth.controller.ts": {
-        "version": "c8810bbe318e328c4ad3f2396199d83c3809c8794c45db5d47bccbb4b6dd3ac9",
-        "signature": "a8980c7f64ed3819c0032d24e94c7d6962e3d13c5007134052659d2cd6421f7b"
+        "version": "ed762c9f88a93801d82ca627b1abcf819b296273b59c29c8a7acdab15d1f4c85",
+        "signature": "016773ee4f576f4f09a9cadce60c05f392145f9d94bfb9f3e9dcb4c62fdba94a"
       },
       "../src/auth/strategy/jwt-admin.strategy.ts": {
         "version": "0e82fa550afb33edac8a3576fb35ca05545a49a3fab6362c47cd05fbed19b601",
         "signature": "ef062d23fc455f988cfe3dcdfa0d7f352f40c5f222bf73444da73300f3aec088"
       },
+      "../src/send-password/send-password.module.ts": {
+        "version": "9cdd9ba7f3855987a05269b54805bf22fa1cd92d75938ee85c071f3c1b0fdf84",
+        "signature": "96aaf659a08c03872da2af52e741b7bde4911536ea7091c9d4c1559850b4b4ce"
+      },
       "../src/auth/auth.module.ts": {
-        "version": "fa83e39a055264b3d7c0ecbd6f77d1485d72fb55590942bf38a4cf107d348d06",
+        "version": "2b333ce9c5ad4cc80a2e66b61f215a6d906f02da16ef302c1c0d2c65b113626d",
         "signature": "2e5d258cf85349b02b015c3f1b8873c152d182c3819a7ccc3aff16fc3037a5fc"
       },
       "../src/qr/draw/draw.errors.dto.ts": {
@@ -2586,7 +2658,7 @@
         "signature": "1f8771ddee7662a633d5ac27af1c66db33294227625652718c973d38c2bd344f"
       },
       "../src/qr/draw/draw.service.ts": {
-        "version": "ab819f6ac3e061358c8d43d9a523eec21e86dcf6b470ae2a0e4bea3aaf2dba15",
+        "version": "3c6ada1ed5e1593e6fc7cad1e14d18ab638117e1a1dff24d6bb74e59417fc530",
         "signature": "c4753d4f9f4c19c8134d66b240b6aa29971b5ff9213cf6f6136fd40484ceb7b6"
       },
       "../src/qr/qr.service.ts": {
@@ -2602,8 +2674,8 @@
         "signature": "15156ae16e5693bc0a9a727935f93dc6cd0aef9182fddf5412e8df834fb7cc4c"
       },
       "../src/qr/draw/draw.controller.ts": {
-        "version": "a31634c41016afa09aa70dca5e5b0c5c13453068addcd5c352017d4418969407",
-        "signature": "5a969872c0d1df36e4e7da9176d866181b75be05399582cd33420ba9bf4be40e"
+        "version": "a2e04b95ed1a6fda9f7c01b35e3cc98083cb999515051cc01536b31afe50e0d1",
+        "signature": "2a576d37f78d81387561e246dbefebb4c9cc13e34356290069548f113c35aa1d"
       },
       "../src/qr/checkout/checkout.controller.ts": {
         "version": "8a400ed90652fb512f2ea13d390276be16021b14ef780aa04ada93bea86c99a4",
@@ -2802,7 +2874,7 @@
         "signature": "a37fd776fad44d35f0a748467592097d0899be4c20a7f8a656f71725a428b591"
       },
       "../src/content/content.service.ts": {
-        "version": "c5e4f923a5340b9da5905dd0ab5e13eae53f273070f0b0a31e5df2c736bda655",
+        "version": "e96eba3088842fe08ee95d3a17d8b9e8da347ab8af0a9bac412c46c0f1011a96",
         "signature": "6a247f314b965c7a7dd9f7b53a0729414f7777b884c376a1260ea288f1591467"
       },
       "../src/content/content.controller.ts": {
@@ -2906,7 +2978,7 @@
         "signature": "da3a561c98a4b324f822c0910719f7d0b7c82f9e39d38475f64779607de9b3b1"
       },
       "../src/app.module.ts": {
-        "version": "c451b57899e31c1855c2e6912c4e985e3c75a4e234c76e7ab51306995552ae24",
+        "version": "bc7b2ca5412f7473c323f78ec9f5d67cb350887036d36c13a0eab0fa67f77621",
         "signature": "952ad08759f8f7b2fa9451d437031294a9b00ccddc43983092fea9b3f67b0199"
       },
       "../node_modules/@nestjs/core/adapters/index.d.ts": {
@@ -3089,6 +3161,10 @@
         "version": "cb5df634c024fe13ea293f7aa2b27a9d02f9b3aece975c884485c617d7653e25",
         "signature": "cb5df634c024fe13ea293f7aa2b27a9d02f9b3aece975c884485c617d7653e25"
       },
+      "../node_modules/@types/caseless/index.d.ts": {
+        "version": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28",
+        "signature": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28"
+      },
       "../node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e"
@@ -3100,6 +3176,10 @@
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": {
         "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
         "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c"
+      },
+      "../node_modules/@types/generate-password/index.d.ts": {
+        "version": "4b378f2b175a24f15056ed85013a2d9853cc791ac5e5e6ffc1312546389d28c7",
+        "signature": "4b378f2b175a24f15056ed85013a2d9853cc791ac5e5e6ffc1312546389d28c7"
       },
       "../node_modules/@types/istanbul-lib-coverage/index.d.ts": {
         "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
@@ -3152,6 +3232,22 @@
       "../node_modules/@types/json5/index.d.ts": {
         "version": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "signature": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538"
+      },
+      "../node_modules/@types/request/node_modules/form-data/index.d.ts": {
+        "version": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115",
+        "signature": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115"
+      },
+      "../node_modules/@types/tough-cookie/index.d.ts": {
+        "version": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873",
+        "signature": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873"
+      },
+      "../node_modules/@types/request/index.d.ts": {
+        "version": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
+        "signature": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098"
+      },
+      "../node_modules/@types/node-telegram-bot-api/index.d.ts": {
+        "version": "524f05637e014b5287b27e35be8187b8d00c632c17a9c5d4c68a6b7100101d7e",
+        "signature": "524f05637e014b5287b27e35be8187b8d00c632c17a9c5d4c68a6b7100101d7e"
       },
       "../node_modules/@types/prettier/index.d.ts": {
         "version": "29651525db5579157e617c77e869af8bfdc1130f5d811c1f759ad35b7bafc8ef",
@@ -3229,6 +3325,7 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
+      "allowSyntheticDefaultImports": true,
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
@@ -7366,6 +7463,41 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/asets/error.dto.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/useful-monads/eitherasync.d.ts": [
+        "../node_modules/useful-monads/either.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/useful-monads/either.d.ts": [
+        "../node_modules/useful-monads/eitherasync.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/useful-monads/index.d.ts": [
+        "../node_modules/useful-monads/either.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/asets/eithertodto.ts": [
+        "../src/asets/error.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/class-validator/validation/validationerror.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -7507,41 +7639,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/asets/error.dto.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/useful-monads/eitherasync.d.ts": [
-        "../node_modules/useful-monads/either.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/useful-monads/either.d.ts": [
-        "../node_modules/useful-monads/eitherasync.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/useful-monads/index.d.ts": [
-        "../node_modules/useful-monads/either.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/asets/eithertodto.ts": [
-        "../src/asets/error.dto.ts",
-        "../node_modules/useful-monads/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/auth/phone/phone.errors.dto.ts": [
         "../src/asets/error.dto.ts",
         "../src/auth/phone/phone.dto.ts",
@@ -7560,7 +7657,6 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/auth/password/password.dto.ts": [
-        "../node_modules/class-validator/index.d.ts",
         "../src/asets/eithertodto.ts",
         "../src/auth/phone/phone.dto.ts",
         "../src/auth/password/password.errors.dto.ts",
@@ -7577,32 +7673,15 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/password/password.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/typeorm/index.d.ts",
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/@types/bcrypt/index.d.ts",
-        "../src/auth/password/password.entity.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../src/auth/password/password.errors.dto.ts",
-        "../node_modules/useful-monads/index.d.ts",
+      "../node_modules/generate-password/src/generate.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/phone/phone.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/typeorm/index.d.ts",
-        "../node_modules/typeorm/index.d.ts",
-        "../src/auth/password/password.service.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/auth/password/password.entity.ts",
-        "../src/auth/phone/phone.errors.dto.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../node_modules/useful-monads/index.d.ts",
-        "../node_modules/useful-monads/eitherasync.d.ts",
+      "../src/auth/auth.dto.ts": [
+        "../src/asets/eithertodto.ts",
+        "../node_modules/class-validator/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -7968,6 +8047,232 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/nodemailer/lib/dkim/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/xoauth2.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mailer/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/shared.d.ts": [
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/json-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": [
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/ses-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/stream-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/index.d.ts": [
+        "../node_modules/@types/nodemailer/lib/json-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/send-password/send-password.interface.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/send-password/send-password-mail/send-password-mail.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../src/send-password/send-password.interface.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/auth/password/password.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/bcrypt/index.d.ts",
+        "../src/auth/password/password.entity.ts",
+        "../src/auth/phone/phone.entity.ts",
+        "../src/auth/password/password.errors.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../node_modules/generate-password/src/generate.d.ts",
+        "../src/auth/auth.dto.ts",
+        "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/auth/phone/phone.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/auth/password/password.service.ts",
+        "../src/auth/phone/phone.entity.ts",
+        "../src/auth/password/password.entity.ts",
+        "../src/auth/phone/phone.errors.dto.ts",
+        "../src/auth/phone/phone.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../node_modules/useful-monads/eitherasync.d.ts",
+        "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -8032,6 +8337,7 @@
         "../src/auth/phone/phone.entity.ts",
         "../src/auth/phone/phone.dto.ts",
         "../node_modules/useful-monads/eitherasync.d.ts",
+        "../src/auth/auth.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -8525,14 +8831,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/auth.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../node_modules/class-validator/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/auth/auth.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/auth/guards/jwt-auth.guard.ts",
@@ -8563,6 +8861,14 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/send-password/send-password.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/auth/auth.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/auth/auth.service.ts",
@@ -8578,6 +8884,7 @@
         "../src/auth/phone/phone.entity.ts",
         "../src/auth/password/password.entity.ts",
         "../src/auth/strategy/jwt-admin.strategy.ts",
+        "../src/send-password/send-password.module.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -9571,6 +9878,7 @@
         "../src/qr/qr.module.ts",
         "../src/content/content.module.ts",
         "../node_modules/@nestjs/config/index.d.ts",
+        "../src/send-password/send-password.module.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -9959,6 +10267,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@types/caseless/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@types/color-name/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9972,6 +10286,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/generate-password/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -10064,6 +10384,48 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/json5/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/tough-cookie/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/request/index.d.ts": [
+        "../node_modules/@types/caseless/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/tough-cookie/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/node-telegram-bot-api/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/request/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -12607,6 +12969,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../migrations/1591049492245-ps_init.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -14286,6 +14651,31 @@
       "../src/auth/password/password.entity.ts": [
         "../src/auth/phone/phone.entity.ts"
       ],
+      "../node_modules/useful-monads/eitherasync.d.ts": [
+        "../node_modules/useful-monads/either.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/useful-monads/either.d.ts": [
+        "../node_modules/useful-monads/eitherasync.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/useful-monads/index.d.ts": [
+        "../node_modules/useful-monads/either.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/asets/eithertodto.ts": [
+        "../src/asets/error.dto.ts",
+        "../node_modules/useful-monads/index.d.ts"
+      ],
       "../node_modules/class-validator/validation/validationerror.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -14427,62 +14817,28 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../node_modules/useful-monads/eitherasync.d.ts": [
-        "../node_modules/useful-monads/either.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/useful-monads/either.d.ts": [
-        "../node_modules/useful-monads/eitherasync.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/useful-monads/index.d.ts": [
-        "../node_modules/useful-monads/either.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/asets/eithertodto.ts": [
-        "../src/asets/error.dto.ts",
-        "../node_modules/useful-monads/index.d.ts"
-      ],
       "../src/auth/phone/phone.errors.dto.ts": [
         "../src/asets/error.dto.ts"
       ],
       "../src/auth/phone/phone.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/auth/phone/phone.errors.dto.ts"
+        "../src/asets/eithertodto.ts"
       ],
       "../src/auth/password/password.dto.ts": [
-        "../src/asets/eithertodto.ts",
+        "../src/auth/password/password.errors.dto.ts",
         "../src/auth/phone/phone.dto.ts",
-        "../src/auth/password/password.errors.dto.ts"
+        "../src/asets/eithertodto.ts"
       ],
       "../src/auth/password/password.errors.dto.ts": [
         "../src/asets/error.dto.ts"
       ],
-      "../src/auth/password/password.service.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/auth/password/password.entity.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../src/auth/password/password.errors.dto.ts",
-        "../node_modules/useful-monads/index.d.ts"
+      "../node_modules/generate-password/src/generate.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/phone/phone.service.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/auth/password/password.service.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/auth/password/password.entity.ts",
-        "../src/auth/phone/phone.errors.dto.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../node_modules/useful-monads/index.d.ts"
+      "../src/auth/auth.dto.ts": [
+        "../src/asets/eithertodto.ts"
       ],
       "../node_modules/@types/node/globals.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -14844,6 +15200,204 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@types/nodemailer/lib/dkim/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/xoauth2.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mailer/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/shared.d.ts": [
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/json-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": [
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/ses-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/lib/stream-transport.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/nodemailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/shared.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/nodemailer/index.d.ts": [
+        "../node_modules/@types/nodemailer/lib/json-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+        "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+        "../node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/send-password/send-password-mail/send-password-mail.service.ts": [
+        "../src/send-password/send-password.interface.ts"
+      ],
+      "../src/auth/password/password.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/auth/password/password.entity.ts",
+        "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../src/auth/phone/phone.entity.ts",
+        "../src/auth/auth.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../src/auth/password/password.errors.dto.ts"
+      ],
+      "../src/auth/phone/phone.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/auth/phone/phone.entity.ts",
+        "../src/auth/password/password.service.ts",
+        "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../src/auth/phone/phone.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../src/auth/phone/phone.errors.dto.ts",
+        "../src/auth/password/password.entity.ts"
+      ],
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -14901,14 +15455,14 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/auth/auth.service.ts": [
+        "../src/auth/phone/phone.errors.dto.ts",
+        "../src/auth/password/password.errors.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
         "../src/auth/phone/phone.service.ts",
         "../src/auth/password/password.service.ts",
         "../node_modules/@nestjs/jwt/index.d.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../src/auth/phone/phone.errors.dto.ts",
-        "../src/auth/password/password.errors.dto.ts",
-        "../node_modules/useful-monads/index.d.ts"
+        "../src/auth/auth.dto.ts",
+        "../src/auth/phone/phone.entity.ts"
       ],
       "../node_modules/@types/range-parser/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
@@ -15362,16 +15916,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/auth.dto.ts": [
-        "../src/asets/eithertodto.ts"
-      ],
       "../src/auth/auth.controller.ts": [
-        "../src/auth/jwt-request.ts",
         "../src/auth/phone/phone.service.ts",
         "../src/auth/auth.service.ts",
+        "../src/auth/auth.dto.ts",
         "../src/auth/phone/phone.dto.ts",
-        "../src/auth/password/password.dto.ts",
-        "../src/auth/auth.dto.ts"
+        "../src/auth/jwt-request.ts",
+        "../src/auth/password/password.dto.ts"
       ],
       "../src/auth/strategy/jwt-admin.strategy.ts": [
         "../node_modules/@types/passport-jwt/index.d.ts",
@@ -15450,8 +16001,8 @@
         "../node_modules/@types/express/index.d.ts"
       ],
       "../src/qr/draw/draw.controller.ts": [
-        "../src/qr/draw/draw.dto.ts",
-        "../src/qr/draw/draw.service.ts"
+        "../src/qr/draw/draw.service.ts",
+        "../src/qr/draw/draw.dto.ts"
       ],
       "../src/qr/checkout/checkout.controller.ts": [
         "../src/qr/checkout/checkout.service.ts",
@@ -16449,6 +17000,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@types/caseless/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@types/color-name/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -16462,6 +17019,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/eslint-visitor-keys/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/generate-password/index.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -16554,6 +17117,48 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/json5/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/tough-cookie/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/request/index.d.ts": [
+        "../node_modules/@types/caseless/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/tough-cookie/index.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/node-telegram-bot-api/index.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/request/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -16671,9 +17276,6 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../migrations/1591049492245-ps_init.ts": [
-        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -16960,6 +17562,7 @@
       "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
       "../node_modules/typeorm/util/promiseutils.d.ts",
       "../node_modules/typeorm/index.d.ts",
+      "../migrations/1591049492245-ps_init.ts",
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts",
       "../node_modules/@nestjs/common/interfaces/abstract.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/controllers/controller-metadata.interface.d.ts",
@@ -17166,6 +17769,11 @@
       "../src/qr/qr.entity.ts",
       "../src/auth/phone/phone.entity.ts",
       "../src/auth/password/password.entity.ts",
+      "../src/asets/error.dto.ts",
+      "../node_modules/useful-monads/eitherasync.d.ts",
+      "../node_modules/useful-monads/either.d.ts",
+      "../node_modules/useful-monads/index.d.ts",
+      "../src/asets/eithertodto.ts",
       "../node_modules/class-validator/validation/validationerror.d.ts",
       "../node_modules/class-validator/validation/validatoroptions.d.ts",
       "../node_modules/class-validator/validation-schema/validationschema.d.ts",
@@ -17184,17 +17792,12 @@
       "../node_modules/class-validator/metadata/constraintmetadata.d.ts",
       "../node_modules/class-validator/metadata/metadatastorage.d.ts",
       "../node_modules/class-validator/index.d.ts",
-      "../src/asets/error.dto.ts",
-      "../node_modules/useful-monads/eitherasync.d.ts",
-      "../node_modules/useful-monads/either.d.ts",
-      "../node_modules/useful-monads/index.d.ts",
-      "../src/asets/eithertodto.ts",
       "../src/auth/phone/phone.errors.dto.ts",
       "../src/auth/phone/phone.dto.ts",
       "../src/auth/password/password.dto.ts",
       "../src/auth/password/password.errors.dto.ts",
-      "../src/auth/password/password.service.ts",
-      "../src/auth/phone/phone.service.ts",
+      "../node_modules/generate-password/src/generate.d.ts",
+      "../src/auth/auth.dto.ts",
       "../node_modules/@types/node/globals.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
@@ -17240,6 +17843,24 @@
       "../node_modules/@types/node/ts3.2/util.d.ts",
       "../node_modules/@types/node/ts3.2/globals.d.ts",
       "../node_modules/@types/node/ts3.2/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+      "../node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+      "../node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/shared.d.ts",
+      "../node_modules/@types/nodemailer/lib/json-transport.d.ts",
+      "../node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+      "../node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+      "../node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+      "../node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+      "../node_modules/@types/nodemailer/index.d.ts",
+      "../src/send-password/send-password.interface.ts",
+      "../src/send-password/send-password-mail/send-password-mail.service.ts",
+      "../src/auth/password/password.service.ts",
+      "../src/auth/phone/phone.service.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
       "../node_modules/@nestjs/jwt/dist/interfaces/jwt-module-options.interface.d.ts",
       "../node_modules/@nestjs/jwt/dist/interfaces/index.d.ts",
@@ -17310,9 +17931,9 @@
       "../node_modules/@nestjs/swagger/dist/utils/index.d.ts",
       "../node_modules/@nestjs/swagger/dist/index.d.ts",
       "../node_modules/@nestjs/swagger/index.d.ts",
-      "../src/auth/auth.dto.ts",
       "../src/auth/auth.controller.ts",
       "../src/auth/strategy/jwt-admin.strategy.ts",
+      "../src/send-password/send-password.module.ts",
       "../src/auth/auth.module.ts",
       "../src/qr/draw/draw.errors.dto.ts",
       "../src/qr/draw/draw.dto.ts",
@@ -17376,7 +17997,6 @@
       "../src/content/text/text.service.ts",
       "../src/content/md/md.service.ts",
       "../src/content/screen/screen.service.ts",
-      "../src/content/content.service.ts",
       "../src/content/content.controller.ts",
       "../src/content/screen/screen.controller.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
@@ -17448,9 +18068,11 @@
       "../node_modules/@babel/parser/typings/babel-parser.d.ts",
       "../node_modules/@types/babel__template/index.d.ts",
       "../node_modules/@types/babel__core/index.d.ts",
+      "../node_modules/@types/caseless/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",
       "../node_modules/@types/cookiejar/index.d.ts",
       "../node_modules/@types/eslint-visitor-keys/index.d.ts",
+      "../node_modules/@types/generate-password/index.d.ts",
       "../node_modules/@types/istanbul-lib-coverage/index.d.ts",
       "../node_modules/@types/istanbul-lib-report/index.d.ts",
       "../node_modules/@types/istanbul-reports/index.d.ts",
@@ -17464,6 +18086,10 @@
       "../node_modules/@types/jest/index.d.ts",
       "../node_modules/@types/json-schema/index.d.ts",
       "../node_modules/@types/json5/index.d.ts",
+      "../node_modules/@types/request/node_modules/form-data/index.d.ts",
+      "../node_modules/@types/tough-cookie/index.d.ts",
+      "../node_modules/@types/request/index.d.ts",
+      "../node_modules/@types/node-telegram-bot-api/index.d.ts",
       "../node_modules/@types/prettier/index.d.ts",
       "../node_modules/@types/source-list-map/index.d.ts",
       "../node_modules/@types/stack-utils/index.d.ts",
@@ -17480,7 +18106,7 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../migrations/1591049492245-ps_init.ts"
+      "../src/content/content.service.ts"
     ]
   },
   "version": "3.8.3"

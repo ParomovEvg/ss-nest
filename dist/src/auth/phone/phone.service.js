@@ -20,31 +20,31 @@ const phone_entity_1 = require("./phone.entity");
 const phone_errors_dto_1 = require("./phone.errors.dto");
 const useful_monads_1 = require("useful-monads");
 const EitherAsync_1 = require("useful-monads/EitherAsync");
+const send_password_mail_service_1 = require("../../send-password/send-password-mail/send-password-mail.service");
 let PhoneService = class PhoneService {
-    constructor(phoneRepository, passwordService, connection) {
+    constructor(phoneRepository, passwordService, connection, sendPasswordMailService) {
         this.phoneRepository = phoneRepository;
         this.passwordService = passwordService;
         this.connection = connection;
+        this.sendPasswordMailService = sendPasswordMailService;
     }
     async createPhone(createPhoneDto) {
-        return EitherAsync_1.EitherAsync.from(this.phoneNotExists(createPhoneDto))
-            .asyncMap(async () => {
-            const phone = this.phoneRepository.create();
-            phone.phone = createPhoneDto.phone;
-            const password = await this.passwordService.createPassword(createPhoneDto.password, phone);
-            await this.connection.transaction(async (manager) => {
-                await manager.save(phone);
-                await manager.save(password);
-            });
-            return Promise.resolve(phone);
-        })
-            .run();
+        const phone = await EitherAsync_1.EitherAsync.from(this.findPhone(createPhoneDto.phone)).orDefault(this.phoneRepository.create());
+        phone.phone = createPhoneDto.phone;
+        const password = await this.passwordService.createPassword(phone);
+        await this.connection.transaction(async (manager) => {
+            await manager.save(phone);
+            await manager.save(password);
+        });
+        return Promise.resolve(phone);
     }
-    async addPassword(phoneObj, password) {
+    async addPassword(phoneObj) {
         const phone = await this.findPhone(phoneObj);
         return phone
-            .asyncMap(phone => {
-            return this.passwordService.createAndSavePassword(password, phone);
+            .asyncMap(async (phone) => {
+            const password = await this.passwordService.createAndSavePassword(phone);
+            await this.sendPasswordMailService.sendPassword(phone.phone, password.password);
+            return password;
         })
             .run();
     }
@@ -84,7 +84,8 @@ PhoneService = __decorate([
     __param(0, typeorm_1.InjectRepository(phone_entity_1.Phone)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         password_service_1.PasswordService,
-        typeorm_2.Connection])
+        typeorm_2.Connection,
+        send_password_mail_service_1.SendPasswordMailService])
 ], PhoneService);
 exports.PhoneService = PhoneService;
 //# sourceMappingURL=phone.service.js.map

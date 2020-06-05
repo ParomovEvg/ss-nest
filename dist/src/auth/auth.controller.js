@@ -21,7 +21,6 @@ const local_auth_guard_1 = require("./guards/local-auth.guard");
 const eitherToDto_1 = require("../asets/eitherToDto");
 const swagger_1 = require("@nestjs/swagger");
 const phone_dto_1 = require("./phone/phone.dto");
-const password_dto_1 = require("./password/password.dto");
 const auth_dto_1 = require("./auth.dto");
 let AuthController = class AuthController {
     constructor(phoneService, authService) {
@@ -37,10 +36,10 @@ let AuthController = class AuthController {
         return req.user;
     }
     async createUser(phoneDto) {
-        return eitherToDto_1.eitherToDto(await this.phoneService.createPhone(phoneDto));
+        return { payload: await this.phoneService.createPhone(phoneDto) };
     }
-    async addPassword(req, createPasswordDto) {
-        const phone = await this.phoneService.addPassword(req.user, createPasswordDto.password);
+    async addPassword(req) {
+        const phone = await this.phoneService.addPassword(req.user);
         return eitherToDto_1.eitherToDto(phone.map(password => password.phone));
     }
 };
@@ -76,9 +75,8 @@ __decorate([
     common_1.Post('password'),
     openapi.ApiResponse({ status: 201, type: require("./password/password.dto").CreatePasswordResDto }),
     __param(0, common_1.Req()),
-    __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, password_dto_1.CreatePasswordDto]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "addPassword", null);
 AuthController = __decorate([

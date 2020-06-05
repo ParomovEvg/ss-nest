@@ -5,6 +5,7 @@ import { Connection } from 'typeorm';
 import { QrModule } from './qr/qr.module';
 import { ContentModule } from './content/content.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SendPasswordModule } from './send-password/send-password.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     AuthModule,
     QrModule,
     ContentModule,
+    SendPasswordModule,
   ],
 })
 export class AppModule {

@@ -27,11 +27,11 @@ let DrawController = class DrawController {
             payload: (await this.drawService.findAllDraw()).map(this.drawService.mapDrawToFlatDraw),
         };
     }
-    async findDrawWithQrs(findFullDrawDto) {
-        return eitherToDto_1.eitherToDto((await this.drawService.findDraw(findFullDrawDto)).map(this.drawService.mapDrawToFullDraw));
-    }
     async findNow() {
         return eitherToDto_1.eitherToDto((await this.drawService.findNowDraw()).map(this.drawService.mapDrawToFlatDraw));
+    }
+    async findDrawWithQrs(findFullDrawDto) {
+        return eitherToDto_1.eitherToDto((await this.drawService.findDraw(findFullDrawDto)).map(this.drawService.mapDrawToFullDraw));
     }
     async createDraw(createDrawDto) {
         return eitherToDto_1.eitherToDto((await this.drawService.createDraw(createDrawDto)).map(this.drawService.mapDrawToFlatDraw));
@@ -54,6 +54,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DrawController.prototype, "findAll", null);
 __decorate([
+    common_1.Get('now'),
+    openapi.ApiResponse({ status: 200, type: require("./draw.dto").FindNowDrawResDto }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DrawController.prototype, "findNow", null);
+__decorate([
     common_1.Get(':id'),
     openapi.ApiResponse({ status: 200, type: require("./draw.dto").FindFullDrawResDto }),
     __param(0, common_1.Param()),
@@ -61,13 +68,6 @@ __decorate([
     __metadata("design:paramtypes", [draw_dto_1.FindFullDrawDto]),
     __metadata("design:returntype", Promise)
 ], DrawController.prototype, "findDrawWithQrs", null);
-__decorate([
-    common_1.Get('now'),
-    openapi.ApiResponse({ status: 200, type: require("./draw.dto").FindNowDrawResDto }),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], DrawController.prototype, "findNow", null);
 __decorate([
     common_1.Post(),
     openapi.ApiResponse({ status: 201, type: require("./draw.dto").CreateDrawResDto }),

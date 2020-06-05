@@ -16,6 +16,7 @@ const typeorm_2 = require("typeorm");
 const qr_module_1 = require("./qr/qr.module");
 const content_module_1 = require("./content/content.module");
 const config_1 = require("@nestjs/config");
+const send_password_module_1 = require("./send-password/send-password.module");
 let AppModule = class AppModule {
     constructor(connection) {
         this.connection = connection;
@@ -43,6 +44,7 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             qr_module_1.QrModule,
             content_module_1.ContentModule,
+            send_password_module_1.SendPasswordModule,
         ],
     }),
     __metadata("design:paramtypes", [typeorm_2.Connection])

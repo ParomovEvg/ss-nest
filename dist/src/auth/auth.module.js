@@ -20,11 +20,19 @@ const phone_service_1 = require("./phone/phone.service");
 const phone_entity_1 = require("./phone/phone.entity");
 const password_entity_1 = require("./password/password.entity");
 const jwt_admin_strategy_1 = require("./strategy/jwt-admin.strategy");
+const send_password_module_1 = require("../send-password/send-password.module");
 let AuthModule = class AuthModule {
 };
 AuthModule = __decorate([
     common_1.Module({
-        providers: [auth_service_1.AuthService, local_strategy_1.LocalStrategy, jwt_strategy_1.JwtStrategy, jwt_admin_strategy_1.JwtAdminStrategy, password_service_1.PasswordService, phone_service_1.PhoneService],
+        providers: [
+            auth_service_1.AuthService,
+            local_strategy_1.LocalStrategy,
+            jwt_strategy_1.JwtStrategy,
+            jwt_admin_strategy_1.JwtAdminStrategy,
+            password_service_1.PasswordService,
+            phone_service_1.PhoneService,
+        ],
         imports: [
             passport_1.PassportModule,
             jwt_1.JwtModule.register({
@@ -32,9 +40,10 @@ AuthModule = __decorate([
                 signOptions: { expiresIn: '60s' },
             }),
             typeorm_1.TypeOrmModule.forFeature([phone_entity_1.Phone, password_entity_1.Password]),
+            send_password_module_1.SendPasswordModule,
         ],
         exports: [auth_service_1.AuthService, phone_service_1.PhoneService, password_service_1.PasswordService, typeorm_1.TypeOrmModule],
-        controllers: [auth_controller_1.AuthController]
+        controllers: [auth_controller_1.AuthController],
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;

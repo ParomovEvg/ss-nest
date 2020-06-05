@@ -20,9 +20,9 @@ let AuthService = class AuthService {
         this.passwordService = passwordService;
         this.jwtService = jwtService;
     }
-    async validate(createPhoneDto) {
-        return EitherAsync_1.EitherAsync.from(this.phoneService.findPhone(createPhoneDto))
-            .asyncChain(phone => this.passwordService.checkPhonePassword(phone, createPhoneDto))
+    async validate(loginDto) {
+        return EitherAsync_1.EitherAsync.from(this.phoneService.findPhone(loginDto))
+            .asyncChain(phone => this.passwordService.checkPhonePassword(phone, loginDto))
             .run();
     }
     async login(phone) {

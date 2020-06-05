@@ -24,21 +24,17 @@ class FlatPhoneDto {
 exports.FlatPhoneDto = FlatPhoneDto;
 class CreatePhoneDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { phone: { required: true, type: () => String }, password: { required: true, type: () => String } };
+        return { phone: { required: true, type: () => String } };
     }
 }
 __decorate([
     class_validator_1.IsMobilePhone('ru-RU'),
     __metadata("design:type", String)
 ], CreatePhoneDto.prototype, "phone", void 0);
-__decorate([
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", String)
-], CreatePhoneDto.prototype, "password", void 0);
 exports.CreatePhoneDto = CreatePhoneDto;
 class CreatePhoneResDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { payload: { required: false, type: () => require("./phone.dto").FlatPhoneDto }, PhoneAlreadyExists: { required: false, type: () => require("./phone.errors.dto").PhoneAlreadyExists } };
+        return { payload: { required: true, type: () => require("./phone.dto").FlatPhoneDto } };
     }
 }
 exports.CreatePhoneResDto = CreatePhoneResDto;

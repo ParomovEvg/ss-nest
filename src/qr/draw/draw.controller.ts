@@ -38,6 +38,14 @@ export class DrawController {
       ),
     };
   }
+  @Get('now')
+  async findNow(): Promise<FindNowDrawResDto> {
+    return eitherToDto(
+      (await this.drawService.findNowDraw()).map(
+        this.drawService.mapDrawToFlatDraw,
+      ),
+    );
+  }
 
   @Get(':id')
   async findDrawWithQrs(
@@ -50,14 +58,6 @@ export class DrawController {
     );
   }
 
-  @Get('now')
-  async findNow(): Promise<FindNowDrawResDto> {
-    return eitherToDto(
-      (await this.drawService.findNowDraw()).map(
-        this.drawService.mapDrawToFlatDraw,
-      ),
-    );
-  }
 
   @Post()
   async createDraw(

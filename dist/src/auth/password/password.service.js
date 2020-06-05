@@ -19,20 +19,28 @@ const bcrypt_1 = require("bcrypt");
 const password_entity_1 = require("./password.entity");
 const password_errors_dto_1 = require("./password.errors.dto");
 const useful_monads_1 = require("useful-monads");
+const generate_password_1 = require("generate-password");
+const send_password_mail_service_1 = require("../../send-password/send-password-mail/send-password-mail.service");
 let PasswordService = class PasswordService {
-    constructor(passwordRepository) {
+    constructor(passwordRepository, sendPasswordMailService) {
         this.passwordRepository = passwordRepository;
+        this.sendPasswordMailService = sendPasswordMailService;
         this.saltRounds = 10;
     }
-    async createPassword(passwordSrc, phone) {
-        const passwordString = this.extractPassword(passwordSrc);
+    async createPassword(phone) {
+        const passwordString = generate_password_1.generate({
+            numbers: true,
+            uppercase: false,
+            length: 8,
+        });
+        await this.sendPasswordMailService.sendPassword(phone.phone, passwordString);
         const password = this.passwordRepository.create();
         password.phone = phone;
         password.password = await bcrypt_1.hash(passwordString, this.saltRounds);
         return password;
     }
-    async createAndSavePassword(passwordString, phone) {
-        const password = await this.createPassword(passwordString, phone);
+    async createAndSavePassword(phone) {
+        const password = await this.createPassword(phone);
         await this.passwordRepository.save(password);
         return password;
     }
@@ -66,7 +74,8 @@ let PasswordService = class PasswordService {
 PasswordService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(password_entity_1.Password)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        send_password_mail_service_1.SendPasswordMailService])
 ], PasswordService);
 exports.PasswordService = PasswordService;
 //# sourceMappingURL=password.service.js.map

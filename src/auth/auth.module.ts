@@ -12,10 +12,17 @@ import { PhoneService } from './phone/phone.service';
 import { Phone } from './phone/phone.entity';
 import { Password } from './password/password.entity';
 import { JwtAdminStrategy } from './strategy/jwt-admin.strategy';
-
+import { SendPasswordModule } from '../send-password/send-password.module';
 
 @Module({
-  providers: [AuthService, LocalStrategy, JwtStrategy,JwtAdminStrategy, PasswordService, PhoneService],
+  providers: [
+    AuthService,
+    LocalStrategy,
+    JwtStrategy,
+    JwtAdminStrategy,
+    PasswordService,
+    PhoneService,
+  ],
   imports: [
     PassportModule,
     JwtModule.register({
@@ -23,8 +30,9 @@ import { JwtAdminStrategy } from './strategy/jwt-admin.strategy';
       signOptions: { expiresIn: '60s' },
     }),
     TypeOrmModule.forFeature([Phone, Password]),
+    SendPasswordModule,
   ],
   exports: [AuthService, PhoneService, PasswordService, TypeOrmModule],
-  controllers: [AuthController]
+  controllers: [AuthController],
 })
 export class AuthModule {}

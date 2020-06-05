@@ -97,18 +97,10 @@ let DrawService = class DrawService {
         return EitherAsync_1.EitherAsync.from(this.findDraw({ id: id }))
             .asyncMap(async (draw) => {
             await this.connection.transaction(async (tm) => {
-                await tm
-                    .createQueryBuilder()
-                    .delete()
-                    .from(qr_entity_1.Qr, 'qr')
-                    .where('qr.id IN (:...ids)', { ids: draw.drawQrs.map(qr => qr.id) })
-                    .execute();
-                await tm
-                    .createQueryBuilder()
-                    .delete()
-                    .from(draw_entity_1.Draw, 'draw')
-                    .where('draw.id = :id', { id: draw.id })
-                    .execute();
+                if (draw.drawQrs.length) {
+                    await tm.getRepository(qr_entity_1.Qr).delete(draw.drawQrs.map(qr => qr.id));
+                }
+                await tm.getRepository(draw_entity_1.Draw).delete(draw);
             });
             return { id };
         })
