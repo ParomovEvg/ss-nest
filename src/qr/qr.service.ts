@@ -20,6 +20,7 @@ import { DrawService } from './draw/draw.service';
 import { NotDrawNow } from './draw/draw.errors.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
 import { EitherAsync } from 'useful-monads/EitherAsync';
+import { PhoneService } from '../auth/phone/phone.service';
 
 @Injectable()
 export class QrService {
@@ -28,6 +29,7 @@ export class QrService {
     private qrRepository: Repository<Qr>,
     private checkoutService: CheckoutService,
     private drawService: DrawService,
+    private phoneService: PhoneService,
   ) {}
 
   async findAllBy(where: { phone?: Phone; draw?: Draw; checkout?: Checkout }) {
@@ -133,5 +135,14 @@ export class QrService {
     } else {
       return right(true);
     }
+  }
+
+  async getQrNum(phone: string): Promise<string> {
+    return EitherAsync.from(this.phoneService.findPhone(phone))
+      .asyncMap(async phone => {
+        const num = await this.qrRepository.count({ where: { phone } });
+        return String(num);
+      })
+      .orDefault('0');
   }
 }

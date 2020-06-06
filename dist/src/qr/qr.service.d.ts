@@ -10,11 +10,13 @@ import { QrAlreadyExists, QrRegistrationLimitExceeded, QrSalaryNotEnough } from 
 import { DrawService } from './draw/draw.service';
 import { NotDrawNow } from './draw/draw.errors.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
+import { PhoneService } from '../auth/phone/phone.service';
 export declare class QrService {
     private qrRepository;
     private checkoutService;
     private drawService;
-    constructor(qrRepository: Repository<Qr>, checkoutService: CheckoutService, drawService: DrawService);
+    private phoneService;
+    constructor(qrRepository: Repository<Qr>, checkoutService: CheckoutService, drawService: DrawService, phoneService: PhoneService);
     findAllBy(where: {
         phone?: Phone;
         draw?: Draw;
@@ -24,4 +26,5 @@ export declare class QrService {
     checkQrRegistrationLimit(draw: Draw, phone: Phone): Promise<Either<QrRegistrationLimitExceeded, Draw>>;
     checkSalary(draw: Draw, s: number): Promise<Either<QrSalaryNotEnough, Draw>>;
     checkQr(fp: string, fd: string): Promise<Either<QrAlreadyExists, true>>;
+    getQrNum(phone: string): Promise<string>;
 }

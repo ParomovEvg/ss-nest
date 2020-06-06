@@ -5,7 +5,11 @@ import { DrawErrors, FlatDrawDto } from './draw/draw.dto';
 import { CheckoutErrors, FlatCheckoutDto } from './checkout/checkout.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
 import { NotDrawNow } from './draw/draw.errors.dto';
-import { QrAlreadyExists, QrRegistrationLimitExceeded, QrSalaryNotEnough } from './qr.errors.dto';
+import {
+  QrAlreadyExists,
+  QrRegistrationLimitExceeded,
+  QrSalaryNotEnough,
+} from './qr.errors.dto';
 
 export enum QrErrorsDto {
   QrRegistrationLimitExceeded = 'QrRegistrationLimitExceeded',
@@ -50,3 +54,8 @@ export class CreateQrResDto implements ResDto {
   QrRegistrationLimitExceeded?: QrRegistrationLimitExceeded;
 }
 //=====================
+//=====================
+// GetQrNum
+export class GetQrNumResDto implements ResDto {
+  payload: string;
+}

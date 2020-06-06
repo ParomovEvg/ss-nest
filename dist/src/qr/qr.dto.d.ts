@@ -33,3 +33,6 @@ export declare class CreateQrResDto implements ResDto {
     QrSalaryNotEnough?: QrSalaryNotEnough;
     QrRegistrationLimitExceeded?: QrRegistrationLimitExceeded;
 }
+export declare class GetQrNumResDto implements ResDto {
+    payload: string;
+}

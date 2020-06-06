@@ -61,4 +61,10 @@ class CreateQrResDto {
     }
 }
 exports.CreateQrResDto = CreateQrResDto;
+class GetQrNumResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: true, type: () => String } };
+    }
+}
+exports.GetQrNumResDto = GetQrNumResDto;
 //# sourceMappingURL=qr.dto.js.map

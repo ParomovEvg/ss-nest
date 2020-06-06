@@ -2646,8 +2646,8 @@
         "signature": "82e669db24f55ca709cbf09b6145025befee5dd32d46bc6fac2cb53c47f51e16"
       },
       "../src/qr/qr.dto.ts": {
-        "version": "55937c9a9fc77e087340d7865204d80a84849d14366f62e5587964e0988ce93b",
-        "signature": "d8420ce982dd3903ced503c1795db61b07fad169ac1dbdbecb61dd8e9dc19c5c"
+        "version": "3fda66cfb90a4dfd671b4088158e7e50dd85e1d9eea8b7f4e54c08995678e3c9",
+        "signature": "e5348d5e85cb045d6bba0089edd6bebd9debbe44de84813751ff9fdc3cc9f0aa"
       },
       "../src/qr/checkout/checkout.service.ts": {
         "version": "af132e329497b4899f1b17671dc1ffd17326dded4a068e28ef21e993fd6cab72",
@@ -2662,12 +2662,12 @@
         "signature": "c4753d4f9f4c19c8134d66b240b6aa29971b5ff9213cf6f6136fd40484ceb7b6"
       },
       "../src/qr/qr.service.ts": {
-        "version": "21ad5e0009e97e87c323910be1ddce7838c37ffd675d1eca13b5ef8948f492ec",
-        "signature": "e2c2c1853c68e9681465074b633945e9db5be63055416859a6b0a40458f7fc24"
+        "version": "e2db59fc13f0d321a377b0d649aade8455c21d660db75fc75679e35efa18513e",
+        "signature": "432cdf02fec3cf9993f1120fea9a5a66ce0a890437218e9cb1abb6807d47c2d5"
       },
       "../src/qr/qr.controller.ts": {
-        "version": "57c70357cc9b516e295c33fd610ba68ba5da780dbcca756bcba89c43a9f38e23",
-        "signature": "e2bf2490a577f6d386b80495dfdefd80d32430c22f70262fb331e0d6cc5f4abe"
+        "version": "7a36bd93712c6289980e79de95bdb7dc3c3f9e98646aa5e06504d7ab9e3a5c55",
+        "signature": "48b6d8152c5543fc70922c9ded9a9c7980ed999307d4106059c99837fc93bd87"
       },
       "../src/qr/qr-string-parser.middleware.ts": {
         "version": "2758b9f74d29b4627f3f7456717ca871d1472945abdb8e69a94dec9ab004177a",
@@ -9004,6 +9004,7 @@
         "../src/qr/draw/draw.errors.dto.ts",
         "../src/qr/checkout/checkout.errors.dto.ts",
         "../node_modules/useful-monads/eitherasync.d.ts",
+        "../src/auth/phone/phone.service.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -15950,11 +15951,11 @@
       ],
       "../src/qr/qr.dto.ts": [
         "../src/auth/phone/phone.dto.ts",
-        "../src/asets/eithertodto.ts",
         "../src/qr/checkout/checkout.dto.ts",
         "../src/qr/checkout/checkout.errors.dto.ts",
         "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/qr.errors.dto.ts"
+        "../src/qr/qr.errors.dto.ts",
+        "../src/asets/eithertodto.ts"
       ],
       "../src/qr/checkout/checkout.service.ts": [
         "../src/qr/checkout/checkout.entity.ts",
@@ -15978,23 +15979,24 @@
         "../src/qr/draw/draw.dto.ts"
       ],
       "../src/qr/qr.service.ts": [
-        "../src/qr/qr.entity.ts",
         "../node_modules/typeorm/index.d.ts",
-        "../src/auth/phone/phone.entity.ts",
-        "../src/qr/checkout/checkout.entity.ts",
-        "../src/qr/draw/draw.entity.ts",
-        "../src/qr/qr.dto.ts",
+        "../src/qr/qr.entity.ts",
         "../src/qr/checkout/checkout.service.ts",
+        "../src/qr/draw/draw.service.ts",
+        "../src/auth/phone/phone.service.ts",
+        "../src/auth/phone/phone.entity.ts",
+        "../src/qr/draw/draw.entity.ts",
+        "../src/qr/checkout/checkout.entity.ts",
+        "../src/qr/qr.dto.ts",
         "../node_modules/useful-monads/index.d.ts",
         "../src/qr/qr.errors.dto.ts",
-        "../src/qr/draw/draw.service.ts",
         "../src/qr/draw/draw.errors.dto.ts",
         "../src/qr/checkout/checkout.errors.dto.ts"
       ],
       "../src/qr/qr.controller.ts": [
-        "../src/auth/jwt-request.ts",
+        "../src/qr/qr.service.ts",
         "../src/qr/qr.dto.ts",
-        "../src/qr/qr.service.ts"
+        "../src/auth/jwt-request.ts"
       ],
       "../src/qr/qr-string-parser.middleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -17935,21 +17937,7 @@
       "../src/auth/strategy/jwt-admin.strategy.ts",
       "../src/send-password/send-password.module.ts",
       "../src/auth/auth.module.ts",
-      "../src/qr/draw/draw.errors.dto.ts",
-      "../src/qr/draw/draw.dto.ts",
-      "../src/qr/checkout/checkout.errors.dto.ts",
-      "../src/qr/checkout/checkout.dto.ts",
-      "../src/qr/qr.errors.dto.ts",
-      "../src/qr/qr.dto.ts",
-      "../src/qr/checkout/checkout.service.ts",
-      "../src/qr/date/date.service.ts",
-      "../src/qr/draw/draw.service.ts",
-      "../src/qr/qr.service.ts",
-      "../src/qr/qr.controller.ts",
       "../src/qr/qr-string-parser.middleware.ts",
-      "../src/qr/draw/draw.controller.ts",
-      "../src/qr/checkout/checkout.controller.ts",
-      "../src/qr/qr.module.ts",
       "../src/content/screen/screen.errors.dto.ts",
       "../src/content/text/text.errors.dto.ts",
       "../src/content/text/text.dto.ts",
@@ -17997,6 +17985,7 @@
       "../src/content/text/text.service.ts",
       "../src/content/md/md.service.ts",
       "../src/content/screen/screen.service.ts",
+      "../src/content/content.service.ts",
       "../src/content/content.controller.ts",
       "../src/content/screen/screen.controller.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
@@ -18022,7 +18011,6 @@
       "../src/content/md/md.controller.ts",
       "../src/content/text/text.controller.ts",
       "../src/content/content.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
@@ -18106,7 +18094,21 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/content/content.service.ts"
+      "../src/qr/qr.dto.ts",
+      "../src/qr/qr.controller.ts",
+      "../src/qr/qr.service.ts",
+      "../src/qr/checkout/checkout.service.ts",
+      "../src/qr/qr.errors.dto.ts",
+      "../src/qr/checkout/checkout.dto.ts",
+      "../src/qr/draw/draw.dto.ts",
+      "../src/qr/draw/draw.errors.dto.ts",
+      "../src/qr/checkout/checkout.errors.dto.ts",
+      "../src/qr/date/date.service.ts",
+      "../src/qr/draw/draw.service.ts",
+      "../src/qr/draw/draw.controller.ts",
+      "../src/qr/checkout/checkout.controller.ts",
+      "../src/qr/qr.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.8.3"

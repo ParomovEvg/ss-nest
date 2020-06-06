@@ -21,11 +21,13 @@ const useful_monads_1 = require("useful-monads");
 const qr_errors_dto_1 = require("./qr.errors.dto");
 const draw_service_1 = require("./draw/draw.service");
 const EitherAsync_1 = require("useful-monads/EitherAsync");
+const phone_service_1 = require("../auth/phone/phone.service");
 let QrService = class QrService {
-    constructor(qrRepository, checkoutService, drawService) {
+    constructor(qrRepository, checkoutService, drawService, phoneService) {
         this.qrRepository = qrRepository;
         this.checkoutService = checkoutService;
         this.drawService = drawService;
+        this.phoneService = phoneService;
     }
     async findAllBy(where) {
         return await this.qrRepository.find({ where, relations: ['phone'] });
@@ -99,13 +101,22 @@ let QrService = class QrService {
             return useful_monads_1.right(true);
         }
     }
+    async getQrNum(phone) {
+        return EitherAsync_1.EitherAsync.from(this.phoneService.findPhone(phone))
+            .asyncMap(async (phone) => {
+            const num = await this.qrRepository.count({ where: { phone } });
+            return String(num);
+        })
+            .orDefault('0');
+    }
 };
 QrService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(qr_entity_1.Qr)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         checkout_service_1.CheckoutService,
-        draw_service_1.DrawService])
+        draw_service_1.DrawService,
+        phone_service_1.PhoneService])
 ], QrService);
 exports.QrService = QrService;
 //# sourceMappingURL=qr.service.js.map

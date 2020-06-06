@@ -26,6 +26,11 @@ let QrController = class QrController {
     async addQr(createQrDto, req) {
         return eitherToDto_1.eitherToDto(await this.qrService.createQr(createQrDto, req.user));
     }
+    async countQr(req) {
+        return {
+            payload: await this.qrService.getQrNum(req.user.phone),
+        };
+    }
 };
 __decorate([
     common_1.Post(),
@@ -36,6 +41,15 @@ __decorate([
     __metadata("design:paramtypes", [qr_dto_1.CreateQrDto, Object]),
     __metadata("design:returntype", Promise)
 ], QrController.prototype, "addQr", null);
+__decorate([
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Get('count'),
+    openapi.ApiResponse({ status: 200, type: require("./qr.dto").GetQrNumResDto }),
+    __param(0, common_1.Req()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QrController.prototype, "countQr", null);
 QrController = __decorate([
     common_1.Controller('qr'),
     swagger_1.ApiTags('Qr'),
