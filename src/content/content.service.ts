@@ -21,7 +21,7 @@ export class ContentService {
       })),
       mdFields: screen.mdFields.map(({ values, ...rest }) => ({
         ...rest,
-        value: first(values),
+        values: values,
       })),
     }));
   }

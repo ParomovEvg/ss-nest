@@ -84,12 +84,10 @@ let MdService = class MdService {
         return this.findMdField(fieldId);
     }
     async findMdField(fieldId) {
-        console.log(fieldId);
         const field = await this.mdFieldRepository.findOne({
             where: { id: fieldId },
             relations: ['values'],
         });
-        console.log(field);
         if (field) {
             return useful_monads_1.right(field);
         }

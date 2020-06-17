@@ -4,16 +4,23 @@ import { ImgFieldAlreadyExistsInScreen, ImgFieldNotFoundById, ImgNotFoundById, I
 export declare class ImgFieldDto {
     id: number;
     name: string;
+    description: string;
     img: ImgDto[];
 }
 export declare class ImgFieldContentDto {
     id: number;
     name: string;
+    description: string;
     img?: ImgDto;
 }
 export declare class FlatImgFieldDto {
     id: number;
     name: string;
+    description: string;
+}
+export declare class ChangeImgField {
+    name: string;
+    description: string;
 }
 export declare class ImgDto {
     id: number;
@@ -24,6 +31,7 @@ export declare class ImgDto {
 export declare class CreateImgFieldDto {
     screenId: number;
     name: string;
+    description: string;
 }
 export declare class CreateImgFieldResDto implements ResDto {
     payload?: FlatImgFieldDto;
@@ -41,6 +49,10 @@ export declare class CreateImgResDto implements ResDto {
     ImgFieldNotFoundById?: ImgFieldNotFoundById;
 }
 export declare class FindImgFieldByIdResDto implements ResDto {
+    payload?: ImgFieldDto;
+    ImgFieldNotFoundById?: ImgFieldNotFoundById;
+}
+export declare class UpdateImgFieldResDto implements ResDto {
     payload?: ImgFieldDto;
     ImgFieldNotFoundById?: ImgFieldNotFoundById;
 }

@@ -31,7 +31,7 @@ class FlatMdFieldDto {
 exports.FlatMdFieldDto = FlatMdFieldDto;
 class MdFieldContentDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, label: { required: true, type: () => String }, value: { required: true, type: () => require("./md.dto").MdDto } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, label: { required: true, type: () => String }, values: { required: true, type: () => [require("./md.dto").MdDto] } };
     }
 }
 exports.MdFieldContentDto = MdFieldContentDto;

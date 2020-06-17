@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import {
   CreateTextDto,
   CreateTextFieldDto,
@@ -6,7 +14,10 @@ import {
   CreateTextResDto,
   DeleteTextFieldResDto,
   FindTextOfFieldResDto,
+  ChangeTextFieldDto,
+  ChangeTextFieldResDto,
 } from './text.dto';
+
 import { eitherToDto } from '../../asets/eitherToDto';
 import { TextService } from './text.service';
 import { ApiTags } from '@nestjs/swagger';
@@ -33,6 +44,16 @@ export class TextController {
     @Param('fieldId') fieldId: number,
   ): Promise<FindTextOfFieldResDto> {
     return eitherToDto(await this.textService.findTextFieldById(fieldId));
+  }
+
+  @Put('field/:fieldId')
+  async updateTextField(
+    @Body() changeField: ChangeTextFieldDto,
+    @Param('fieldId') fieldId: string,
+  ): Promise<ChangeTextFieldResDto> {
+    return eitherToDto(
+      await this.textService.updateTextField(changeField, fieldId),
+    );
   }
 
   @Delete('field/:fieldId')

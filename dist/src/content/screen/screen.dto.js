@@ -13,25 +13,25 @@ const openapi = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 class FlatScreenDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String } };
     }
 }
 exports.FlatScreenDto = FlatScreenDto;
 class ScreenDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/text.dto").TextFieldDto] }, imgFields: { required: true, type: () => [require("../img/img.dto").ImgFieldDto] }, mdFields: { required: true, type: () => [require("../md/md.dto").MdFieldContentDto] } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/text.dto").TextFieldDto] }, imgFields: { required: true, type: () => [require("../img/img.dto").ImgFieldDto] }, mdFields: { required: true, type: () => [require("../md/md.dto").MdFieldDto] } };
     }
 }
 exports.ScreenDto = ScreenDto;
 class ScreenContentDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/text.dto").TextFieldContentDto] }, imgFields: { required: true, type: () => [require("../img/img.dto").ImgFieldContentDto] }, mdFields: { required: true, type: () => [require("../md/md.dto").MdFieldContentDto] } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/text.dto").TextFieldContentDto] }, imgFields: { required: true, type: () => [require("../img/img.dto").ImgFieldContentDto] }, mdFields: { required: true, type: () => [require("../md/md.dto").MdFieldContentDto] } };
     }
 }
 exports.ScreenContentDto = ScreenContentDto;
 class CreateScreenDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: true, type: () => String } };
+        return { name: { required: true, type: () => String }, description: { required: true, type: () => String } };
     }
 }
 exports.CreateScreenDto = CreateScreenDto;

@@ -10,6 +10,9 @@ export class ContentScreen {
   @Column({ type: 'varchar', length: 255, unique: true })
   name: string;
 
+  @Column({ default: '' })
+  description: string;
+
   @OneToMany(
     type => ContentTextField,
     textField => textField.screen,

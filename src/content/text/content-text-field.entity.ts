@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ContentText } from './content-text.entity';
 import { ContentScreen } from '../screen/content-screen.entity';
 
@@ -10,6 +16,9 @@ export class ContentTextField {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
+  @Column({ default: '', type: 'varchar' })
+  description: string;
+
   @OneToMany(
     type => ContentText,
     text => text.field,
@@ -17,5 +26,5 @@ export class ContentTextField {
   values: ContentText[];
 
   @ManyToOne(type => ContentScreen)
-  screen: ContentScreen
+  screen: ContentScreen;
 }

@@ -6,7 +6,12 @@ import { ContentImgField } from './content-img-field.entity';
 import { ScreenService } from '../screen/screen.service';
 import { Either, left, right } from 'useful-monads';
 import { ScreenNotFoundById } from '../screen/screen.errors.dto';
-import { FlatImgFieldDto, ImgDto } from './img.dto';
+import {
+  FlatImgFieldDto,
+  ImgDto,
+  ChangeImgField,
+  ImgFieldDto,
+} from './img.dto';
 import {
   createImgFieldAlreadyExistsInScreen,
   createImgFieldNotFoundById,
@@ -64,7 +69,6 @@ export class ImgService {
             .filter(path => !images.find(img => img.path === path)),
         )
         .then((paths: string[]) => {
-          console.log(paths);
           paths.forEach(path => {
             fs.unlink(path);
           });
@@ -79,6 +83,7 @@ export class ImgService {
   async createImgField(
     screenId: number,
     name: string,
+    description: string,
   ): Promise<
     Either<ScreenNotFoundById | ImgFieldAlreadyExistsInScreen, FlatImgFieldDto>
   > {
@@ -87,6 +92,7 @@ export class ImgService {
       .asyncMap(async screen => {
         const field = this.imgFieldRepository.create();
         field.screen = screen;
+        field.description = description;
         field.name = name;
         return this.imgFieldRepository
           .save(field)
@@ -114,6 +120,22 @@ export class ImgService {
         return { id: field.id };
       })
       .run();
+  }
+
+  async updateImgField(
+    changeField: ChangeImgField,
+    fieldId: string,
+  ): Promise<Either<ImgFieldNotFoundById, ImgFieldDto>> {
+    const field = await this.imgFieldRepository.findOne({
+      where: { id: fieldId },
+    });
+    if (field) {
+      field.name = changeField.name;
+      field.description = changeField.description;
+      return right(await this.imgFieldRepository.save(field));
+    } else {
+      return left(createImgFieldNotFoundById({ id: field.id }));
+    }
   }
 
   async createImg(

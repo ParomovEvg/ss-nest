@@ -25,7 +25,7 @@ export class MdFieldContentDto {
   id: number;
   name: string;
   label: string;
-  value: MdDto;
+  values: MdDto[];
 }
 
 //=====================

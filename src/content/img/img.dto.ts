@@ -12,16 +12,23 @@ import {
 export class ImgFieldDto {
   id: number;
   name: string;
+  description: string;
   img: ImgDto[];
 }
 export class ImgFieldContentDto {
   id: number;
   name: string;
+  description: string;
   img?: ImgDto;
 }
 export class FlatImgFieldDto {
   id: number;
   name: string;
+  description: string;
+}
+export class ChangeImgField {
+  name: string;
+  description: string;
 }
 export class ImgDto {
   id: number;
@@ -40,6 +47,8 @@ export class CreateImgFieldDto {
   @IsNotEmpty()
   @IsString()
   name: string;
+
+  description: string;
 }
 
 export class CreateImgFieldResDto implements ResDto {
@@ -68,6 +77,12 @@ export class FindImgFieldByIdResDto implements ResDto {
   payload?: ImgFieldDto;
   ImgFieldNotFoundById?: ImgFieldNotFoundById;
 }
+//=====================
+// FindImgFieldById
+export class UpdateImgFieldResDto implements ResDto {
+  payload?: ImgFieldDto;
+  ImgFieldNotFoundById?: ImgFieldNotFoundById;
+}
 
 //=====================
 // GetImgBefore
@@ -88,5 +103,5 @@ export class SaveImgLastDto {
 
 export class SaveImgLastResDto implements ResDto {
   payload?: ImgDto;
-  ImgNotFoundById?:ImgNotFoundById;
+  ImgNotFoundById?: ImgNotFoundById;
 }

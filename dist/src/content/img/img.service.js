@@ -63,7 +63,6 @@ let ImgService = class ImgService {
             }))
                 .filter(path => !images.find(img => img.path === path)))
                 .then((paths) => {
-                console.log(paths);
                 paths.forEach(path => {
                     fs.unlink(path);
                 });
@@ -73,12 +72,13 @@ let ImgService = class ImgService {
     async findFields() {
         return this.imgFieldRepository.find({ relations: ['img'] });
     }
-    async createImgField(screenId, name) {
+    async createImgField(screenId, name, description) {
         return EitherAsync_1.EitherAsync.from(this.screenService.getScreenById(screenId))
             .asyncChain(screen => this.checkFieldName(name, screen))
             .asyncMap(async (screen) => {
             const field = this.imgFieldRepository.create();
             field.screen = screen;
+            field.description = description;
             field.name = name;
             return this.imgFieldRepository
                 .save(field)
@@ -106,6 +106,19 @@ let ImgService = class ImgService {
             return { id: field.id };
         })
             .run();
+    }
+    async updateImgField(changeField, fieldId) {
+        const field = await this.imgFieldRepository.findOne({
+            where: { id: fieldId },
+        });
+        if (field) {
+            field.name = changeField.name;
+            field.description = changeField.description;
+            return useful_monads_1.right(await this.imgFieldRepository.save(field));
+        }
+        else {
+            return useful_monads_1.left(img_errors_dto_1.createImgFieldNotFoundById({ id: field.id }));
+        }
     }
     async createImg(fieldId, path) {
         return EitherAsync_1.EitherAsync.from(this.findFiledById(fieldId))

@@ -45,9 +45,9 @@ let ScreenService = class ScreenService {
     async findAll() {
         return this.screenRepository.find();
     }
-    async createScreen({ name, }) {
+    async createScreen({ name, description, }) {
         const screen = await this.screenRepository.findOne({
-            where: { name },
+            where: { name, description },
         });
         if (screen) {
             return useful_monads_1.left(screen_errors_dto_1.createScreenAlreadyExists({ name }));
@@ -55,6 +55,7 @@ let ScreenService = class ScreenService {
         else {
             const newScreen = this.screenRepository.create();
             newScreen.name = name;
+            newScreen.description = description;
             return useful_monads_1.right(await this.screenRepository.save(newScreen));
         }
     }
@@ -90,7 +91,6 @@ let ScreenService = class ScreenService {
                     EitherAsync_1.mergeInOneAsync(screen.mdFields.map(mdField => this.mdService.deleteMdField(mdField.id))).run(),
                 ]).extract();
                 if (res.left) {
-                    console.log(res.left);
                     await queryRunner.rollbackTransaction();
                     throw res.left;
                 }

@@ -13,22 +13,28 @@ const openapi = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 class ImgFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, img: { required: true, type: () => [require("./img.dto").ImgDto] } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, img: { required: true, type: () => [require("./img.dto").ImgDto] } };
     }
 }
 exports.ImgFieldDto = ImgFieldDto;
 class ImgFieldContentDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, img: { required: false, type: () => require("./img.dto").ImgDto } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, img: { required: false, type: () => require("./img.dto").ImgDto } };
     }
 }
 exports.ImgFieldContentDto = ImgFieldContentDto;
 class FlatImgFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String } };
     }
 }
 exports.FlatImgFieldDto = FlatImgFieldDto;
+class ChangeImgField {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { name: { required: true, type: () => String }, description: { required: true, type: () => String } };
+    }
+}
+exports.ChangeImgField = ChangeImgField;
 class ImgDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { id: { required: true, type: () => Number }, path: { required: true, type: () => String }, url: { required: true, type: () => String }, host: { required: true, type: () => String } };
@@ -37,7 +43,7 @@ class ImgDto {
 exports.ImgDto = ImgDto;
 class CreateImgFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { screenId: { required: true, type: () => Number }, name: { required: true, type: () => String } };
+        return { screenId: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String } };
     }
 }
 __decorate([
@@ -75,6 +81,12 @@ class FindImgFieldByIdResDto {
     }
 }
 exports.FindImgFieldByIdResDto = FindImgFieldByIdResDto;
+class UpdateImgFieldResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: false, type: () => require("./img.dto").ImgFieldDto }, ImgFieldNotFoundById: { required: false, type: () => require("./img.errors.dto").ImgFieldNotFoundById } };
+    }
+}
+exports.UpdateImgFieldResDto = UpdateImgFieldResDto;
 class GetImgBeforeResDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { payload: { required: false, type: () => require("./img.dto").ImgDto }, ImgVersionBeforeNotFound: { required: false, type: () => require("./img.errors.dto").ImgVersionBeforeNotFound }, ImgFieldNotFoundById: { required: false, type: () => require("./img.errors.dto").ImgFieldNotFoundById }, ImgNotFoundByIdInField: { required: false, type: () => require("./img.errors.dto").ImgNotFoundByIdInField } };

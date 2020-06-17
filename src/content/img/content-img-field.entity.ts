@@ -15,6 +15,9 @@ export class ContentImgField {
   @Column({ type: 'varchar', length: 255, unique: true })
   name: string;
 
+  @Column({ default: '', type: 'varchar' })
+  description: string;
+
   @OneToMany(
     type => ContentImg,
     img => img.field,

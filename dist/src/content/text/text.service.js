@@ -28,19 +28,23 @@ let TextService = class TextService {
         this.screenService = screenService;
         this.connection = connection;
     }
-    async createField({ name, screenId, }) {
+    async createField({ name, description, screenId, }) {
         return EitherAsync_1.EitherAsync.from(this.screenService.getScreenById(screenId))
             .asyncChain(async (screen) => {
             const field = await this.textFieldRepository.findOne({
-                where: { screen: screen, name: name },
+                where: { screen: screen, name: name, description: description },
             });
             if (field) {
-                return useful_monads_1.left(text_errors_dto_1.createTextFieldAlreadyExists({ screenId: screen.id, name: name }));
+                return useful_monads_1.left(text_errors_dto_1.createTextFieldAlreadyExists({
+                    screenId: screen.id,
+                    name: name,
+                }));
             }
             else {
                 const textField = this.textFieldRepository.create();
                 textField.name = name;
                 textField.screen = screen;
+                textField.description = description;
                 return useful_monads_1.right(await this.textFieldRepository.save(textField));
             }
         })
@@ -59,6 +63,19 @@ let TextService = class TextService {
             return { id: fieldId };
         })
             .run();
+    }
+    async updateTextField(changeField, fieldId) {
+        const field = await this.textFieldRepository.findOne({
+            where: { id: fieldId },
+        });
+        if (field) {
+            field.name = changeField.name;
+            field.description = changeField.description;
+            return useful_monads_1.right(await this.textFieldRepository.save(field));
+        }
+        else {
+            return useful_monads_1.left(text_errors_dto_1.createTextFieldNotFoundById({ id: field.id }));
+        }
     }
     async findTextFieldById(fieldId) {
         return this.getFieldById(fieldId).then(r => r.map(filed => (Object.assign(Object.assign({}, filed), { values: filed.values.map(value => (Object.assign(Object.assign({}, value), { createDate: value.createDate.toISOString() }))) }))));

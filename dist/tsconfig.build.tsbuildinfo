@@ -1134,8 +1134,20 @@
         "signature": "26d590f7fc94dc8bd476aab67a6047b39a72b0dcbdb7c5ce1dbd369762d63e4f"
       },
       "../migrations/1591049492245-ps_init.ts": {
-        "version": "2cabe84b193c57b995f94e619a74ebfeeaafc30b0694c3ae41715be83de53e39",
+        "version": "0671a141f16388b2a0f8adb55d0985ad5cf9f753246715a714e6e78b39247f8c",
         "signature": "3295fb4c4ac6c9fb1f02a33dfa7b8079ba29d27a4fe7cfb5fe447da1bc3b1d3d"
+      },
+      "../migrations/1591965885599-postrefactoring.ts": {
+        "version": "d0980532dc4e6367f4217f575a0f2d97375e6fcf0e96936f0057367f67ea465f",
+        "signature": "1d39cf4efa6175d905c6abc5a7d7755251264579388e5842b017c07e0bb00702"
+      },
+      "../migrations/1591966169139-postrefactoring.ts": {
+        "version": "4b36d01cae054b2e5bd72220eb3e9e181f636b4010071f2e6b3c48406b0d7d8a",
+        "signature": "50454658ab0d61bb054be41ce3bb1219be717c370fe893a766c81dfd36377334"
+      },
+      "../migrations/1592065058739-generate.ts": {
+        "version": "832a842b916abf5212ea9bd4e60c30a1ee371af9c446e28939810ea4fc9f637b",
+        "signature": "b0229a3c2818074433ea3db407526dbf4c2d5a02564f9516fd161aa4e77a8067"
       },
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": {
         "version": "3346a737f29b700e7c6c2a694973ceb70a738c3ac5212ffbefac8a27048fa8d6",
@@ -2318,7 +2330,7 @@
         "signature": "fc283bbacb735f1e05d6b5a5cfce2d1cc02b4d1a8ad0d87ba3a58fadb0ddcd44"
       },
       "../src/send-password/send-password-mail/send-password-mail.service.ts": {
-        "version": "75715aa4f9b2b03f23f349380ebcc778492ea0c69cbbdefeaf98b47292c9f45a",
+        "version": "df7f3460b28ac2492f985b4d3cde1947064660f2ff496ba15fe43cbd92930166",
         "signature": "f0ea7d6903ef2cb8d8057625455d1dedfa80b514f1bbed7d6a257ef8ecc2d219"
       },
       "../src/auth/password/password.service.ts": {
@@ -2618,11 +2630,11 @@
         "signature": "ef062d23fc455f988cfe3dcdfa0d7f352f40c5f222bf73444da73300f3aec088"
       },
       "../src/send-password/send-password.module.ts": {
-        "version": "9cdd9ba7f3855987a05269b54805bf22fa1cd92d75938ee85c071f3c1b0fdf84",
+        "version": "6b391e5010f2aa01ead9ec23c84fa2672ba86e354df88eb4f6005c4dbb21fbfd",
         "signature": "96aaf659a08c03872da2af52e741b7bde4911536ea7091c9d4c1559850b4b4ce"
       },
       "../src/auth/auth.module.ts": {
-        "version": "2b333ce9c5ad4cc80a2e66b61f215a6d906f02da16ef302c1c0d2c65b113626d",
+        "version": "0b6fcf4a48614b793a97b853113d2acd43b5ddc29b44893845700e7d4c196381",
         "signature": "2e5d258cf85349b02b015c3f1b8873c152d182c3819a7ccc3aff16fc3037a5fc"
       },
       "../src/qr/draw/draw.errors.dto.ts": {
@@ -2670,7 +2682,7 @@
         "signature": "48b6d8152c5543fc70922c9ded9a9c7980ed999307d4106059c99837fc93bd87"
       },
       "../src/qr/qr-string-parser.middleware.ts": {
-        "version": "2758b9f74d29b4627f3f7456717ca871d1472945abdb8e69a94dec9ab004177a",
+        "version": "23181b6e2835ac13ee00213cfd5d284e016ed54745f3b206bf94208d3f0e4675",
         "signature": "15156ae16e5693bc0a9a727935f93dc6cd0aef9182fddf5412e8df834fb7cc4c"
       },
       "../src/qr/draw/draw.controller.ts": {
@@ -2682,7 +2694,7 @@
         "signature": "38efceba2cb441e3d0216957484738198a034c4ae6215afcf0788d735ad96dbe"
       },
       "../src/qr/qr.module.ts": {
-        "version": "d035d84afb700d41be7202d578ff0c98ed0012e54eb74fbac039e30b53873463",
+        "version": "f585f7a33325e695ea6b22f52fe24ebcc8ae5454a3d2f7e07ff23b4a031dc371",
         "signature": "d36e18757f2818823656550b99bec8f6ad204c4b082255d6acb85c3da29eca4f"
       },
       "../src/content/screen/screen.errors.dto.ts": {
@@ -2693,33 +2705,9 @@
         "version": "432bd60dd366724ad4ae3e7c9398cd29172ae1ca47e1e57d79efab0f413510ce",
         "signature": "26a64fb81e518cad364522ef4b0bee994ce58b8a3bbff246ba473d6637d77a4f"
       },
-      "../src/content/text/text.dto.ts": {
-        "version": "cccc4df6bfa5b8d916625a5129ec106524202bc50ec9f85b565c4b7e3749225b",
-        "signature": "f042ef23e6a1fe4e824031f8a1cf3b92469ad71f41fe7858f89728daf3395119"
-      },
-      "../src/content/img/img.errors.dto.ts": {
-        "version": "c35c7eafa0f87dd07335014f2db8bb0653cd0a0b0f62a97568519d48708888cf",
-        "signature": "cbf491e81e9d8d5071caf52c38303020b61e59ae138e9eed6e973ce8a31b04e2"
-      },
-      "../src/content/img/img.dto.ts": {
-        "version": "cfb51012e91d859b6f15dbc9e2dcd60dee236b0283e2c5c1f3cc3545e903f6e7",
-        "signature": "c2e0c584ca5c682624681d617d57b2e7f22bbbf553fc31ba63d00e076d71a8bb"
-      },
-      "../src/content/md/md.errors.dto.ts": {
-        "version": "2e1290f858895738ce3dce059bbc2d045d23cb3f768656200b9c5670965ca419",
-        "signature": "00d1948b281cff4ae91fe24a2871f0562e9039b45762ab3f72a5199ffacd6e32"
-      },
-      "../src/content/md/md.dto.ts": {
-        "version": "e84cab695e99c8822ac0e5656f943b691314ae638284e39478d8f64bd3439dd3",
-        "signature": "bd6349fb559760d2e53a32d612fb8e746de0803d7c09b75c19bf2b3b661cdc15"
-      },
-      "../src/content/screen/screen.dto.ts": {
-        "version": "99157c55cced8ae2a8e531f79d2fe41f3f3f818d7e4decb76c0abc50e31e6aac",
-        "signature": "8e041818de2f844fac26dee5e8232dce3fe9ae0edd60e1fc194987f421567f2b"
-      },
-      "../src/content/content.dto.ts": {
-        "version": "85297c11ca5fe0a50284e25ff15ceff09621588a92bb12f56ced36415a9b7d36",
-        "signature": "bf3f97c3fd06857d34aa055bd8f24c3720858430f4e677bf2b56b4f452dd7f0c"
+      "../src/content/text/content-text.entity.ts": {
+        "version": "e8e3589ffe322ab9b9974e6f2371a184e99e99e0dfc3efc44baf8f05156f2220",
+        "signature": "b397bdac9cc3e4ffc8817d11ee189735c8ed77748e53b0aad0580808017e8c69"
       },
       "../src/content/md/content-md.entity.ts": {
         "version": "6db7f79c558b2868c4ef70e66c0fe1429ba19a10c5829f9646d79d7bd6d7b6b0",
@@ -2729,25 +2717,49 @@
         "version": "9409eb3ab70c64b7fab2c4329bd593da68ad8d268c368e43d0d596cdbf98771d",
         "signature": "24a3636b9aa13b4e21b25829712d499b2ac487c65c673104bd132ebd75db37d6"
       },
-      "../src/content/text/content-text.entity.ts": {
-        "version": "e8e3589ffe322ab9b9974e6f2371a184e99e99e0dfc3efc44baf8f05156f2220",
-        "signature": "b397bdac9cc3e4ffc8817d11ee189735c8ed77748e53b0aad0580808017e8c69"
-      },
-      "../src/content/text/content-text-field.entity.ts": {
-        "version": "79c65efcd0c202e933b8fe5df930a8bfe7685b3d45eff481e2f1c34174f6acbd",
-        "signature": "ee0ecbbb463d3f1e8cc9e4da441709e5881304bd77125618c5b2d6bcbea604d1"
-      },
       "../src/content/img/content-img.entity.ts": {
         "version": "3202290d2b51e5d737fd1193482b2869b41cfe7442490da80dd2fb666e307a53",
         "signature": "2c4f2d95f0cc44f8cb40e9400cf7180daa16717112d0fa8abcbbf04425573bbb"
       },
       "../src/content/img/content-img-field.entity.ts": {
-        "version": "d9ac913d3a07025c04f802f1b8e736b1a864582b32979cd12166876fa0e22713",
-        "signature": "76a1d7448bd22f1c8378def366b2fe105b48230129e5f2405029be5f5f546eb7"
+        "version": "0527ff91ec95bb0e6c1d9e9b92d9c6911a9b69994d68b2666591f33703cbbbae",
+        "signature": "c03cf891f644e3fa382307dbe4af61afd871dcda9a820e024fae7f59bab730d3"
       },
       "../src/content/screen/content-screen.entity.ts": {
-        "version": "3066266d0d3e47cce3a6b514c8181aec2732083a2e43c9966f213e030028e15d",
-        "signature": "02c3a01de7bc3ddae8a210097ec47a62273fae361a4347d84a091d99410327d4"
+        "version": "0b5b1b5b0ecdf9cb962471ac32044996f23b1d3b0ae7dc3cc8dd73b596a0f352",
+        "signature": "52c840e3090ec32c132bb2238d4cd3334b4b70d884033e5729b76de7becda0ae"
+      },
+      "../src/content/text/content-text-field.entity.ts": {
+        "version": "4da821ed2d7559418ce951eb6027e38e8371758b6d66e52406407526493c3738",
+        "signature": "e4588992dc9f026f6e3af1aaaebfade4a408996a7ce3c99a3023cfe26cfcf25b"
+      },
+      "../src/content/text/text.dto.ts": {
+        "version": "20bedef3264e9e8a2c5990042eb8e473e88287712a11d8bc639f7aba410ad09e",
+        "signature": "8ba0f83fcd19270ec75c3d00a75c8a278a2dc7719ce018fe343f4c99f133038d"
+      },
+      "../src/content/img/img.errors.dto.ts": {
+        "version": "c35c7eafa0f87dd07335014f2db8bb0653cd0a0b0f62a97568519d48708888cf",
+        "signature": "cbf491e81e9d8d5071caf52c38303020b61e59ae138e9eed6e973ce8a31b04e2"
+      },
+      "../src/content/img/img.dto.ts": {
+        "version": "d1cbc72b5d069be1ea3282c6da93a4a6eec2b899457852d0fc0f0ccf320988c6",
+        "signature": "a4d73d5d73a30639887687955934b3debad1fbfd9396422cf63764f116c9d0cb"
+      },
+      "../src/content/md/md.errors.dto.ts": {
+        "version": "2e1290f858895738ce3dce059bbc2d045d23cb3f768656200b9c5670965ca419",
+        "signature": "00d1948b281cff4ae91fe24a2871f0562e9039b45762ab3f72a5199ffacd6e32"
+      },
+      "../src/content/md/md.dto.ts": {
+        "version": "7db14b861e9a6802e851e50cf1c3927807d7a15b0fc29990b88b9dadde530242",
+        "signature": "bd231de1762ebe18fbe1ab04eaeda9b198ed62b8dcbb87566bf7d66bf226b83c"
+      },
+      "../src/content/screen/screen.dto.ts": {
+        "version": "10b5b58cc8d55ab56f2baa55f3103b589abf54f9c70593e33411aac26dfef78a",
+        "signature": "a77c5279a26cc49b0994ca023a2d9318c2e82c44812ee494132d76c7299ee36a"
+      },
+      "../src/content/content.dto.ts": {
+        "version": "85297c11ca5fe0a50284e25ff15ceff09621588a92bb12f56ced36415a9b7d36",
+        "signature": "bf3f97c3fd06857d34aa055bd8f24c3720858430f4e677bf2b56b4f452dd7f0c"
       },
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": {
         "version": "4025cf62742c5bb3d383c8a62342481622c87e3397ea5e7b7baab18b9efd5798",
@@ -2858,23 +2870,23 @@
         "signature": "9473ee1ca40f9a3d7727087ec6e4976923583878763b789636026b26f7f6cd3c"
       },
       "../src/content/img/img.service.ts": {
-        "version": "ff5dd002bc7c28002a3750abcb223e41d278f3661eff04d55dc7c8283e69a0c3",
-        "signature": "cc061a967ae66e8bd696218f25b8f1623cb724fe3334b4058ecaba766d45d5d9"
+        "version": "ea9b1db486f11601bb33aa136895396a48c76031f6f980da1536d4a0a5db4223",
+        "signature": "1190b03f9f752937a4b9187b42625bda48034f320c3056dfd549b5c3b0ff8fe2"
       },
       "../src/content/text/text.service.ts": {
-        "version": "9026c944c5722bbf4bf4873f6a8a201dafde689bf9ed88cefa50e1ff6189514d",
-        "signature": "e398528cd454e830dca190e09e026162a28cda931920fa0b0f539e3dec19f2da"
+        "version": "3dc329ca0a0f8f889b8fc4a466b0e00044a237902258469762643b7216b82ebd",
+        "signature": "2e59731e4310caabf7da8da281ccaeed6c0cc27b59269baa12ccf94cd8af9418"
       },
       "../src/content/md/md.service.ts": {
-        "version": "350dd4f13e5ed6e555dc3a828b0d01c6dfc1ff32133957afd93515c6662a17a4",
+        "version": "4e8ef5d90b880c9cfca0d52d5d4b1d22975501e326efa024483bc53a9e13f33e",
         "signature": "ba4d52a57521dfe9247c94644dc008e30377bfb33ef57317753618e04974859d"
       },
       "../src/content/screen/screen.service.ts": {
-        "version": "11a16e74b585a75b98b35295429dbb5e6b9fb20a86ae52a4f59fcb0b53990750",
-        "signature": "a37fd776fad44d35f0a748467592097d0899be4c20a7f8a656f71725a428b591"
+        "version": "cb4a101d099ba5b89e0f95244a1c89acd8dfda3c8ceaecb61290042f1bc15b63",
+        "signature": "ce96a426986c5595a3cebdcc5e6d15bd1e1808747aa00cb50762824d67038fda"
       },
       "../src/content/content.service.ts": {
-        "version": "e96eba3088842fe08ee95d3a17d8b9e8da347ab8af0a9bac412c46c0f1011a96",
+        "version": "41175e5e5261c1ce122b239b3a4b9b6fe3d166eb3ac3574a4e17363289aeae71",
         "signature": "6a247f314b965c7a7dd9f7b53a0729414f7777b884c376a1260ea288f1591467"
       },
       "../src/content/content.controller.ts": {
@@ -2962,16 +2974,16 @@
         "signature": "ffdb9b58af06a526dce72c2216121e2c57fc53f9fa01848c932addb04800fbd2"
       },
       "../src/content/img/img.controller.ts": {
-        "version": "e53d4606d27e7edf0f0e099f95d2096ed147b104101c3a45d7620d6514a922c4",
-        "signature": "dcf9095632d628468e59615dde8d3953c5fcfcfac12f90b35653f2c0fcbbf2b4"
+        "version": "37a30a1cfaf20ce3a8520709c20bd7756e38ce03df7d4ce0564564e143cd4c17",
+        "signature": "588f683e1835237e407447b9cd4529fb80782f6ec8edefaa2bdb0a4375160647"
       },
       "../src/content/md/md.controller.ts": {
         "version": "9e12127243e579c4e7f6792ffadf95055ee3379d2c35d6cfc64c22dcce668cbb",
         "signature": "a4ef0806259abe57c503823d58d1f0caea75ef4c57976bc51e443839476ad959"
       },
       "../src/content/text/text.controller.ts": {
-        "version": "2accec4d6b9993fc3ddcef45524ebf7441565bb8a4f08ee86fe4be247092d524",
-        "signature": "da4a495f58309e4bd59cfa7f74ce770747c356672ef3a45f54cfe34d26f7414c"
+        "version": "0ba4437c48543323ca5f44d87a0260c09c477f22aa24fcae460851dd0c331b77",
+        "signature": "f78fa13e38fdf2d3242c192581fb8218a84f284db98fb7a8003b5c90e087a4b7"
       },
       "../src/content/content.module.ts": {
         "version": "3d4d834ce7b3f54312e9413943ab7b7f216da65f9f1e987c3d6d91a767e339a3",
@@ -3122,7 +3134,7 @@
         "signature": "7b5ed961a0e03965299591d73de8b8c41e8a68105ff4fc07a240b0dfb94a5a3d"
       },
       "../src/main.ts": {
-        "version": "351cb85a834102c26a9a744e4fc23cd9b5efe8f32b3bc0f84b512ae6f4a33bc2",
+        "version": "e606ffb1f8eda05bf7f2f308b65fda8390979efcc8ff8d7383ae82f7af24cde3",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "../src/asets/emptyeitherinpromise.ts": {
@@ -5753,6 +5765,27 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../migrations/1591049492245-ps_init.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../migrations/1591965885599-postrefactoring.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../migrations/1591966169139-postrefactoring.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../migrations/1592065058739-generate.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9088,11 +9121,73 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/content/text/content-text.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/text/content-text-field.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/md/content-md.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/md/content-md-field.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/md/content-md-field.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/md/content-md.entity.ts",
+        "../src/content/screen/content-screen.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/img/content-img.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/img/content-img-field.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/img/content-img-field.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/img/content-img.entity.ts",
+        "../src/content/screen/content-screen.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/screen/content-screen.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/md/content-md-field.entity.ts",
+        "../src/content/text/content-text-field.entity.ts",
+        "../src/content/img/content-img-field.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/content/text/content-text-field.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/content/text/content-text.entity.ts",
+        "../src/content/screen/content-screen.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/content/text/text.dto.ts": [
         "../src/asets/eithertodto.ts",
         "../src/content/screen/screen.errors.dto.ts",
         "../node_modules/class-validator/index.d.ts",
         "../src/content/text/text.errors.dto.ts",
+        "../src/content/text/content-text-field.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -9147,67 +9242,6 @@
       "../src/content/content.dto.ts": [
         "../src/asets/eithertodto.ts",
         "../src/content/screen/screen.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/md/content-md.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/md/content-md-field.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/md/content-md-field.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/md/content-md.entity.ts",
-        "../src/content/screen/content-screen.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/text/content-text.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/text/content-text-field.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/text/content-text-field.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/text/content-text.entity.ts",
-        "../src/content/screen/content-screen.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/img/content-img.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/img/content-img-field.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/img/content-img-field.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/img/content-img.entity.ts",
-        "../src/content/screen/content-screen.entity.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/content/screen/content-screen.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/content/md/content-md-field.entity.ts",
-        "../src/content/text/content-text-field.entity.ts",
-        "../src/content/img/content-img-field.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -12973,6 +13007,15 @@
       "../migrations/1591049492245-ps_init.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
+      "../migrations/1591965885599-postrefactoring.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../migrations/1591966169139-postrefactoring.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../migrations/1592065058739-generate.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -16019,50 +16062,14 @@
       "../src/content/text/text.errors.dto.ts": [
         "../src/asets/error.dto.ts"
       ],
-      "../src/content/text/text.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/content/screen/screen.errors.dto.ts",
-        "../src/content/text/text.errors.dto.ts"
-      ],
-      "../src/content/img/img.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
-      "../src/content/img/img.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/content/screen/screen.errors.dto.ts",
-        "../src/content/img/img.errors.dto.ts"
-      ],
-      "../src/content/md/md.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
-      "../src/content/md/md.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/content/screen/screen.errors.dto.ts",
-        "../src/content/md/md.errors.dto.ts"
-      ],
-      "../src/content/screen/screen.dto.ts": [
-        "../src/content/screen/screen.errors.dto.ts",
-        "../src/asets/eithertodto.ts",
-        "../src/content/text/text.dto.ts",
-        "../src/content/img/img.dto.ts",
-        "../src/content/md/md.dto.ts"
-      ],
-      "../src/content/content.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/content/screen/screen.dto.ts"
+      "../src/content/text/content-text.entity.ts": [
+        "../src/content/text/content-text-field.entity.ts"
       ],
       "../src/content/md/content-md.entity.ts": [
         "../src/content/md/content-md-field.entity.ts"
       ],
       "../src/content/md/content-md-field.entity.ts": [
         "../src/content/md/content-md.entity.ts",
-        "../src/content/screen/content-screen.entity.ts"
-      ],
-      "../src/content/text/content-text.entity.ts": [
-        "../src/content/text/content-text-field.entity.ts"
-      ],
-      "../src/content/text/content-text-field.entity.ts": [
-        "../src/content/text/content-text.entity.ts",
         "../src/content/screen/content-screen.entity.ts"
       ],
       "../src/content/img/content-img.entity.ts": [
@@ -16073,9 +16080,45 @@
         "../src/content/screen/content-screen.entity.ts"
       ],
       "../src/content/screen/content-screen.entity.ts": [
-        "../src/content/md/content-md-field.entity.ts",
         "../src/content/text/content-text-field.entity.ts",
+        "../src/content/md/content-md-field.entity.ts",
         "../src/content/img/content-img-field.entity.ts"
+      ],
+      "../src/content/text/content-text-field.entity.ts": [
+        "../src/content/text/content-text.entity.ts",
+        "../src/content/screen/content-screen.entity.ts"
+      ],
+      "../src/content/text/text.dto.ts": [
+        "../src/content/screen/screen.errors.dto.ts",
+        "../src/content/text/text.errors.dto.ts",
+        "../src/asets/eithertodto.ts"
+      ],
+      "../src/content/img/img.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
+      "../src/content/img/img.dto.ts": [
+        "../src/content/screen/screen.errors.dto.ts",
+        "../src/content/img/img.errors.dto.ts",
+        "../src/asets/eithertodto.ts"
+      ],
+      "../src/content/md/md.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
+      "../src/content/md/md.dto.ts": [
+        "../src/content/screen/screen.errors.dto.ts",
+        "../src/content/md/md.errors.dto.ts",
+        "../src/asets/eithertodto.ts"
+      ],
+      "../src/content/screen/screen.dto.ts": [
+        "../src/content/text/text.dto.ts",
+        "../src/content/img/img.dto.ts",
+        "../src/content/md/md.dto.ts",
+        "../src/content/screen/screen.errors.dto.ts",
+        "../src/asets/eithertodto.ts"
+      ],
+      "../src/content/content.dto.ts": [
+        "../src/asets/eithertodto.ts",
+        "../src/content/screen/screen.dto.ts"
       ],
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts": [
         "../node_modules/@types/lodash/ts3.1/index.d.ts",
@@ -16414,23 +16457,23 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/content/img/img.service.ts": [
-        "../src/content/img/content-img.entity.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/content/img/content-img.entity.ts",
         "../src/content/img/content-img-field.entity.ts",
         "../src/content/screen/screen.service.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/useful-monads/index.d.ts",
         "../src/content/screen/screen.errors.dto.ts",
-        "../src/content/img/img.dto.ts",
         "../src/content/img/img.errors.dto.ts",
-        "../src/content/screen/content-screen.entity.ts",
-        "../node_modules/@nestjs/config/index.d.ts"
+        "../src/content/img/img.dto.ts",
+        "../src/content/screen/content-screen.entity.ts"
       ],
       "../src/content/text/text.service.ts": [
-        "../src/content/text/content-text.entity.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/content/text/content-text.entity.ts",
         "../src/content/text/content-text-field.entity.ts",
-        "../src/content/text/text.dto.ts",
         "../src/content/screen/screen.service.ts",
+        "../src/content/text/text.dto.ts",
         "../node_modules/useful-monads/index.d.ts",
         "../src/content/screen/screen.errors.dto.ts",
         "../src/content/text/text.errors.dto.ts"
@@ -16446,14 +16489,14 @@
         "../src/content/screen/screen.service.ts"
       ],
       "../src/content/screen/screen.service.ts": [
-        "../src/content/screen/content-screen.entity.ts",
         "../node_modules/typeorm/index.d.ts",
-        "../src/content/screen/screen.dto.ts",
-        "../node_modules/useful-monads/index.d.ts",
-        "../src/content/screen/screen.errors.dto.ts",
+        "../src/content/screen/content-screen.entity.ts",
         "../src/content/img/img.service.ts",
         "../src/content/text/text.service.ts",
-        "../src/content/md/md.service.ts"
+        "../src/content/md/md.service.ts",
+        "../src/content/screen/screen.dto.ts",
+        "../node_modules/useful-monads/index.d.ts",
+        "../src/content/screen/screen.errors.dto.ts"
       ],
       "../src/content/content.service.ts": [
         "../src/content/screen/screen.service.ts",
@@ -16622,8 +16665,8 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/content/img/img.controller.ts": [
-        "../src/content/img/img.dto.ts",
-        "../src/content/img/img.service.ts"
+        "../src/content/img/img.service.ts",
+        "../src/content/img/img.dto.ts"
       ],
       "../src/content/md/md.controller.ts": [
         "../src/content/md/md.dto.ts",
@@ -16632,8 +16675,8 @@
         "../src/content/md/md.errors.dto.ts"
       ],
       "../src/content/text/text.controller.ts": [
-        "../src/content/text/text.dto.ts",
-        "../src/content/text/text.service.ts"
+        "../src/content/text/text.service.ts",
+        "../src/content/text/text.dto.ts"
       ],
       "../src/app.module.ts": [
         "../node_modules/typeorm/index.d.ts"
@@ -17565,6 +17608,9 @@
       "../node_modules/typeorm/util/promiseutils.d.ts",
       "../node_modules/typeorm/index.d.ts",
       "../migrations/1591049492245-ps_init.ts",
+      "../migrations/1591965885599-postrefactoring.ts",
+      "../migrations/1591966169139-postrefactoring.ts",
+      "../migrations/1592065058739-generate.ts",
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts",
       "../node_modules/@nestjs/common/interfaces/abstract.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/controllers/controller-metadata.interface.d.ts",
@@ -17937,9 +17983,30 @@
       "../src/auth/strategy/jwt-admin.strategy.ts",
       "../src/send-password/send-password.module.ts",
       "../src/auth/auth.module.ts",
+      "../src/qr/draw/draw.errors.dto.ts",
+      "../src/qr/draw/draw.dto.ts",
+      "../src/qr/checkout/checkout.errors.dto.ts",
+      "../src/qr/checkout/checkout.dto.ts",
+      "../src/qr/qr.errors.dto.ts",
+      "../src/qr/qr.dto.ts",
+      "../src/qr/checkout/checkout.service.ts",
+      "../src/qr/date/date.service.ts",
+      "../src/qr/draw/draw.service.ts",
+      "../src/qr/qr.service.ts",
+      "../src/qr/qr.controller.ts",
       "../src/qr/qr-string-parser.middleware.ts",
+      "../src/qr/draw/draw.controller.ts",
+      "../src/qr/checkout/checkout.controller.ts",
+      "../src/qr/qr.module.ts",
       "../src/content/screen/screen.errors.dto.ts",
       "../src/content/text/text.errors.dto.ts",
+      "../src/content/text/content-text.entity.ts",
+      "../src/content/md/content-md.entity.ts",
+      "../src/content/md/content-md-field.entity.ts",
+      "../src/content/img/content-img.entity.ts",
+      "../src/content/img/content-img-field.entity.ts",
+      "../src/content/screen/content-screen.entity.ts",
+      "../src/content/text/content-text-field.entity.ts",
       "../src/content/text/text.dto.ts",
       "../src/content/img/img.errors.dto.ts",
       "../src/content/img/img.dto.ts",
@@ -17947,13 +18014,6 @@
       "../src/content/md/md.dto.ts",
       "../src/content/screen/screen.dto.ts",
       "../src/content/content.dto.ts",
-      "../src/content/md/content-md.entity.ts",
-      "../src/content/md/content-md-field.entity.ts",
-      "../src/content/text/content-text.entity.ts",
-      "../src/content/text/content-text-field.entity.ts",
-      "../src/content/img/content-img.entity.ts",
-      "../src/content/img/content-img-field.entity.ts",
-      "../src/content/screen/content-screen.entity.ts",
       "../node_modules/@types/lodash/ts3.1/common/common.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/array.d.ts",
       "../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
@@ -17981,13 +18041,6 @@
       "../node_modules/@nestjs/config/index.d.ts",
       "../node_modules/@types/uuid/interfaces.d.ts",
       "../node_modules/@types/uuid/index.d.ts",
-      "../src/content/img/img.service.ts",
-      "../src/content/text/text.service.ts",
-      "../src/content/md/md.service.ts",
-      "../src/content/screen/screen.service.ts",
-      "../src/content/content.service.ts",
-      "../src/content/content.controller.ts",
-      "../src/content/screen/screen.controller.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts",
       "../node_modules/@nestjs/platform-express/adapters/express-adapter.d.ts",
@@ -18007,10 +18060,6 @@
       "../node_modules/@nestjs/platform-express/index.d.ts",
       "../node_modules/@nestjs/swagger/dist/decorators/api-implicit-file.decorator.d.ts",
       "../node_modules/@types/multer/index.d.ts",
-      "../src/content/img/img.controller.ts",
-      "../src/content/md/md.controller.ts",
-      "../src/content/text/text.controller.ts",
-      "../src/content/content.module.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
@@ -18094,20 +18143,17 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/qr/qr.dto.ts",
-      "../src/qr/qr.controller.ts",
-      "../src/qr/qr.service.ts",
-      "../src/qr/checkout/checkout.service.ts",
-      "../src/qr/qr.errors.dto.ts",
-      "../src/qr/checkout/checkout.dto.ts",
-      "../src/qr/draw/draw.dto.ts",
-      "../src/qr/draw/draw.errors.dto.ts",
-      "../src/qr/checkout/checkout.errors.dto.ts",
-      "../src/qr/date/date.service.ts",
-      "../src/qr/draw/draw.service.ts",
-      "../src/qr/draw/draw.controller.ts",
-      "../src/qr/checkout/checkout.controller.ts",
-      "../src/qr/qr.module.ts",
+      "../src/content/img/img.service.ts",
+      "../src/content/content.module.ts",
+      "../src/content/img/img.controller.ts",
+      "../src/content/screen/screen.service.ts",
+      "../src/content/text/text.service.ts",
+      "../src/content/md/md.service.ts",
+      "../src/content/content.service.ts",
+      "../src/content/content.controller.ts",
+      "../src/content/screen/screen.controller.ts",
+      "../src/content/md/md.controller.ts",
+      "../src/content/text/text.controller.ts",
       "../src/app.module.ts"
     ]
   },

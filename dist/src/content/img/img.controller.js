@@ -27,14 +27,17 @@ let ImgController = class ImgController {
     constructor(imgService) {
         this.imgService = imgService;
     }
-    async createImgField({ name, screenId }) {
-        return eitherToDto_1.eitherToDto(await this.imgService.createImgField(screenId, name));
+    async createImgField({ name, screenId, description }) {
+        return eitherToDto_1.eitherToDto(await this.imgService.createImgField(screenId, name, description));
     }
     async deleteImgField(fieldId) {
         return eitherToDto_1.eitherToDto(await this.imgService.deleteImgField(fieldId));
     }
     async findFieldById(fieldId) {
         return eitherToDto_1.eitherToDto(await this.imgService.findFiledById(fieldId));
+    }
+    async updateTextField(changeField, fieldId) {
+        return eitherToDto_1.eitherToDto(await this.imgService.updateImgField(changeField, fieldId));
     }
     async uploadFile(file, fieldId) {
         return eitherToDto_1.eitherToDto(await this.imgService.createImg(fieldId, file.path));
@@ -70,6 +73,15 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ImgController.prototype, "findFieldById", null);
+__decorate([
+    common_1.Put('field/:fieldId'),
+    openapi.ApiResponse({ status: 200, type: require("./img.dto").UpdateImgFieldResDto }),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Param('fieldId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [img_dto_1.ChangeImgField, String]),
+    __metadata("design:returntype", Promise)
+], ImgController.prototype, "updateTextField", null);
 __decorate([
     common_1.Post('field/:fieldId/value'),
     swagger_1.ApiConsumes('multipart/form-data'),

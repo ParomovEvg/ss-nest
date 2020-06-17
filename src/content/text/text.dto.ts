@@ -1,6 +1,7 @@
 export class TextFieldDto {
   id: number;
   name: string;
+  description: string;
   values: TextDto[];
 }
 
@@ -13,11 +14,18 @@ export class TextDto {
 export class FlatTextFieldDto {
   id: number;
   name: string;
+  description: string;
+}
+
+export class ChangeTextFieldDto {
+  name: string;
+  description: string;
 }
 
 export class TextFieldContentDto {
   id: number;
   name: string;
+  description: string;
   value?: TextContentDto;
 }
 export class TextContentDto {
@@ -33,10 +41,12 @@ import {
   TextFieldAlreadyExists,
   TextFieldNotFoundById,
 } from './text.errors.dto';
+import { ContentTextField } from './content-text-field.entity';
 
 export class CreateTextFieldDto {
   @IsNotEmpty()
   name: string;
+  description: string;
   @IsNotEmpty()
   screenId: number;
 }
@@ -72,5 +82,10 @@ export class FindTextOfFieldResDto implements ResDto {
 // DeleteTextField
 export class DeleteTextFieldResDto implements ResDto {
   payload?: { id: number };
+  TextFieldNotFoundById?: TextFieldNotFoundById;
+}
+
+export class ChangeTextFieldResDto implements ResDto {
+  payload?: FlatTextFieldDto;
   TextFieldNotFoundById?: TextFieldNotFoundById;
 }

@@ -1,6 +1,7 @@
 export declare class TextFieldDto {
     id: number;
     name: string;
+    description: string;
     values: TextDto[];
 }
 export declare class TextDto {
@@ -11,10 +12,16 @@ export declare class TextDto {
 export declare class FlatTextFieldDto {
     id: number;
     name: string;
+    description: string;
+}
+export declare class ChangeTextFieldDto {
+    name: string;
+    description: string;
 }
 export declare class TextFieldContentDto {
     id: number;
     name: string;
+    description: string;
     value?: TextContentDto;
 }
 export declare class TextContentDto {
@@ -26,6 +33,7 @@ import { ScreenNotFoundById } from '../screen/screen.errors.dto';
 import { TextFieldAlreadyExists, TextFieldNotFoundById } from './text.errors.dto';
 export declare class CreateTextFieldDto {
     name: string;
+    description: string;
     screenId: number;
 }
 export declare class CreateTextFieldResDto implements ResDto {
@@ -49,5 +57,9 @@ export declare class DeleteTextFieldResDto implements ResDto {
     payload?: {
         id: number;
     };
+    TextFieldNotFoundById?: TextFieldNotFoundById;
+}
+export declare class ChangeTextFieldResDto implements ResDto {
+    payload?: FlatTextFieldDto;
     TextFieldNotFoundById?: TextFieldNotFoundById;
 }

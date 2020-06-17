@@ -31,6 +31,9 @@ let TextController = class TextController {
     async findTextOfFiled(fieldId) {
         return eitherToDto_1.eitherToDto(await this.textService.findTextFieldById(fieldId));
     }
+    async updateTextField(changeField, fieldId) {
+        return eitherToDto_1.eitherToDto(await this.textService.updateTextField(changeField, fieldId));
+    }
     async deleteTextField(fieldId) {
         return eitherToDto_1.eitherToDto(await this.textService.deleteTextField(fieldId));
     }
@@ -59,6 +62,15 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], TextController.prototype, "findTextOfFiled", null);
+__decorate([
+    common_1.Put('field/:fieldId'),
+    openapi.ApiResponse({ status: 200, type: require("./text.dto").ChangeTextFieldResDto }),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Param('fieldId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [text_dto_1.ChangeTextFieldDto, String]),
+    __metadata("design:returntype", Promise)
+], TextController.prototype, "updateTextField", null);
 __decorate([
     common_1.Delete('field/:fieldId'),
     openapi.ApiResponse({ status: 200, type: require("./text.dto").DeleteTextFieldResDto }),

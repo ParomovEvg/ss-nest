@@ -74,7 +74,7 @@ export class MdService {
   ): Promise<Either<MdFieldNotFoundById, MdDto>> {
     return EitherAsync.from(this.findMdField(createMdDto.fieldId))
       .asyncMap(async field => {
-        console.log(field)
+        console.log(field);
         const md = this.mdRepository.create();
         md.value = createMdDto.value;
         md.field = field;
@@ -91,7 +91,7 @@ export class MdService {
     return EitherAsync.from(this.findMdField(fieldId))
       .asyncMap(async field => {
         await this.connection.transaction(async mr => {
-          if(field.values.length){
+          if (field.values.length) {
             await mr
               .getRepository(ContentMd)
               .delete(field.values.map(value => value.id));
@@ -112,12 +112,10 @@ export class MdService {
   async findMdField(
     fieldId: number,
   ): Promise<Either<MdFieldNotFoundById, ContentMdField>> {
-    console.log(fieldId)
     const field = await this.mdFieldRepository.findOne({
       where: { id: fieldId },
       relations: ['values'],
     });
-    console.log(field)
     if (field) {
       return right(field);
     } else {

@@ -7,6 +7,7 @@ import {
   Post,
   UploadedFile,
   UseInterceptors,
+  Put,
 } from '@nestjs/common';
 import {
   CreateImgFieldDto,
@@ -17,6 +18,8 @@ import {
   GetImgBeforeResDto,
   SaveImgLastDto,
   SaveImgLastResDto,
+  ChangeImgField,
+  UpdateImgFieldResDto,
 } from './img.dto';
 import { eitherToDto } from '../../asets/eitherToDto';
 import { ImgService } from './img.service';
@@ -32,9 +35,11 @@ export class ImgController {
   constructor(private imgService: ImgService) {}
   @Post('field')
   async createImgField(
-    @Body() { name, screenId }: CreateImgFieldDto,
+    @Body() { name, screenId, description }: CreateImgFieldDto,
   ): Promise<CreateImgFieldResDto> {
-    return eitherToDto(await this.imgService.createImgField(screenId, name));
+    return eitherToDto(
+      await this.imgService.createImgField(screenId, name, description),
+    );
   }
 
   @Delete('field/:fieldId')
@@ -49,6 +54,16 @@ export class ImgController {
     @Param('fieldId') fieldId: number,
   ): Promise<FindImgFieldByIdResDto> {
     return eitherToDto(await this.imgService.findFiledById(fieldId));
+  }
+
+  @Put('field/:fieldId')
+  async updateTextField(
+    @Body() changeField: ChangeImgField,
+    @Param('fieldId') fieldId: string,
+  ): Promise<UpdateImgFieldResDto> {
+    return eitherToDto(
+      await this.imgService.updateImgField(changeField, fieldId),
+    );
   }
 
   @Post('field/:fieldId/value')

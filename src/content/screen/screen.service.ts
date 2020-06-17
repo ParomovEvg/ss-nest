@@ -49,15 +49,17 @@ export class ScreenService {
 
   async createScreen({
     name,
+    description,
   }: CreateScreenDto): Promise<Either<ScreenAlreadyExists, FlatScreenDto>> {
     const screen = await this.screenRepository.findOne({
-      where: { name },
+      where: { name, description },
     });
     if (screen) {
       return left(createScreenAlreadyExists({ name }));
     } else {
       const newScreen = this.screenRepository.create();
       newScreen.name = name;
+      newScreen.description = description;
       return right(await this.screenRepository.save(newScreen));
     }
   }
@@ -110,7 +112,6 @@ export class ScreenService {
             ).run(),
           ]).extract();
           if (res.left) {
-            console.log(res.left);
             await queryRunner.rollbackTransaction();
             throw res.left;
           } else {

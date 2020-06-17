@@ -15,7 +15,7 @@ const content_text_entity_1 = require("./content-text.entity");
 const content_screen_entity_1 = require("../screen/content-screen.entity");
 let ContentTextField = class ContentTextField {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, values: { required: true, type: () => [require("./content-text.entity").ContentText] }, screen: { required: true, type: () => require("../screen/content-screen.entity").ContentScreen } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, values: { required: true, type: () => [require("./content-text.entity").ContentText] }, screen: { required: true, type: () => require("../screen/content-screen.entity").ContentScreen } };
     }
 };
 __decorate([
@@ -26,6 +26,10 @@ __decorate([
     typeorm_1.Column({ type: 'varchar', length: 255 }),
     __metadata("design:type", String)
 ], ContentTextField.prototype, "name", void 0);
+__decorate([
+    typeorm_1.Column({ default: '', type: 'varchar' }),
+    __metadata("design:type", String)
+], ContentTextField.prototype, "description", void 0);
 __decorate([
     typeorm_1.OneToMany(type => content_text_entity_1.ContentText, text => text.field),
     __metadata("design:type", Array)

@@ -15,7 +15,7 @@ export declare class ScreenService {
     constructor(screenRepository: Repository<ContentScreen>, connection: Connection, imgService: ImgService, textService: TextService, mdService: MdService);
     getAllScreensDeep(): Promise<ContentScreen[]>;
     findAll(): Promise<FlatScreenDto[]>;
-    createScreen({ name, }: CreateScreenDto): Promise<Either<ScreenAlreadyExists, FlatScreenDto>>;
+    createScreen({ name, description, }: CreateScreenDto): Promise<Either<ScreenAlreadyExists, FlatScreenDto>>;
     getScreenById(id: number): Promise<Either<ScreenNotFoundById, ContentScreen>>;
     deleteScreen(id: number): Promise<Either<ScreenNotFoundById, {
         id: number;

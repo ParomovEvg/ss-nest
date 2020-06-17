@@ -4,7 +4,7 @@ import { ContentImgField } from './content-img-field.entity';
 import { ScreenService } from '../screen/screen.service';
 import { Either } from 'useful-monads';
 import { ScreenNotFoundById } from '../screen/screen.errors.dto';
-import { FlatImgFieldDto, ImgDto } from './img.dto';
+import { FlatImgFieldDto, ImgDto, ChangeImgField, ImgFieldDto } from './img.dto';
 import { ImgFieldAlreadyExistsInScreen, ImgFieldNotFoundById, ImgNotFoundById, ImgNotFoundByIdInField, ImgVersionBeforeNotFound } from './img.errors.dto';
 import { ContentScreen } from '../screen/content-screen.entity';
 import { ConfigService } from '@nestjs/config';
@@ -16,10 +16,11 @@ export declare class ImgService {
     private configService;
     constructor(imgRepository: Repository<ContentImg>, imgFieldRepository: Repository<ContentImgField>, screenService: ScreenService, connection: Connection, configService: ConfigService);
     findFields(): Promise<ContentImgField[]>;
-    createImgField(screenId: number, name: string): Promise<Either<ScreenNotFoundById | ImgFieldAlreadyExistsInScreen, FlatImgFieldDto>>;
+    createImgField(screenId: number, name: string, description: string): Promise<Either<ScreenNotFoundById | ImgFieldAlreadyExistsInScreen, FlatImgFieldDto>>;
     deleteImgField(fieldId: number): Promise<Either<ImgFieldNotFoundById, {
         id: number;
     }>>;
+    updateImgField(changeField: ChangeImgField, fieldId: string): Promise<Either<ImgFieldNotFoundById, ImgFieldDto>>;
     createImg(fieldId: number, path: string): Promise<Either<ImgFieldNotFoundById, ContentImg>>;
     saveImgLast(imgId: any): Promise<Either<ImgNotFoundById, ImgDto>>;
     getImageBefore(fieldId: number, imgId: number): Promise<Either<ImgFieldNotFoundById | ImgNotFoundByIdInField | ImgVersionBeforeNotFound, ImgDto>>;

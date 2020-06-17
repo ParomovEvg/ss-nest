@@ -38,7 +38,7 @@ let ContentService = class ContentService {
                 return (Object.assign(Object.assign({}, rest), { img: lodash_1.first(img) }));
             }), mdFields: screen.mdFields.map((_a) => {
                 var { values } = _a, rest = __rest(_a, ["values"]);
-                return (Object.assign(Object.assign({}, rest), { value: lodash_1.first(values) }));
+                return (Object.assign(Object.assign({}, rest), { values: values }));
             }) })));
     }
 };

@@ -4,6 +4,7 @@ import { ContentImgField } from '../img/content-img-field.entity';
 export declare class ContentScreen {
     id: number;
     name: string;
+    description: string;
     textFields: ContentTextField[];
     mdFields: ContentMdField[];
     imgFields: ContentImgField[];

@@ -16,7 +16,7 @@ const content_text_field_entity_1 = require("../text/content-text-field.entity")
 const content_img_field_entity_1 = require("../img/content-img-field.entity");
 let ContentScreen = class ContentScreen {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/content-text-field.entity").ContentTextField] }, mdFields: { required: true, type: () => [require("../md/content-md-field.entity").ContentMdField] }, imgFields: { required: true, type: () => [require("../img/content-img-field.entity").ContentImgField] } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, textFields: { required: true, type: () => [require("../text/content-text-field.entity").ContentTextField] }, mdFields: { required: true, type: () => [require("../md/content-md-field.entity").ContentMdField] }, imgFields: { required: true, type: () => [require("../img/content-img-field.entity").ContentImgField] }, description: { required: true, type: () => String } };
     }
 };
 __decorate([
@@ -27,6 +27,10 @@ __decorate([
     typeorm_1.Column({ type: 'varchar', length: 255, unique: true }),
     __metadata("design:type", String)
 ], ContentScreen.prototype, "name", void 0);
+__decorate([
+    typeorm_1.Column({ default: '' }),
+    __metadata("design:type", String)
+], ContentScreen.prototype, "description", void 0);
 __decorate([
     typeorm_1.OneToMany(type => content_text_field_entity_1.ContentTextField, textField => textField.screen),
     __metadata("design:type", Array)

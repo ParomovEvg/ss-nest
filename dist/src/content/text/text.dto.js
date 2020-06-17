@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const openapi = require("@nestjs/swagger");
 class TextFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, values: { required: true, type: () => [require("./text.dto").TextDto] } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, values: { required: true, type: () => [require("./text.dto").TextDto] } };
     }
 }
 exports.TextFieldDto = TextFieldDto;
@@ -24,13 +24,19 @@ class TextDto {
 exports.TextDto = TextDto;
 class FlatTextFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String } };
     }
 }
 exports.FlatTextFieldDto = FlatTextFieldDto;
+class ChangeTextFieldDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { name: { required: true, type: () => String }, description: { required: true, type: () => String } };
+    }
+}
+exports.ChangeTextFieldDto = ChangeTextFieldDto;
 class TextFieldContentDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, value: { required: false, type: () => require("./text.dto").TextContentDto } };
+        return { id: { required: true, type: () => Number }, name: { required: true, type: () => String }, description: { required: true, type: () => String }, value: { required: false, type: () => require("./text.dto").TextContentDto } };
     }
 }
 exports.TextFieldContentDto = TextFieldContentDto;
@@ -43,7 +49,7 @@ exports.TextContentDto = TextContentDto;
 const class_validator_1 = require("class-validator");
 class CreateTextFieldDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { name: { required: true, type: () => String }, screenId: { required: true, type: () => Number } };
+        return { name: { required: true, type: () => String }, description: { required: true, type: () => String }, screenId: { required: true, type: () => Number } };
     }
 }
 __decorate([
@@ -93,4 +99,10 @@ class DeleteTextFieldResDto {
     }
 }
 exports.DeleteTextFieldResDto = DeleteTextFieldResDto;
+class ChangeTextFieldResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: false, type: () => require("./text.dto").FlatTextFieldDto }, TextFieldNotFoundById: { required: false, type: () => require("./text.errors.dto").TextFieldNotFoundById } };
+    }
+}
+exports.ChangeTextFieldResDto = ChangeTextFieldResDto;
 //# sourceMappingURL=text.dto.js.map

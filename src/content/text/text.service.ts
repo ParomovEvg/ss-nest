@@ -9,6 +9,7 @@ import {
   FlatTextFieldDto,
   TextDto,
   TextFieldDto,
+  ChangeTextFieldDto,
 } from './text.dto';
 import { ScreenService } from '../screen/screen.service';
 import { Either, left, right } from 'useful-monads';
@@ -35,6 +36,7 @@ export class TextService {
 
   async createField({
     name,
+    description,
     screenId,
   }: CreateTextFieldDto): Promise<
     Either<ScreenNotFoundById | TextFieldAlreadyExists, FlatTextFieldDto>
@@ -45,16 +47,20 @@ export class TextService {
           screen,
         ): Promise<Either<TextFieldAlreadyExists, FlatTextFieldDto>> => {
           const field = await this.textFieldRepository.findOne({
-            where: { screen: screen, name: name },
+            where: { screen: screen, name: name, description: description },
           });
           if (field) {
             return left(
-              createTextFieldAlreadyExists({ screenId: screen.id, name: name }),
+              createTextFieldAlreadyExists({
+                screenId: screen.id,
+                name: name,
+              }),
             );
           } else {
             const textField = this.textFieldRepository.create();
             textField.name = name;
             textField.screen = screen;
+            textField.description = description;
             return right(await this.textFieldRepository.save(textField));
           }
         },
@@ -77,6 +83,22 @@ export class TextService {
         return { id: fieldId };
       })
       .run();
+  }
+
+  async updateTextField(
+    changeField: ChangeTextFieldDto,
+    fieldId: string,
+  ): Promise<Either<TextFieldNotFoundById, FlatTextFieldDto>> {
+    const field = await this.textFieldRepository.findOne({
+      where: { id: fieldId },
+    });
+    if (field) {
+      field.name = changeField.name;
+      field.description = changeField.description;
+      return right(await this.textFieldRepository.save(field));
+    } else {
+      return left(createTextFieldNotFoundById({ id: field.id }));
+    }
   }
 
   async findTextFieldById(
