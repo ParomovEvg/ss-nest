@@ -20,7 +20,6 @@ export class CheckoutService {
   constructor(
     @InjectRepository(Checkout)
     private checkoutRepository: Repository<Checkout>,
-
   ) {}
 
   async findCheckout(
@@ -79,5 +78,18 @@ export class CheckoutService {
     } else {
       return checkout.fn;
     }
+  }
+
+  async findCheckoutByCkecoutId(
+    id?: number,
+  ): Promise<Either<CheckoutNotFoundById, Checkout>> {
+    if (!id) return left(createCheckoutNotFoundById({ id }));
+    const checkout = await this.checkoutRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!checkout) return left(createCheckoutNotFoundById({ id }));
+    return right(checkout);
   }
 }

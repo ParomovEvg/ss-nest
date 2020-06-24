@@ -27,7 +27,7 @@ import { SendPasswordModule } from '../send-password/send-password.module';
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '300s' },
     }),
     TypeOrmModule.forFeature([Phone, Password]),
     SendPasswordModule,

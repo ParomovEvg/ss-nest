@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { Phone } from '../auth/phone/phone.entity';
 import { Checkout } from './checkout/checkout.entity';
 import { Draw } from './draw/draw.entity';
-import { CreateQrDto, FlatQrDto } from './qr.dto';
+import { CreateQrDto, FlatQrDto, FilterQrDto, FlatAllQrDto, GetQrFilterDto } from './qr.dto';
 import { CheckoutService } from './checkout/checkout.service';
 import { Either } from 'useful-monads';
 import { QrAlreadyExists, QrRegistrationLimitExceeded, QrSalaryNotEnough } from './qr.errors.dto';
@@ -27,4 +27,7 @@ export declare class QrService {
     checkSalary(draw: Draw, s: number): Promise<Either<QrSalaryNotEnough, Draw>>;
     checkQr(fp: string, fd: string): Promise<Either<QrAlreadyExists, true>>;
     getQrNum(phone: string): Promise<string>;
+    getQrFilter(filterQr: FilterQrDto): Promise<GetQrFilterDto>;
+    getAllQr(): Promise<Qr[]>;
+    mapQrToFtatQrDto(qr: Qr): FlatAllQrDto;
 }

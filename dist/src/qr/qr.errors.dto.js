@@ -35,4 +35,15 @@ class QrRegistrationLimitExceeded {
 }
 exports.QrRegistrationLimitExceeded = QrRegistrationLimitExceeded;
 exports.createQrRegistrationLimitExceeded = error_dto_1.createError(QrRegistrationLimitExceeded, QrRegistrationLimitExceededName.QrRegistrationLimitExceeded, ({ phone, qrLimit, nextTime }) => `Qr registration limit (${qrLimit}) exceeded of phone = ${phone}, next qr can be added in ${new Date(Date.parse(nextTime)).toLocaleString()}`);
+var PhoneIdNotFoundByPhoneName;
+(function (PhoneIdNotFoundByPhoneName) {
+    PhoneIdNotFoundByPhoneName["PhoneIdNotFoundByPhone"] = "PhoneNotFoundByPhone";
+})(PhoneIdNotFoundByPhoneName || (PhoneIdNotFoundByPhoneName = {}));
+class PhoneIdNotFoundByPhone {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { name: { required: true, enum: PhoneIdNotFoundByPhoneName }, message: { required: true, type: () => String }, param: { required: true, type: () => ({ phone: { required: true, type: () => String } }) } };
+    }
+}
+exports.PhoneIdNotFoundByPhone = PhoneIdNotFoundByPhone;
+exports.createPhoneIdNotFoundByPhone = error_dto_1.createError(PhoneIdNotFoundByPhone, PhoneIdNotFoundByPhoneName.PhoneIdNotFoundByPhone, ({ phone }) => `Телефон не найден ${phone}`);
 //# sourceMappingURL=qr.errors.dto.js.map

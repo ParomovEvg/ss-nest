@@ -119,10 +119,22 @@ let DrawService = class DrawService {
         }
     }
     mapDrawToFlatDraw(d) {
-        return Object.assign(Object.assign({}, d), { end: d.end.toISOString(), start: d.start.toISOString() });
+        return Object.assign(Object.assign({}, d), { end: d === null || d === void 0 ? void 0 : d.end.toISOString(), start: d === null || d === void 0 ? void 0 : d.start.toISOString() });
     }
     mapDrawToFullDraw(d) {
         return Object.assign(Object.assign({}, d), { end: d.end.toISOString(), start: d.start.toISOString(), drawQrs: d.drawQrs.map(qr => (Object.assign(Object.assign({}, qr), { time: qr.time.toISOString() }))) });
+    }
+    async findDrawIdDrawId(id) {
+        if (!id)
+            return useful_monads_1.left(draw_errors_dto_1.createDrawNotFoundById({ id }));
+        const draw = await this.drawRepository.findOne({
+            where: {
+                id,
+            },
+        });
+        if (!draw)
+            return useful_monads_1.left(draw_errors_dto_1.createDrawNotFoundById({ id }));
+        return useful_monads_1.right(draw);
     }
 };
 DrawService = __decorate([

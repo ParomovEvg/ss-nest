@@ -154,8 +154,8 @@ export class DrawService {
   mapDrawToFlatDraw(d: Draw): FlatDrawDto {
     return {
       ...d,
-      end: d.end.toISOString(),
-      start: d.start.toISOString(),
+      end: d?.end.toISOString(),
+      start: d?.start.toISOString(),
     };
   }
   mapDrawToFullDraw(d: Draw): FullDrawDto {
@@ -168,5 +168,16 @@ export class DrawService {
         time: qr.time.toISOString(),
       })),
     };
+  }
+
+  async findDrawIdDrawId(id?: number): Promise<Either<DrawNotFoundById, Draw>> {
+    if (!id) return left(createDrawNotFoundById({ id }));
+    const draw = await this.drawRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!draw) return left(createDrawNotFoundById({ id }));
+    return right(draw);
   }
 }

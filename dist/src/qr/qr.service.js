@@ -22,6 +22,7 @@ const qr_errors_dto_1 = require("./qr.errors.dto");
 const draw_service_1 = require("./draw/draw.service");
 const EitherAsync_1 = require("useful-monads/EitherAsync");
 const phone_service_1 = require("../auth/phone/phone.service");
+const qrsOnPageCount = 5;
 let QrService = class QrService {
     constructor(qrRepository, checkoutService, drawService, phoneService) {
         this.qrRepository = qrRepository;
@@ -108,6 +109,39 @@ let QrService = class QrService {
             return String(num);
         })
             .orDefault('0');
+    }
+    async getQrFilter(filterQr) {
+        const draw = await EitherAsync_1.EitherAsync.from(this.drawService.findDrawIdDrawId(filterQr.drawId)).orDefault(undefined);
+        const checkout = await EitherAsync_1.EitherAsync.from(this.checkoutService.findCheckoutByCkecoutId(filterQr.checkoutId)).orDefault(undefined);
+        const ids = await this.phoneService.getPhonesId(filterQr.phone);
+        const where = {
+            checkout,
+            draw,
+            fd: filterQr.fd !== undefined ? typeorm_2.Like(`%${filterQr.fd}%`) : undefined,
+            fp: filterQr.fp !== undefined ? typeorm_2.Like(`%${filterQr.fp}%`) : undefined,
+            phone: ids.length ? { id: typeorm_2.In(ids) } : undefined,
+        };
+        for (const key in where) {
+            if (where[key] === undefined) {
+                delete where[key];
+            }
+        }
+        const [qrs, count] = await this.qrRepository.findAndCount({
+            where,
+            relations: ['draw'],
+            skip: filterQr.page * qrsOnPageCount,
+            take: qrsOnPageCount,
+        });
+        return {
+            qrs,
+            count,
+        };
+    }
+    async getAllQr() {
+        return this.qrRepository.find();
+    }
+    mapQrToFtatQrDto(qr) {
+        return Object.assign(Object.assign({}, qr), { draw: this.drawService.mapDrawToFlatDraw(qr.draw), time: qr.time.toISOString() });
     }
 };
 QrService = __decorate([

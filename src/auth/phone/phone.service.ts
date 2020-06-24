@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Connection, Repository } from 'typeorm';
+import { Connection, Repository, Like } from 'typeorm';
 import { PasswordService } from '../password/password.service';
 import { Phone } from './phone.entity';
 import { Password } from '../password/password.entity';
@@ -14,6 +14,10 @@ import { CreatePhoneDto } from './phone.dto';
 import { Either, left, right } from 'useful-monads';
 import { EitherAsync } from 'useful-monads/EitherAsync';
 import { SendPasswordMailService } from '../../send-password/send-password-mail/send-password-mail.service';
+import {
+  PhoneIdNotFoundByPhone,
+  createPhoneIdNotFoundByPhone,
+} from 'src/qr/qr.errors.dto';
 
 @Injectable()
 export class PhoneService {
@@ -87,5 +91,24 @@ export class PhoneService {
     } else {
       return phone?.phone;
     }
+  }
+
+  getSearchPhone({ phone }) {
+    return this.phoneRepository.find({
+      where: { phone: Like(`%${phone}%`) },
+      select: ['phone', 'id'],
+    });
+  }
+
+  getAll() {
+    return this.phoneRepository.find({ select: ['phone'] });
+  }
+
+  async getPhonesId(phone: string): Promise<number[]> {
+    const phones = await this.phoneRepository.find({
+      where: { phone: Like(`%${phone}%`) },
+      select: ['id'],
+    });
+    return phones.map(p => p.id);
   }
 }

@@ -46,4 +46,17 @@ export declare const createQrRegistrationLimitExceeded: (param: {
     phone: string;
     qrLimit: number;
 }) => QrRegistrationLimitExceeded;
+declare enum PhoneIdNotFoundByPhoneName {
+    PhoneIdNotFoundByPhone = "PhoneNotFoundByPhone"
+}
+export declare class PhoneIdNotFoundByPhone implements ErrorDto {
+    name: PhoneIdNotFoundByPhoneName;
+    message: string;
+    param: {
+        phone: string;
+    };
+}
+export declare const createPhoneIdNotFoundByPhone: (param: {
+    phone: string;
+}) => PhoneIdNotFoundByPhone;
 export {};

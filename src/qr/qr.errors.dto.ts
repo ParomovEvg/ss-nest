@@ -65,3 +65,23 @@ export const createQrRegistrationLimitExceeded = createError(
       Date.parse(nextTime),
     ).toLocaleString()}`,
 );
+
+//=====================
+// PhoneIdNotFoundByPhoneName
+enum PhoneIdNotFoundByPhoneName {
+  PhoneIdNotFoundByPhone = 'PhoneNotFoundByPhone',
+}
+
+export class PhoneIdNotFoundByPhone implements ErrorDto {
+  name: PhoneIdNotFoundByPhoneName;
+  message: string;
+  param: {
+    phone: string;
+  };
+}
+
+export const createPhoneIdNotFoundByPhone = createError(
+  PhoneIdNotFoundByPhone,
+  PhoneIdNotFoundByPhoneName.PhoneIdNotFoundByPhone,
+  ({ phone }) => `Телефон не найден ${phone}`,
+);

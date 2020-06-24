@@ -37,7 +37,7 @@ AuthModule = __decorate([
             passport_1.PassportModule,
             jwt_1.JwtModule.register({
                 secret: constants_1.jwtConstants.secret,
-                signOptions: { expiresIn: '60s' },
+                signOptions: { expiresIn: '300s' },
             }),
             typeorm_1.TypeOrmModule.forFeature([phone_entity_1.Phone, password_entity_1.Password]),
             send_password_module_1.SendPasswordModule,

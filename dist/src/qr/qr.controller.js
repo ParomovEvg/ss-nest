@@ -26,9 +26,25 @@ let QrController = class QrController {
     async addQr(createQrDto, req) {
         return eitherToDto_1.eitherToDto(await this.qrService.createQr(createQrDto, req.user));
     }
+    async getAllQr() {
+        return {
+            payload: await this.qrService
+                .getAllQr()
+                .then(r => r.map(q => this.qrService.mapQrToFtatQrDto(q))),
+        };
+    }
     async countQr(req) {
         return {
             payload: await this.qrService.getQrNum(req.user.phone),
+        };
+    }
+    async filterQr(filterQr) {
+        const { qrs, count } = await this.qrService.getQrFilter(filterQr);
+        return {
+            payload: {
+                qrs: qrs.map(q => this.qrService.mapQrToFtatQrDto(q)),
+                count,
+            },
         };
     }
 };
@@ -42,6 +58,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], QrController.prototype, "addQr", null);
 __decorate([
+    common_1.Get(),
+    openapi.ApiResponse({ status: 200, type: require("./qr.dto").GetAllQrResDto }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], QrController.prototype, "getAllQr", null);
+__decorate([
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     common_1.Get('count'),
     openapi.ApiResponse({ status: 200, type: require("./qr.dto").GetQrNumResDto }),
@@ -50,6 +73,15 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], QrController.prototype, "countQr", null);
+__decorate([
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Post('filter'),
+    openapi.ApiResponse({ status: 201, type: require("./qr.dto").FilterQrResDto }),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [qr_dto_1.FilterQrDto]),
+    __metadata("design:returntype", Promise)
+], QrController.prototype, "filterQr", null);
 QrController = __decorate([
     common_1.Controller('qr'),
     swagger_1.ApiTags('Qr'),

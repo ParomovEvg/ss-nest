@@ -21,6 +21,7 @@ const phone_errors_dto_1 = require("./phone.errors.dto");
 const useful_monads_1 = require("useful-monads");
 const EitherAsync_1 = require("useful-monads/EitherAsync");
 const send_password_mail_service_1 = require("../../send-password/send-password-mail/send-password-mail.service");
+const qr_errors_dto_1 = require("../../qr/qr.errors.dto");
 let PhoneService = class PhoneService {
     constructor(phoneRepository, passwordService, connection, sendPasswordMailService) {
         this.phoneRepository = phoneRepository;
@@ -77,6 +78,22 @@ let PhoneService = class PhoneService {
         else {
             return phone === null || phone === void 0 ? void 0 : phone.phone;
         }
+    }
+    getSearchPhone({ phone }) {
+        return this.phoneRepository.find({
+            where: { phone: typeorm_2.Like(`%${phone}%`) },
+            select: ['phone', 'id'],
+        });
+    }
+    getAll() {
+        return this.phoneRepository.find({ select: ['phone'] });
+    }
+    async getPhonesId(phone) {
+        const phones = await this.phoneRepository.find({
+            where: { phone: typeorm_2.Like(`%${phone}%`) },
+            select: ['id'],
+        });
+        return phones.map(p => p.id);
     }
 };
 PhoneService = __decorate([

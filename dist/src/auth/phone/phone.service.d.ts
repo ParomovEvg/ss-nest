@@ -17,4 +17,9 @@ export declare class PhoneService {
     findPhone(phone: string | Phone | CreatePhoneDto): Promise<Either<PhoneNotFound, Phone>>;
     private phoneNotExists;
     private extractPhoneNumber;
+    getSearchPhone({ phone }: {
+        phone: any;
+    }): Promise<Phone[]>;
+    getAll(): Promise<Phone[]>;
+    getPhonesId(phone: string): Promise<number[]>;
 }

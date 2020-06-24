@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Qr } from './qr.entity';
-import { Repository } from 'typeorm';
+import { Repository, Like, In } from 'typeorm';
 import { Phone } from '../auth/phone/phone.entity';
 import { Checkout } from './checkout/checkout.entity';
 import { Draw } from './draw/draw.entity';
-import { CreateQrDto, FlatQrDto } from './qr.dto';
+import {
+  CreateQrDto,
+  FlatQrDto,
+  FilterQrDto,
+  FlatAllQrDto,
+  GetQrFilterDto,
+} from './qr.dto';
 import { CheckoutService } from './checkout/checkout.service';
 import { Either, left, right } from 'useful-monads';
 import {
@@ -21,6 +27,8 @@ import { NotDrawNow } from './draw/draw.errors.dto';
 import { CheckoutNotFoundByFn } from './checkout/checkout.errors.dto';
 import { EitherAsync } from 'useful-monads/EitherAsync';
 import { PhoneService } from '../auth/phone/phone.service';
+
+const qrsOnPageCount = 5;
 
 @Injectable()
 export class QrService {
@@ -144,5 +152,52 @@ export class QrService {
         return String(num);
       })
       .orDefault('0');
+  }
+
+  async getQrFilter(filterQr: FilterQrDto): Promise<GetQrFilterDto> {
+    const draw = await EitherAsync.from(
+      this.drawService.findDrawIdDrawId(filterQr.drawId),
+    ).orDefault<undefined>(undefined);
+
+    const checkout = await EitherAsync.from(
+      this.checkoutService.findCheckoutByCkecoutId(filterQr.checkoutId),
+    ).orDefault<undefined>(undefined);
+
+    const ids = await this.phoneService.getPhonesId(filterQr.phone);
+
+    const where = {
+      checkout,
+      draw,
+      fd: filterQr.fd !== undefined ? Like(`%${filterQr.fd}%`) : undefined,
+      fp: filterQr.fp !== undefined ? Like(`%${filterQr.fp}%`) : undefined,
+      phone: ids.length ? { id: In(ids) } : undefined,
+    };
+    for (const key in where) {
+      if (where[key] === undefined) {
+        delete where[key];
+      }
+    }
+    const [qrs, count] = await this.qrRepository.findAndCount({
+      where,
+      relations: ['draw'],
+      skip: filterQr.page * qrsOnPageCount,
+      take: qrsOnPageCount,
+    });
+    return {
+      qrs,
+      count,
+    };
+  }
+
+  async getAllQr(): Promise<Qr[]> {
+    return this.qrRepository.find();
+  }
+
+  mapQrToFtatQrDto(qr: Qr): FlatAllQrDto {
+    return {
+      ...qr,
+      draw: this.drawService.mapDrawToFlatDraw(qr.draw),
+      time: qr.time.toISOString(),
+    };
   }
 }

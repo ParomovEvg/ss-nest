@@ -1149,6 +1149,10 @@
         "version": "832a842b916abf5212ea9bd4e60c30a1ee371af9c446e28939810ea4fc9f637b",
         "signature": "b0229a3c2818074433ea3db407526dbf4c2d5a02564f9516fd161aa4e77a8067"
       },
+      "../migrations/1592846154952-migrations.ts": {
+        "version": "ef3f5b91777926af702f4cac8c114bade5568f2a87178a8a6fc9165040db0172",
+        "signature": "9615c3a34f73874dada6664dfb0b9755460c92a2c6de9477e4efa466aa6804f6"
+      },
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": {
         "version": "3346a737f29b700e7c6c2a694973ceb70a738c3ac5212ffbefac8a27048fa8d6",
         "signature": "3346a737f29b700e7c6c2a694973ceb70a738c3ac5212ffbefac8a27048fa8d6"
@@ -2065,13 +2069,9 @@
         "version": "70aecfd981af29d74ba7ab6667b9cc2a53459d8eb099c139fd2aa54c3059c71d",
         "signature": "70aecfd981af29d74ba7ab6667b9cc2a53459d8eb099c139fd2aa54c3059c71d"
       },
-      "../src/auth/phone/phone.errors.dto.ts": {
-        "version": "a80f0cdcbf4ac922448640dcb770bbdfc909b77d0bad6dc10de54872fb5457f8",
-        "signature": "ffc79c47da542e57f2428bbdaa36f26a37d7c372ddc55beac9d1a309d23878f8"
-      },
       "../src/auth/phone/phone.dto.ts": {
-        "version": "1e2731bed65b145c9b397f2d03d4cb9c46e586c58b28cc42db0f338c5289aeaa",
-        "signature": "f2e6934c1f50d497965aec935cc64ade50bb554508982df93ccfdf0c399cd840"
+        "version": "c223dd118acff84ecbea176b5220b3f4a044a7ab854c1900b3dc6cc302d321e6",
+        "signature": "6ba115a8f3dc6fdeef69c3967ce92f87e852c0050555854c7240389823edd290"
       },
       "../src/auth/password/password.dto.ts": {
         "version": "bb7edb702068752623a8075beda6bae415732a6b1251e25d02dd2efbc26bd5bf",
@@ -2337,9 +2337,37 @@
         "version": "b4bdec78241bc4acbdabe71e5a3eaa6ba8d58ac5f13a79a3944f61e8025224bf",
         "signature": "d94ae43da35a18cbde55b94c71c050a1a0aa35032c8a1abe9744c16bbb6f7a53"
       },
+      "../src/auth/phone/phone.errors.dto.ts": {
+        "version": "a80f0cdcbf4ac922448640dcb770bbdfc909b77d0bad6dc10de54872fb5457f8",
+        "signature": "ffc79c47da542e57f2428bbdaa36f26a37d7c372ddc55beac9d1a309d23878f8"
+      },
+      "../src/qr/draw/draw.errors.dto.ts": {
+        "version": "8c8727234d2f378b5d3b5848340dcd31b0a7094cc0c8460a498d0304b9b712f2",
+        "signature": "1557358de0b5f600f690e04dd15875b49dbdaab46f7c8b7819accbbe7dccf6af"
+      },
+      "../src/qr/draw/draw.dto.ts": {
+        "version": "a12e47c6c2c54e1c6ef9678de3106e92fd32e2d07921187bab18e674c6b4fdba",
+        "signature": "4430aa2b51470a2991f02bd92915b9e71bc52c56d577c8beea86403b3f74386f"
+      },
+      "../src/qr/checkout/checkout.errors.dto.ts": {
+        "version": "631a502e3cfacfc786d2a036c8126512004a3499a8f56f2113f2e6a5e86929a1",
+        "signature": "8d564f434b16eea4e5d9d3310551da3372ec770301546c9dcbc13aa536e89891"
+      },
+      "../src/qr/checkout/checkout.dto.ts": {
+        "version": "e3b9adf1cc4080f15c4323020cae00ef2ef84d5d6b3062a181dd3ec2719d45de",
+        "signature": "aceb0de5a43268a63a5b577df365e4f89879e4945f8da68d45e65f175ea597c2"
+      },
+      "../src/qr/qr.dto.ts": {
+        "version": "4420d5ee4d0d154e13a507bdf77b3ab339a4b23c1112a96216ab48148ebf86f8",
+        "signature": "cc03d1395ae9034ece11447b5b22e0a985e5daa3275c6a145f0ecdea037b3579"
+      },
+      "../src/qr/qr.errors.dto.ts": {
+        "version": "46e226a6dd724de5543ce767ed031aa50f8598b8f3989ff7e5bcd84d960abd41",
+        "signature": "d259b2d2380075ab0c9ed4335f29e1083ac9f2e6028e0767b915aaf397a64b97"
+      },
       "../src/auth/phone/phone.service.ts": {
-        "version": "a579d52e80ebd9f9dbc8e688068498f1cb01aa6f7b392eb794762a96d405f722",
-        "signature": "8132e6fb026972c0ba7cf2849e934de469751a8fdbab715e7a2b63a30611ed72"
+        "version": "2ea1f5fd37ae3f656363ce3f58cf7332f68afd869a779d626c9e84351df9dbe8",
+        "signature": "763ab5bf423f03a45e45f538af3d1d4abdd66b505f7991870a5f83bbf8d6e962"
       },
       "../node_modules/@types/jsonwebtoken/index.d.ts": {
         "version": "ed2e832899b97594aebebb6f4e29124156d85edad0c4764d3b8a3e5ad1db7eb5",
@@ -2622,8 +2650,8 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f"
       },
       "../src/auth/auth.controller.ts": {
-        "version": "ed762c9f88a93801d82ca627b1abcf819b296273b59c29c8a7acdab15d1f4c85",
-        "signature": "016773ee4f576f4f09a9cadce60c05f392145f9d94bfb9f3e9dcb4c62fdba94a"
+        "version": "3e89a48d4840afe5bb2fc446c1ae357a78a7004ad49ce04c6bc4aa47126dd35f",
+        "signature": "d96194aa66d248ab9e33007ee5428e401322f5fc0754b393583cfc84adf7048d"
       },
       "../src/auth/strategy/jwt-admin.strategy.ts": {
         "version": "0e82fa550afb33edac8a3576fb35ca05545a49a3fab6362c47cd05fbed19b601",
@@ -2634,52 +2662,28 @@
         "signature": "96aaf659a08c03872da2af52e741b7bde4911536ea7091c9d4c1559850b4b4ce"
       },
       "../src/auth/auth.module.ts": {
-        "version": "0b6fcf4a48614b793a97b853113d2acd43b5ddc29b44893845700e7d4c196381",
+        "version": "6c1fef3471b2c1542711b0c808a6dad4a78467b4c44e93c919a7a576a4da4b7c",
         "signature": "2e5d258cf85349b02b015c3f1b8873c152d182c3819a7ccc3aff16fc3037a5fc"
       },
-      "../src/qr/draw/draw.errors.dto.ts": {
-        "version": "8c8727234d2f378b5d3b5848340dcd31b0a7094cc0c8460a498d0304b9b712f2",
-        "signature": "1557358de0b5f600f690e04dd15875b49dbdaab46f7c8b7819accbbe7dccf6af"
-      },
-      "../src/qr/draw/draw.dto.ts": {
-        "version": "a12e47c6c2c54e1c6ef9678de3106e92fd32e2d07921187bab18e674c6b4fdba",
-        "signature": "4430aa2b51470a2991f02bd92915b9e71bc52c56d577c8beea86403b3f74386f"
-      },
-      "../src/qr/checkout/checkout.errors.dto.ts": {
-        "version": "631a502e3cfacfc786d2a036c8126512004a3499a8f56f2113f2e6a5e86929a1",
-        "signature": "8d564f434b16eea4e5d9d3310551da3372ec770301546c9dcbc13aa536e89891"
-      },
-      "../src/qr/checkout/checkout.dto.ts": {
-        "version": "e3b9adf1cc4080f15c4323020cae00ef2ef84d5d6b3062a181dd3ec2719d45de",
-        "signature": "aceb0de5a43268a63a5b577df365e4f89879e4945f8da68d45e65f175ea597c2"
-      },
-      "../src/qr/qr.errors.dto.ts": {
-        "version": "d39dd0b1b00e326ddc5ddd0fa70738b15eb75f72a58e372c41aeb29afc7d4971",
-        "signature": "82e669db24f55ca709cbf09b6145025befee5dd32d46bc6fac2cb53c47f51e16"
-      },
-      "../src/qr/qr.dto.ts": {
-        "version": "3fda66cfb90a4dfd671b4088158e7e50dd85e1d9eea8b7f4e54c08995678e3c9",
-        "signature": "e5348d5e85cb045d6bba0089edd6bebd9debbe44de84813751ff9fdc3cc9f0aa"
-      },
       "../src/qr/checkout/checkout.service.ts": {
-        "version": "af132e329497b4899f1b17671dc1ffd17326dded4a068e28ef21e993fd6cab72",
-        "signature": "730a10719289555033fc67b6417e8cf76600b26c617dfbb46084738a64d8b7c7"
+        "version": "57079fc9f0883b37b317f6070c7c74cb3b164c01203817abbd8ef04f687b764f",
+        "signature": "15d550ff711a835f8f897d36e8a8c2236201124bc6a1d454b327d8220d497237"
       },
       "../src/qr/date/date.service.ts": {
         "version": "eafc4780d726c9320fdd03779e885921199953199753ebd4d07b1c445462e584",
         "signature": "1f8771ddee7662a633d5ac27af1c66db33294227625652718c973d38c2bd344f"
       },
       "../src/qr/draw/draw.service.ts": {
-        "version": "3c6ada1ed5e1593e6fc7cad1e14d18ab638117e1a1dff24d6bb74e59417fc530",
-        "signature": "c4753d4f9f4c19c8134d66b240b6aa29971b5ff9213cf6f6136fd40484ceb7b6"
+        "version": "05bc89a5b0fd560c9411ba7039e037efa930ed14488589fad11783c9692cbb49",
+        "signature": "354f8f302162a1042c714283a5f88682b694452122e981f5c1abb5865a1b70c4"
       },
       "../src/qr/qr.service.ts": {
-        "version": "e2db59fc13f0d321a377b0d649aade8455c21d660db75fc75679e35efa18513e",
-        "signature": "432cdf02fec3cf9993f1120fea9a5a66ce0a890437218e9cb1abb6807d47c2d5"
+        "version": "2fda9a690c77ddbd6598e8877555a7d00615938f85ba8da80cc09c4d3f45771b",
+        "signature": "5d4325d57ef5deebf47b6bea43e24282157c518471e6ea66a97bbf6c0a0d8830"
       },
       "../src/qr/qr.controller.ts": {
-        "version": "7a36bd93712c6289980e79de95bdb7dc3c3f9e98646aa5e06504d7ab9e3a5c55",
-        "signature": "48b6d8152c5543fc70922c9ded9a9c7980ed999307d4106059c99837fc93bd87"
+        "version": "2823edef7715550b8dafdc266a0cb3aad87ac622665b58f8bb11d8ae04b33e4f",
+        "signature": "4c813b6542620866c435adb2c60dc209b7d8a376985627e7991a0eea47ff0ad1"
       },
       "../src/qr/qr-string-parser.middleware.ts": {
         "version": "23181b6e2835ac13ee00213cfd5d284e016ed54745f3b206bf94208d3f0e4675",
@@ -5792,6 +5796,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../migrations/1592846154952-migrations.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -7672,18 +7683,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/phone/phone.errors.dto.ts": [
-        "../src/asets/error.dto.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/auth/phone/phone.dto.ts": [
         "../node_modules/class-validator/index.d.ts",
         "../src/asets/eithertodto.ts",
-        "../src/auth/phone/phone.errors.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -8289,6 +8291,73 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/auth/phone/phone.errors.dto.ts": [
+        "../src/asets/error.dto.ts",
+        "../src/auth/phone/phone.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/draw/draw.errors.dto.ts": [
+        "../src/asets/error.dto.ts",
+        "../src/qr/draw/draw.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/draw/draw.dto.ts": [
+        "../node_modules/class-validator/index.d.ts",
+        "../src/asets/eithertodto.ts",
+        "../src/qr/draw/draw.errors.dto.ts",
+        "../src/qr/qr.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/checkout/checkout.errors.dto.ts": [
+        "../src/asets/error.dto.ts",
+        "../src/qr/checkout/checkout.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/checkout/checkout.dto.ts": [
+        "../node_modules/class-validator/index.d.ts",
+        "../src/asets/eithertodto.ts",
+        "../src/qr/checkout/checkout.errors.dto.ts",
+        "../src/qr/qr.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/qr.dto.ts": [
+        "../node_modules/class-validator/index.d.ts",
+        "../src/auth/phone/phone.dto.ts",
+        "../src/asets/eithertodto.ts",
+        "../src/qr/draw/draw.dto.ts",
+        "../src/qr/checkout/checkout.dto.ts",
+        "../src/qr/checkout/checkout.errors.dto.ts",
+        "../src/qr/draw/draw.errors.dto.ts",
+        "../src/qr/qr.errors.dto.ts",
+        "../src/qr/qr.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/qr/qr.errors.dto.ts": [
+        "../src/asets/error.dto.ts",
+        "../src/qr/qr.dto.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/auth/phone/phone.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -8301,6 +8370,7 @@
         "../node_modules/useful-monads/index.d.ts",
         "../node_modules/useful-monads/eitherasync.d.ts",
         "../src/send-password/send-password-mail/send-password-mail.service.ts",
+        "../src/qr/qr.errors.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -8918,64 +8988,6 @@
         "../src/auth/password/password.entity.ts",
         "../src/auth/strategy/jwt-admin.strategy.ts",
         "../src/send-password/send-password.module.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/draw/draw.errors.dto.ts": [
-        "../src/asets/error.dto.ts",
-        "../src/qr/draw/draw.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/draw/draw.dto.ts": [
-        "../node_modules/class-validator/index.d.ts",
-        "../src/asets/eithertodto.ts",
-        "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/qr.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/checkout/checkout.errors.dto.ts": [
-        "../src/asets/error.dto.ts",
-        "../src/qr/checkout/checkout.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/checkout/checkout.dto.ts": [
-        "../node_modules/class-validator/index.d.ts",
-        "../src/asets/eithertodto.ts",
-        "../src/qr/checkout/checkout.errors.dto.ts",
-        "../src/qr/qr.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/qr.errors.dto.ts": [
-        "../src/asets/error.dto.ts",
-        "../src/qr/qr.dto.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/qr/qr.dto.ts": [
-        "../node_modules/class-validator/index.d.ts",
-        "../src/auth/phone/phone.dto.ts",
-        "../src/asets/eithertodto.ts",
-        "../src/qr/draw/draw.dto.ts",
-        "../src/qr/checkout/checkout.dto.ts",
-        "../src/qr/checkout/checkout.errors.dto.ts",
-        "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/qr.errors.dto.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -13016,6 +13028,9 @@
       "../migrations/1592065058739-generate.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
+      "../migrations/1592846154952-migrations.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts": [
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -14861,9 +14876,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/auth/phone/phone.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
       "../src/auth/phone/phone.dto.ts": [
         "../src/asets/eithertodto.ts"
       ],
@@ -15432,6 +15444,38 @@
         "../node_modules/useful-monads/index.d.ts",
         "../src/auth/password/password.errors.dto.ts"
       ],
+      "../src/auth/phone/phone.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
+      "../src/qr/draw/draw.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
+      "../src/qr/draw/draw.dto.ts": [
+        "../src/asets/eithertodto.ts",
+        "../src/qr/draw/draw.errors.dto.ts",
+        "../src/qr/qr.dto.ts"
+      ],
+      "../src/qr/checkout/checkout.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
+      "../src/qr/checkout/checkout.dto.ts": [
+        "../src/asets/eithertodto.ts",
+        "../src/qr/checkout/checkout.errors.dto.ts",
+        "../src/qr/qr.dto.ts"
+      ],
+      "../src/qr/qr.dto.ts": [
+        "../src/auth/phone/phone.dto.ts",
+        "../src/qr/checkout/checkout.dto.ts",
+        "../src/qr/draw/draw.dto.ts",
+        "../src/qr/checkout/checkout.errors.dto.ts",
+        "../src/qr/draw/draw.errors.dto.ts",
+        "../src/qr/qr.errors.dto.ts",
+        "../src/asets/eithertodto.ts",
+        "../src/qr/qr.entity.ts"
+      ],
+      "../src/qr/qr.errors.dto.ts": [
+        "../src/asets/error.dto.ts"
+      ],
       "../src/auth/phone/phone.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/auth/phone/phone.entity.ts",
@@ -15973,40 +16017,13 @@
         "../src/auth/phone/phone.service.ts",
         "../src/auth/phone/phone.entity.ts"
       ],
-      "../src/qr/draw/draw.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
-      "../src/qr/draw/draw.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/qr.dto.ts"
-      ],
-      "../src/qr/checkout/checkout.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
-      "../src/qr/checkout/checkout.dto.ts": [
-        "../src/asets/eithertodto.ts",
-        "../src/qr/checkout/checkout.errors.dto.ts",
-        "../src/qr/qr.dto.ts"
-      ],
-      "../src/qr/qr.errors.dto.ts": [
-        "../src/asets/error.dto.ts"
-      ],
-      "../src/qr/qr.dto.ts": [
-        "../src/auth/phone/phone.dto.ts",
-        "../src/qr/checkout/checkout.dto.ts",
-        "../src/qr/checkout/checkout.errors.dto.ts",
-        "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/qr.errors.dto.ts",
-        "../src/asets/eithertodto.ts"
-      ],
       "../src/qr/checkout/checkout.service.ts": [
-        "../src/qr/checkout/checkout.entity.ts",
         "../node_modules/typeorm/index.d.ts",
-        "../src/qr/checkout/checkout.dto.ts",
+        "../src/qr/checkout/checkout.entity.ts",
+        "../node_modules/useful-monads/index.d.ts",
         "../src/qr/checkout/checkout.errors.dto.ts",
-        "../src/qr/qr.dto.ts",
-        "../node_modules/useful-monads/index.d.ts"
+        "../src/qr/checkout/checkout.dto.ts",
+        "../src/qr/qr.dto.ts"
       ],
       "../src/qr/date/date.service.ts": [
         "../src/qr/draw/draw.errors.dto.ts",
@@ -16014,11 +16031,11 @@
         "../node_modules/useful-monads/index.d.ts"
       ],
       "../src/qr/draw/draw.service.ts": [
-        "../src/qr/draw/draw.entity.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/qr/draw/draw.entity.ts",
+        "../src/qr/date/date.service.ts",
         "../node_modules/useful-monads/index.d.ts",
         "../src/qr/draw/draw.errors.dto.ts",
-        "../src/qr/date/date.service.ts",
         "../src/qr/draw/draw.dto.ts"
       ],
       "../src/qr/qr.service.ts": [
@@ -17840,7 +17857,6 @@
       "../node_modules/class-validator/metadata/constraintmetadata.d.ts",
       "../node_modules/class-validator/metadata/metadatastorage.d.ts",
       "../node_modules/class-validator/index.d.ts",
-      "../src/auth/phone/phone.errors.dto.ts",
       "../src/auth/phone/phone.dto.ts",
       "../src/auth/password/password.dto.ts",
       "../src/auth/password/password.errors.dto.ts",
@@ -17908,6 +17924,13 @@
       "../src/send-password/send-password.interface.ts",
       "../src/send-password/send-password-mail/send-password-mail.service.ts",
       "../src/auth/password/password.service.ts",
+      "../src/auth/phone/phone.errors.dto.ts",
+      "../src/qr/draw/draw.errors.dto.ts",
+      "../src/qr/draw/draw.dto.ts",
+      "../src/qr/checkout/checkout.errors.dto.ts",
+      "../src/qr/checkout/checkout.dto.ts",
+      "../src/qr/qr.dto.ts",
+      "../src/qr/qr.errors.dto.ts",
       "../src/auth/phone/phone.service.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
       "../node_modules/@nestjs/jwt/dist/interfaces/jwt-module-options.interface.d.ts",
@@ -17983,12 +18006,6 @@
       "../src/auth/strategy/jwt-admin.strategy.ts",
       "../src/send-password/send-password.module.ts",
       "../src/auth/auth.module.ts",
-      "../src/qr/draw/draw.errors.dto.ts",
-      "../src/qr/draw/draw.dto.ts",
-      "../src/qr/checkout/checkout.errors.dto.ts",
-      "../src/qr/checkout/checkout.dto.ts",
-      "../src/qr/qr.errors.dto.ts",
-      "../src/qr/qr.dto.ts",
       "../src/qr/checkout/checkout.service.ts",
       "../src/qr/date/date.service.ts",
       "../src/qr/draw/draw.service.ts",
@@ -18041,6 +18058,13 @@
       "../node_modules/@nestjs/config/index.d.ts",
       "../node_modules/@types/uuid/interfaces.d.ts",
       "../node_modules/@types/uuid/index.d.ts",
+      "../src/content/img/img.service.ts",
+      "../src/content/text/text.service.ts",
+      "../src/content/md/md.service.ts",
+      "../src/content/screen/screen.service.ts",
+      "../src/content/content.service.ts",
+      "../src/content/content.controller.ts",
+      "../src/content/screen/screen.controller.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/platform-express/interfaces/serve-static-options.interface.d.ts",
       "../node_modules/@nestjs/platform-express/adapters/express-adapter.d.ts",
@@ -18060,6 +18084,11 @@
       "../node_modules/@nestjs/platform-express/index.d.ts",
       "../node_modules/@nestjs/swagger/dist/decorators/api-implicit-file.decorator.d.ts",
       "../node_modules/@types/multer/index.d.ts",
+      "../src/content/img/img.controller.ts",
+      "../src/content/md/md.controller.ts",
+      "../src/content/text/text.controller.ts",
+      "../src/content/content.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
@@ -18143,18 +18172,7 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/content/img/img.service.ts",
-      "../src/content/content.module.ts",
-      "../src/content/img/img.controller.ts",
-      "../src/content/screen/screen.service.ts",
-      "../src/content/text/text.service.ts",
-      "../src/content/md/md.service.ts",
-      "../src/content/content.service.ts",
-      "../src/content/content.controller.ts",
-      "../src/content/screen/screen.controller.ts",
-      "../src/content/md/md.controller.ts",
-      "../src/content/text/text.controller.ts",
-      "../src/app.module.ts"
+      "../migrations/1592846154952-migrations.ts"
     ]
   },
   "version": "3.8.3"

@@ -38,6 +38,12 @@ let AuthController = class AuthController {
     async createUser(phoneDto) {
         return { payload: await this.phoneService.createPhone(phoneDto) };
     }
+    async getSearchPhone(phone) {
+        return { payload: await this.phoneService.getSearchPhone(phone) };
+    }
+    async getAllPhone() {
+        return { payload: await this.phoneService.getAll() };
+    }
     async addPassword(req) {
         const phone = await this.phoneService.addPassword(req.user);
         return eitherToDto_1.eitherToDto(phone.map(password => password.phone));
@@ -70,6 +76,23 @@ __decorate([
     __metadata("design:paramtypes", [phone_dto_1.CreatePhoneDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "createUser", null);
+__decorate([
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Post('phone/search'),
+    openapi.ApiResponse({ status: 201, type: require("./phone/phone.dto").GetAllPhoneResDto }),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [phone_dto_1.GetPhoneDto]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "getSearchPhone", null);
+__decorate([
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Get('phone'),
+    openapi.ApiResponse({ status: 200, type: require("./phone/phone.dto").GetAllPhoneResDto }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "getAllPhone", null);
 __decorate([
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     common_1.Post('password'),

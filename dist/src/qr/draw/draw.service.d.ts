@@ -20,4 +20,5 @@ export declare class DrawService {
     changeDraw(changeDrawDto: ChangeDrawDto, id: number): Promise<Either<DrawNotFoundById, Draw>>;
     mapDrawToFlatDraw(d: Draw): FlatDrawDto;
     mapDrawToFullDraw(d: Draw): FullDrawDto;
+    findDrawIdDrawId(id?: number): Promise<Either<DrawNotFoundById, Draw>>;
 }

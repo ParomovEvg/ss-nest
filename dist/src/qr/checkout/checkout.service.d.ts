@@ -14,5 +14,6 @@ export declare class CheckoutService {
     createCheckoutAndSave(createCheckoutDto: CreateCheckoutDto): Promise<Either<any, Checkout>>;
     deleteCheckout(id: number): Promise<Either<CheckoutNotFoundById, DeleteCheckoutResDto['payload']>>;
     private extractFn;
+    findCheckoutByCkecoutId(id?: number): Promise<Either<CheckoutNotFoundById, Checkout>>;
 }
 export {};

@@ -72,6 +72,18 @@ let CheckoutService = class CheckoutService {
             return checkout.fn;
         }
     }
+    async findCheckoutByCkecoutId(id) {
+        if (!id)
+            return useful_monads_1.left(checkout_errors_dto_1.createCheckoutNotFoundById({ id }));
+        const checkout = await this.checkoutRepository.findOne({
+            where: {
+                id,
+            },
+        });
+        if (!checkout)
+            return useful_monads_1.left(checkout_errors_dto_1.createCheckoutNotFoundById({ id }));
+        return useful_monads_1.right(checkout);
+    }
 };
 CheckoutService = __decorate([
     common_1.Injectable(),

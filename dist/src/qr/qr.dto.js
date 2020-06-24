@@ -29,6 +29,12 @@ class FlatQrDto {
     }
 }
 exports.FlatQrDto = FlatQrDto;
+class FlatAllQrDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { id: { required: true, type: () => String }, phone: { required: true, type: () => require("../auth/phone/phone.dto").FlatPhoneDto }, checkout: { required: true, type: () => require("./checkout/checkout.dto").FlatCheckoutDto }, draw: { required: true, type: () => require("./draw/draw.dto").FlatDrawDto }, fp: { required: true, type: () => String }, fd: { required: true, type: () => String }, s: { required: true, type: () => Number }, time: { required: true, type: () => String } };
+    }
+}
+exports.FlatAllQrDto = FlatAllQrDto;
 class CreateQrDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { fn: { required: true, type: () => String }, fp: { required: true, type: () => String }, fd: { required: true, type: () => String }, s: { required: true, type: () => Number }, qrString: { required: true, type: () => String } };
@@ -67,4 +73,34 @@ class GetQrNumResDto {
     }
 }
 exports.GetQrNumResDto = GetQrNumResDto;
+class GetAllQrResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: true, type: () => [require("./qr.dto").FlatAllQrDto] } };
+    }
+}
+exports.GetAllQrResDto = GetAllQrResDto;
+class FilterQrDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { drawId: { required: false, type: () => Number }, checkoutId: { required: false, type: () => Number }, phone: { required: false, type: () => String }, fd: { required: false, type: () => String }, fp: { required: false, type: () => String }, page: { required: false, type: () => Number } };
+    }
+}
+exports.FilterQrDto = FilterQrDto;
+class GetQrFilterDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { qrs: { required: true, type: () => [require("./qr.entity").Qr] }, count: { required: true, type: () => Number } };
+    }
+}
+exports.GetQrFilterDto = GetQrFilterDto;
+class FlatGetQrFilterDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { qrs: { required: true, type: () => [require("./qr.dto").FlatAllQrDto] }, count: { required: true, type: () => Number } };
+    }
+}
+exports.FlatGetQrFilterDto = FlatGetQrFilterDto;
+class FilterQrResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: true, type: () => require("./qr.dto").FlatGetQrFilterDto } };
+    }
+}
+exports.FilterQrResDto = FilterQrResDto;
 //# sourceMappingURL=qr.dto.js.map

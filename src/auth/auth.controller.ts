@@ -18,6 +18,8 @@ import {
   CreatePhoneDto,
   CreatePhoneResDto,
   FlatPhoneDto,
+  GetAllPhoneResDto,
+  GetPhoneDto,
 } from './phone/phone.dto';
 import { CreatePasswordResDto } from './password/password.dto';
 import { LoginDto, LoginResDto } from './auth.dto';
@@ -52,6 +54,18 @@ export class AuthController {
     @Body() phoneDto: CreatePhoneDto,
   ): Promise<CreatePhoneResDto> {
     return { payload: await this.phoneService.createPhone(phoneDto) };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('phone/search')
+  async getSearchPhone(@Body() phone: GetPhoneDto): Promise<GetAllPhoneResDto> {
+    return { payload: await this.phoneService.getSearchPhone(phone) };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('phone')
+  async getAllPhone(): Promise<GetAllPhoneResDto> {
+    return { payload: await this.phoneService.getAll() };
   }
 
   @UseGuards(JwtAuthGuard)

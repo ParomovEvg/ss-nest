@@ -1,6 +1,5 @@
-import { IsMobilePhone,  } from 'class-validator';
+import { IsMobilePhone } from 'class-validator';
 import { ResDto } from '../../asets/eitherToDto';
-import { PhoneAlreadyExists } from './phone.errors.dto';
 
 export enum PhoneErrors {
   PhoneAlreadyExists = 'PhoneAlreadyExists',
@@ -11,10 +10,17 @@ export class FlatPhoneDto {
   phone: string;
 }
 
+export class GetPhoneDto {
+  phone: string;
+}
+
 export class CreatePhoneDto {
   @IsMobilePhone('ru-RU')
   phone: string;
 }
 export class CreatePhoneResDto implements ResDto {
   payload: FlatPhoneDto;
+}
+export class GetAllPhoneResDto implements ResDto {
+  payload: FlatPhoneDto[];
 }

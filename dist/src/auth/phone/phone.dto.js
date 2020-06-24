@@ -22,6 +22,12 @@ class FlatPhoneDto {
     }
 }
 exports.FlatPhoneDto = FlatPhoneDto;
+class GetPhoneDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { phone: { required: true, type: () => String } };
+    }
+}
+exports.GetPhoneDto = GetPhoneDto;
 class CreatePhoneDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { phone: { required: true, type: () => String } };
@@ -38,4 +44,10 @@ class CreatePhoneResDto {
     }
 }
 exports.CreatePhoneResDto = CreatePhoneResDto;
+class GetAllPhoneResDto {
+    static _OPENAPI_METADATA_FACTORY() {
+        return { payload: { required: true, type: () => [require("./phone.dto").FlatPhoneDto] } };
+    }
+}
+exports.GetAllPhoneResDto = GetAllPhoneResDto;
 //# sourceMappingURL=phone.dto.js.map
